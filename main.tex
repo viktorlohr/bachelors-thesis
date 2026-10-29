@@ -930,8 +930,8 @@ Als nächstes betrachten wir Wege. Diese und ihre Hochhebungen werden sich in de
 	Seien \(\alpha,\beta\) Wege in \(X\), sodass \(\alpha\) genau dort endet, wo \(\beta\) beginnt. Das heißt, \(\alpha(1)=\beta(0)\). Dann definieren wir die \emph{Konkatenation \(\alpha \ast \beta\) von \(\alpha\) und \(\beta\)} als den Weg, der in \enquote{doppelter Geschwindigkeit} erst \(\alpha\) und dann \(\beta\) durchläuft:
 	\[\alpha\ast\beta: I\longarrow X,\quad t\mapsto 
 		\begin{cases}
-			\alpha(t), 0\leq t\leq\frac{1}{2}, \\
-			\beta(t), \frac{1}{2}\leq t \leq 1. 
+			\alpha(2t), 0\leq t\leq\frac{1}{2}, \\
+			\beta(2t - 1), \frac{1}{2}\leq t \leq 1. 
 		\end{cases} \]
 	Weiter definieren wir den \emph{inversen Weg \(\overline{\alpha}\) von \(\alpha\)} als den Weg, der \(\alpha\) \enquote{wieder zurückläuft}:
 	\[\overline{\alpha}: I\longarrow X, t\mapsto \alpha(1-t).\]
@@ -1296,8 +1296,8 @@ Also gilt \(\tilde{\beta}(t_1)=\tilde{\alpha}(t_1)=\tilde{x}_1.\) Das Argument l
 
 
 \begin{lemma} [Hochheben von Schleifen] \label{lemma_loop_lifting}
-	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X\) und seien \(\alpha\) und \(\beta\) Wege in $X$ mit Anfangspunkt \(x_0\in X\). Seien außerdem \[\gamma := \alpha \ast \overline{\beta}\]
-	die von \(\alpha\) und \(\overline{\beta}\) gebildete Schleife in \(X\) und \(\tilde{\gamma}\) dessen Hochhebung zu einem Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0) \) in \(\tilde{X}.\) Dann ist \(\tilde{\gamma}\) genau dann eine Schleife, wenn die Hochhebungen \(\tilde{\alpha}\) und \(\tilde{\beta}\) zum selben Anfangspunkt \(\tilde{x}_0\) den selben Endpunkt besitzen.
+	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X\) und seien \(\alpha\) und \(\beta\) Wege in $X$ mit Anfangspunkt \(x_0\in X\) und \(\alpha(1) = \beta(1)\). Seien außerdem \[\gamma := \alpha \ast \overline{\beta}\]
+	die von \(\alpha\) und \(\overline{\beta}\) gebildete Schleife in \(X\) und \(\tilde{\gamma}\) deren Hochhebung zu einem Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0) \) in \(\tilde{X}.\) Dann ist \(\tilde{\gamma}\) genau dann eine Schleife, wenn die Hochhebungen \(\tilde{\alpha}\) und \(\tilde{\beta}\) zum selben Anfangspunkt \(\tilde{x}_0\) den selben Endpunkt besitzen.
 \end{lemma}
 
 
@@ -1359,8 +1359,11 @@ eingehen. Dort werden wir mithilfe von Wegen die gesuchte Hochhebung einer Abbil
 		Damit meinen wir, dass es eine stetige Abbildung \(I\longarrow [\frac{1}{2},\frac{1}{2}]\) gibt, welche die Einschränkungen wieder zu Wegen (nach unserer Definition) macht. Manche Autoren wählen auch beliebige Intervalle \([a,b]\) als Definitionsbereich für Wege.
 	} 
 	Einschränkungen von \(\tilde{\gamma}\) und \(\overline{\tilde{\gamma}}\) auf die erste Hälfte \([0,\frac{1}{2}]\) des Einheitsintervalls genau die Hochhebungen von \(\alpha\) bzw. \(\beta\) zum Anfangspunkt \(\tilde{x}_0=\tilde{\gamma} (0)\) sind. Also ist \(\tilde{\alpha}(1)=\tilde{\gamma}(\frac{1}{2})=\overline{\tilde{\gamma}}(\frac{1}{2})=\tilde\beta(1).\)
-	Wir wissen aus \cref{lemma_lift_concatenation}, dass die zweite Hälfte von \(\tilde{\gamma}\) eine Hochhebung \(\tilde{\beta}'\) von \(\beta\) sein muss. Falls jetzt aber die Endpunkte von \(\tilde{\alpha}\) und \(\tilde{\beta}\) nicht gleich sind, impliziert wieder die Eindeutigkeit der Hochhebungen, dass \(\overline{\tilde{\beta}}\neq \overline{\tilde{\beta}'}\) ist. Insbesondere folgt \[\tilde{\gamma}(1)=\overline{\tilde{\beta}'}(0)\neq \overline{\tilde{\beta}}(0)=\tilde{\alpha(0)}=\tilde{\gamma}(0). \]
-	Damit ist \(\gamma\) keine Schleife.
+	Wir wissen aus \cref{lemma_lift_concatenation}, dass die zweite Hälfte von \(\tilde{\gamma}\) eine Hochhebung \(\tilde{\beta}'\) von \(\beta\) sein muss. 
+
+	Umgekehrt nehmen wir an, dass die Endpunkte der Hochhebungen identisch sind. Es soll also 
+	\(\tilde{\alpha}(1) = \tilde{\beta}(1)\) gelten. Dann ist die Konkatenation \(\tilde{\alpha} \ast \overline{\tilde{\beta}} \) wohldefiniert und eine Hochhebung von \(\gamma.\)
+
 \end{proof}
 
 
