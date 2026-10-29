@@ -768,13 +768,8 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
 	Insgesamt erfüllen $L$ und $r$ also die nötigen Bedingungen, sodass die Komposition $(g \circ f)$ holomorph ist.  
 \end{proof}
 
-\begin{definition} [Biholomorphie]
-    Eine holomorphe Abbildung heißt \emph{biholomorph}, falls sie bijektiv ist und ihre UmkehrAbbildung holomorph ist.
-\end{definition}
-
 \section{komplexe Mannigfaltigkeiten}
 Wir sind jetzt in der Lage, den Begriff der \emph{komplexen Mannigfaltigkeit} zu definieren. 
-
 \begin{definition}[komplexe Mannigfaltigkeit und Struktur]
 	Eine \emph{komplexe Mannigfaltigkeit} \(M\) ist eine (topologische) Mannigfaltigkeit, für die folgende weitere Bedingungen gelten:
 	\begin{enumerate}[(a)]
@@ -792,16 +787,6 @@ Wir sind jetzt in der Lage, den Begriff der \emph{komplexen Mannigfaltigkeit} zu
 Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit konstruieren. Das folgende Lemma garantiert, dass es genügt, nur mit Karten aus diesem Atlas zu arbeiten.
 
 
-\begin{lemma} [\enquote{ein Atlas reicht}] \label{lemma_single_atlas_enough}
-	Sei \(\mathcal{\overline{A}}\) eine komplexe Struktur auf einer komplexen Mannigfaltigkeit \(M\). Außerdem sei \(\mathcal{A}\subseteq \mathcal{\overline{A}}\) ein Atlas, der eine Teilmenge dieser Struktur ist. Dann genügt es, bis auf Biholomorphie, nur Karten aus \(\mathcal{A}\) zu betrachten.
-\end{lemma}
-\begin{proof}
-	Sei \((U,\phi)\in \mathcal{\overline{A}}\) beliebig. Da \(\mathcal{A}\) ein Atlas ist, gibt es Karten \((V_i,\psi_i)\in\mathcal{A}\), \(i\in I\), sodass die Mengen \(V_i\) die Menge $U$ überdecken. Per Definition sind die Kartenwechsel
-	\[ \psi_i \circ \phi^{-1}: \phi(U \cap V_i) \rightarrow \psi_i (U \cap V_i) \]
-	biholomorph. Also gilt auf \(U\cap V_i\) für alle \(i\in I\):
-	\[\psi_i= \psi_i \circ (\phi^{-1} \circ \phi)=(\psi_i \circ \phi^{-1}) \circ \phi \]
-	Also unterscheidet sich \(\phi\) bis auf Komposition mit einer biholomorphen Abbildung nicht von den Karten aus \(\mathcal{A}.\)
-\end{proof}
 
 \subsection{holomorphe Abbildungen}
 Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Kartenabbildungen auf komplexe Mannigfaltigkeiten übertragen.
@@ -811,10 +796,21 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 \end{convention}
 
 \begin{definition}
-    Eine Abbildung \(f: M \rightarrow N\) zwischen komplexen Mannigfaltigkeiten heißt \emph{holomorph}, falls für alle Karten \((U,\phi)\), \((V,\psi)\) von \(M\) bzw. \(N\) mit \(f(U)\subseteq V\) die Abbildung
+    Eine stetige Abbildung \(f: M \rightarrow N\) zwischen komplexen Mannigfaltigkeiten heißt \emph{holomorph}, falls für alle Karten \((U,\phi)\), \((V,\psi)\) von \(M\) bzw. \(N\) mit \(f(U)\subseteq V\) die Abbildung
     \[\psi \circ f \circ \phi^{-1} : \phi(U)\longrightarrow \psi (V)\]
     holomorph ist. \(f\) heißt \emph{biholomorph}, wenn sie bijektiv ist und ihr Inverses holomorph ist.
 \end{definition}
+
+\begin{lemma} [\enquote{ein Atlas reicht}] \label{lemma_single_atlas_enough}
+	Sei \(\mathcal{\overline{A}}\) eine komplexe Struktur auf einer komplexen Mannigfaltigkeit \(M\). Außerdem sei \(\mathcal{A}\subseteq \mathcal{\overline{A}}\) ein Atlas, der eine Teilmenge dieser Struktur ist. Dann genügt es, bis auf Biholomorphie, nur Karten aus \(\mathcal{A}\) zu betrachten.
+\end{lemma}
+\begin{proof}
+	Sei \((U,\phi)\in \mathcal{\overline{A}}\) beliebig. Da \(\mathcal{A}\) ein Atlas ist, gibt es Karten \((V_i,\psi_i)\in\mathcal{A}\), \(i\in I\), sodass die Mengen \(V_i\) die Menge $U$ überdecken. Per Definition sind die Kartenwechsel
+	\[ \psi_i \circ \phi^{-1}: \phi(U \cap V_i) \rightarrow \psi_i (U \cap V_i) \]
+	biholomorph. Also gilt auf \(U\cap V_i\) für alle \(i\in I\), dass
+	\[\psi_i= \psi_i \circ (\phi^{-1} \circ \phi)=(\psi_i \circ \phi^{-1}) \circ \phi \]
+	Damit unterscheidet sich \(\phi\) bis auf Komposition mit einer biholomorphen Abbildung nicht von den Karten aus \(\mathcal{A}.\)
+\end{proof}
 
 \begin{lemma}[Karten sind holomorph] \label{lemma_chart_holomorphic}
     Sei \(M\) eine komplexe Mannigfaltigkeit und \((U,\phi)\) eine Karte von \(M.\) Dann ist $\phi$ eine holomorphe Abbildung.
@@ -838,6 +834,7 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 \end{proof}
 
 
+
 \subsection{komplexe Quotientenmannigfaltigkeiten}
 \begin{definition}
 	Eine Gruppe \(G\) operiere auf einer Mannigfaltigkeit \(M\). Die Operation heißt \emph{holomorph}, falls die Translationsbbildung \[\tau_g :M\longrightarrow M, m\mapsto gm\]für alle \(g\in G\) holomorph ist.
@@ -851,19 +848,33 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
     \end{enumerate}
 \end{theorem}
 \begin{proof}
-    \begin{enumerate}
-        \item Seien \(U,V\subset M\) eine einsame Teilmengen, sodass \((p(U),\varphi)\) und \((p(V),\Psi)\) Karten von \(M/G\) sind. Wir fordern ohne Einschränkung\footnote{
-            Per Definition müssen wir nur den Kartenwechsel auf dem Schnitt \(p(U)\cap p(V)\) betrachten.
-        }, dass \(p(U)\subseteq p(V)\), oder äquivalent, dass \(U=q_U(p(V))\) ist.  Dann exisiteren per Konstruktion und \cref{qp=tau} in  \cref{lemma_quotient_is_hausdorff} Kartenabbildungen \(\phi,\psi\), von \(M\), sodass für ein \(g\in G\) gilt:
-        \[\Psi \circ \varphi^{-1} = \psi \circ \tau_g \circ \varphi^{-1}: \Phi (U) \longarrow \Psi(V) \]
-        Die Abbildung ist wegen der Forderung, dass \(G\) holomorph operiert und wegen \cref{lemma_chart_holomorphic} selbst holomorph.
+	\begin{enumerate}
+	\item Wir benutzen wieder die im vorherigen Kapitel verwendeten Bezeichnungen für die lokalen Projektionsabbildungen und deren Inverse. Eine beliebige Karte in \(\mathcal{M}/G\) hat die Form \((p(U), \Phi q_U),\) wobei \(\Phi\) eine Kartenabbildung von \(\mathcal{M}\) und \(U\) eine einsame Umgebung in \(\mathcal{M}\) ist. Sei \((p(V), \Psi q_V)\) eine weitere solche Karte von \(\mathcal{M}/G\), sodass 
+	\begin{equation*}
+		p(U) \cap p(V) \neq \emptyset
+	\end{equation*}
+	ist.
+	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung an, dass \(p(U) = p(V)\) ist. (Ersetze \(U\) und \(V\) jeweils durch deren Schnitt; das funktioniert um jeden Punkt.)
+	
+	
+	
+	
+	Seien \(U,V\subset M\) eine einsame Teilmengen und \(\Phi\) und \(\Psi\) Karten, sodass \((p(U),\varphi)\) und \((p(V),\psi)\) Karten von \(M/G\) sind. Wir fordern ohne Einschränkung, dass \(p(U)\subseteq p(V).\) Dann exisiteren per Konstruktion der Quotientenmannigfaltigkeit und \cref{qp=tau} in  \cref{lemma_quotient_is_hausdorff} Kartenabbildungen \(\Phi,\Psi\), von \(M\), sodass 
+	\begin{equation}
+	\phi = q_U \phi
+	\end{equation}
+	
+	
+	für ein \(g\in G\) gilt:
+	\[\psi \circ \varphi^{-1} = \Psi \circ \tau_g \circ \Phi^{-1}: \varphi (U) \longarrow \psi(V) \]
+	Die Abbildung ist wegen der Forderung, dass \(G\) holomorph operiert und wegen \cref{lemma_chart_holomorphic} selbst holomorph.
 
-        \item Sei \((U,\phi)\) eine beliebige Karte von \(M\). Ohne Einschränkung\footnote{
-            Einsame Mengen überdecken \(M\)
-        } dürfen wir annehmen, dass \(U\) einsam ist und wegen \cref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\phi q_U)\) in \(M/G\) betrachten. Dann gilt
-        \[(\phi q_U) p_U \phi^{-1}=\phi q_U p_U \phi^{-1}=\id_{\C^n}.\]
-        Per Definition ist \(p_U\) damit holomorph. Die selbe Gleichung zeigt, dass \(q_U\) holomorph ist, da \((\phi q_U)^{-1}=p_U \phi^{-1}\).
-    \end{enumerate}
+	\item Sei \((U,\varphi)\) eine beliebige Karte von \(M\). Ohne Einschränkung\footnote{
+			Einsame Mengen überdecken \(M\)
+	} dürfen wir annehmen, dass \(U\) einsam ist und wegen \cref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\varphi q_U)\) in \(M/G\) betrachten. Dann gilt
+	\[(\varphi q_U) p_U \varphi^{-1}=\varphi q_U p_U \varphi^{-1}=\id_{\C^n}.\]
+	Per Definition ist \(p_U\) damit holomorph. Die selbe Gleichung zeigt, dass \(q_U\) holomorph ist, da \((\varphi q_U)^{-1}=p_U \varphi^{-1}\).
+	\end{enumerate}
 \end{proof}
 
 \begin{corollary}[komplexer Torus]
