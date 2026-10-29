@@ -802,7 +802,7 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 \end{definition}
 
 \begin{lemma} [\enquote{ein Atlas reicht}] \label{lemma_single_atlas_enough}
-	Sei \(\mathcal{\overline{A}}\) eine komplexe Struktur auf einer komplexen Mannigfaltigkeit \(M\). Außerdem sei \(\mathcal{A}\subseteq \mathcal{\overline{A}}\) ein Atlas, der eine Teilmenge dieser Struktur ist. Dann genügt es, bis auf Biholomorphie, nur Karten aus \(\mathcal{A}\) zu betrachten.
+	Sei \(\mathcal{\overline{A}}\) eine komplexe Struktur auf einer komplexen Mannigfaltigkeit \(M\). Außerdem sei \(\mathcal{A}\subseteq \mathcal{\overline{A}}\) ein Atlas, der eine Teilmenge dieser Struktur ist. Dann genügt es -- bis auf Komposition mit einer biholomorphen Abbildung -- nur Karten aus \(\mathcal{A}\) zu betrachten.
 \end{lemma}
 \begin{proof}
 	Sei \((U,\phi)\in \mathcal{\overline{A}}\) beliebig. Da \(\mathcal{A}\) ein Atlas ist, gibt es Karten \((V_i,\psi_i)\in\mathcal{A}\), \(i\in I\), sodass die Mengen \(V_i\) die Menge $U$ überdecken. Per Definition sind die Kartenwechsel
@@ -828,7 +828,9 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
     holomorph.
 \end{lemma}
 \begin{proof}
-    Seien \((U,\phi),(W,\theta)\) Karten von \(M\) bzw. \(L\) mit \(g\circ f(U)\subseteq W.\) Dann gibt es eine offene Überdeckung \(\mathcal{V}\) von \(f(U)\) und Karten \((V,\psi)\) mit \(V\in\mathcal{V}\), sodass \[\bigcup_{V\in\mathcal{V}}V = f(U).\]
+    Seien \((U,\phi),(W,\theta)\) Karten von \(M\) bzw. \(L\) mit \(g(f(U))\subseteq W.\) Dann gibt es -- nach geeigneten Schnitten -- eine offene Überdeckung \(\mathcal{V}\) von \(f(U)\) und Karten \((V,\psi)\) mit \(V\in\mathcal{V}\), sodass 
+		\[g^{-1}(W) \supseteq \bigcup_{V\in\mathcal{V}}V \supseteq f(U).\]
+
     Sei \((V,\psi)\) eine solche Karte und setze $U_V:=U\cap f^{-1} (V)$. Dann ist die Abbildung
     \[\theta (g f) \phi^{-1} = \theta  g  (\psi^{-1} \psi) f \phi^{-1} = (\theta  g  \psi^{-1}) (\psi f \phi^{-1}): \phi(U_V) \longarrow \theta(W)\] nach Voraussetzung eine Komposition holomorpher Abbildungen. Wegen \(\bigcup_{V\in\mathcal{V}} U_V = U\) und da Holomorphie eine lokale Eigenschaft ist, liefert \myref{chainrule} die Behauptung.
 \end{proof}
@@ -853,7 +855,7 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 	\begin{equation*}
 		p(U) \cap p(V) \neq \emptyset.
 	\end{equation*}
-	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung an, dass \(p(U) = p(V)\) ist. (Ersetze \(U\) und \(V\) jeweils durch deren Schnitt)
+	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung an, dass \(p(U) = p(V)\) ist. (Ersetze \(U\) und \(V\) jeweils durch die Urbilder des Schnitts)
 	Dann folgt aus \cref{qp=tau} in  \cref{lemma_quotient_is_hausdorff} für ein \(g\in G\) und die zugehörige Translationsabbildung \(\tau_g\), dass
 	\begin{equation*}
 		\Psi q_V (\Phi q_U )^{-1}
@@ -873,7 +875,7 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 	Für ein zweidimensionales Gitter $\Lambda$ ist der \emph{komplexe Torus} \(\C / \Lambda\) eine komplexe Quotientenmannigfaltigkeit.
 \end{corollary}
 \begin{proof}
-	Da Translation holomorph ist, operiert \(\Lambda \cong  \Z + i\Z\) holomorph auf \(\C.\) Der Rest folgt aus \cref{theorem_complex_quotient_manifold} und \cref{lemma_lattice_acts_properly}.
+	Da Translation holomorph ist, operiert \(\Lambda\) holomorph auf \(\C.\) Der Rest folgt aus \cref{theorem_complex_quotient_manifold} und \cref{lemma_lattice_acts_properly}.
 \end{proof}
 
 \section{Hochheben von Abbildungen}
@@ -1856,7 +1858,7 @@ Wir wollen die beiden Aussagen im Beweis des nächsten Satzes verwenden. Zunäch
 	\[g:\C^\ast\longarrow\C, \quad g(z):=f(z^{-1})=a_0+a_1 z^{-1} + a_2 z^{-1} + \dots \quad .\]
 	Da \(f\) injektiv ist, ist sie und damit auch \(g\) nicht konstant. Das heißt, dass \(g\) eine Singularität am Ursprung besitzt.
 	\begin{claim}
-		Die Singularität ist hebbar.
+		Die Singularität ist nicht wesentlich.
 	\end{claim}
 	\begin{proofofclaim}
 		Seien \(U,V\subseteq \C^\ast\) disjunkte offene Mengen, wobei \(U\) eine Umgebung um den Ursprung ist. Angenommen, die Singularität wäre wesentlich. Dann folgt aus Casorati-Weierstraß, dass 
