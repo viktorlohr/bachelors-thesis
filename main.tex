@@ -723,11 +723,13 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
 
         \begin{equation} \label{chainrule_monster}
             \begin{aligned}
-                \frac{t(\eta(h_i))}{\Norm{h_i}} &= \frac{t(\eta(h_i))}{\Norm{\eta(h_i)}} \cdot \frac{\Norm{\eta({h_i})}}{\Norm{h_i}} = \frac{t(\eta(h_i))}{\Norm{\eta(h_i)}} \cdot \frac{\Norm{Df(a)({h_i})+s(h_i)}}{\Norm{h_i}} \\
+                \frac{\Norm{t(\eta(h_i))}}{\Norm{h_i}} 
+								&= \frac{\Norm{t(\eta(h_i))}}{\Norm{\eta(h_i)}} \cdot \frac{\Norm{\eta({h_i})}}{\Norm{h_i}} 
+								= \frac{\Norm{t(\eta(h_i))}}{\Norm{\eta(h_i)}} \cdot \frac{\Norm{Df(a)({h_i})+s(h_i)}}{\Norm{h_i}} \\
                 &\leq 
                 \underbrace
                 {
-                    \frac{t(\eta(h_i))}{\Norm{\eta(h_i)}} 
+                    \frac{\Norm{t(\eta(h_i)})}{\Norm{\eta(h_i)}} 
                 }_{
                     \arrow 0
                 }
@@ -2096,12 +2098,15 @@ Das folgende Lemma benötigen wir, um den Definitionsbereich einer Abbildung so 
 Mithilfe des vorherigen Lemmas können wir lokale Hochhebungen einer Abbildung konstruieren. Die nächste Aussage garantiert uns, dass wir diese global wieder \enquote{zusammenkleben} können, falls sie auf den Schnitten übereinstimmen.
 
 \begin{lemma} [Verklebung] \label{lemma_pasting}
-Sei \(f:X\longarrow Y\) eine Abbildung topologischer Räume und \(\mathcal{U}\) eine offene Überdeckung von \(X\), sodass für alle \(U\subset \mathcal{U}\) die Einschränkung \(f_{|U}\) stetig ist. Dann ist auch \(f\) stetig. Das gleiche gilt, falls \(\mathcal{U}\) \emph{endlich} ist und nur abgeschlossene Mengen enthält.
+Sei \(f:X\longarrow Y\) eine Abbildung topologischer Räume und \(\mathcal{U}\) eine offene Überdeckung von \(X\), sodass für alle \(U \in \mathcal{U}\) die Einschränkung \(f_{|U}\) stetig ist. Dann ist auch \(f\) stetig. Das gleiche gilt, falls \(\mathcal{U}\) \emph{endlich} ist und nur abgeschlossene Mengen enthält.
 \end{lemma}
 \begin{proof}
 Sei \(V\subset Y\) offen. Dann ist
-\[f^{-1} (V) = f^{-1} (f(X)\cap V)\explainbelow{Morgansche Gesetze}{=}\bigcup_{U\subset \mathcal{U}} f^{-1} (U \cap V) 
-= \bigcup_{U\subset \mathcal{U}}f_{|U}^{-1}(U \cap V)\]
+\[f^{-1} (V) = f^{-1} ( V) \cap X
+=  f^{-1} (V) \cap \bigcup_{U\in \mathcal{U}} U 
+= \bigcup_{U\in \mathcal{U}} f^{-1}(V) \cap U
+= \bigcup_{U\in \mathcal{U}} f_{|U}^{-1}(V)
+\]
 als Vereinigung offener Mengen offen. Der Beweis für endlich viele abgeschlossene Mengen verläuft analog.
 \end{proof}
 
