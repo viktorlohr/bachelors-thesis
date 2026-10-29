@@ -1,0 +1,305 @@
+% !TEX root = ./main.tex
+% \documentclass[11pt, oneside]{article} 
+\usepackage[T1]{fontenc}
+\usepackage[ngerman]{babel}	
+\usepackage[default]{sourcesanspro}
+\usepackage{eulervm}
+	\renewcommand{\familydefault}{\sfdefault}
+\usepackage[a4paper, margin=2.54cm]{geometry}
+\usepackage{changepage}
+    \newenvironment{hanging}{\begin{adjustwidth}{1.5\baselineskip}{}}{\end{adjustwidth}}
+\usepackage{fancyhdr}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{ragged2e}
+	\justifying
+\usepackage{mathtools, amssymb}
+\usepackage{stmaryrd}
+\usepackage[shortlabels, inline]{enumitem}
+	\setlist[enumerate,1]{label={(\alph*)}}
+\usepackage{tikz,ifthen}
+	\usetikzlibrary{cd, backgrounds, babel, 
+	calc, intersections, shadows}
+\usepackage{amsthm,thmtools, etoolbox}
+	\theoremstyle{definition} 
+		\newtheorem{theorem}{Satz}
+		\numberwithin{theorem}{section}
+		\newtheorem{proposition}[theorem]{Proposition}
+		\newtheorem{lemma}[theorem]{Lemma}
+		\newtheorem{corollary}[theorem] {Korollar}
+		\newtheorem{corollary_weak}[theorem] {Korollar}
+		\newtheorem{definition}[theorem] {Definition}
+		\newtheorem{notation}[theorem]{Notation}
+		\newtheorem{convention}[theorem]{Konvention}
+		\newtheorem{example}[theorem]{Beispiel}
+		\newtheorem{construction}[theorem]{Konstruktion}
+	\theoremstyle{remark}
+		\newtheorem{remark} [theorem] {Bemerkung}
+    \newcounter{claimcounter}
+        \newtheorem{claim}[claimcounter]{Aussage}
+        \renewcommand{\theclaim}{\arabic{claimcounter}}
+        \BeforeBeginEnvironment{proof}{%
+         \setcounter{claimcounter}{0}%
+        }
+        % \newenvironment{claim}[1]{\par\noindent\textit{Aussage:}\space#1}{}
+        \newenvironment{proofofclaim}[1]{
+           % \begin{hanging}
+                \par\textit{\small Beweis. }\space#1}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill\quad\hbox{\color{OliveGreen}{$\blacksquare$}}
+           % \end{hanging} 
+		   	\linebreak
+        }
+		
+
+		\renewenvironment{proof}{\textit{Beweis.}}{\leavevmode\unskip\penalty9999 \hbox{}\nobreak\hfill\quad\hbox{$\square$}}
+
+\usepackage[most]{tcolorbox}
+	%footnote at end of page 
+	\newif\iffootaux
+			\newcounter{footaux}% for \csname
+			\newcounter{auxpage}% to handle frontmatter etc.
+			\setcounter{auxpage}{1}
+
+			\makeatletter
+			\tcbset{every box/.style={before upper app=\tcb@footnote@setup}}
+
+			\def\tcb@footnote@setup{\let\footnotetext=\footaux
+			\let\footnote=\footnoteaux}
+			
+			\def\footnoteaux{\@ifnextchar[\@xfootnoteaux{\stepcounter{footnote}%
+			\footnotemark[\thefootnote]\@footaux[\thefootnote]}}
+			
+			\def\@xfootnoteaux[#1]{\footnotemark[#1]\@footaux[#1]}
+
+			\def\footaux{\@ifnextchar[\@footaux{\@footaux[\thefootnote]}}
+			\def\@footaux[#1]#2{\protected@write{\@auxout}{\let\theauxpage\relax}{\string\newfootnote{\theauxpage}{#1}{#2}}}
+
+			\newcommand{\newfootnote}[3]{% #1 = \theauxpage, #2 = \thefoontnote, #3 = text
+			\ifnum#1=1\relax
+				\footnotetext[#2]{#3}%
+			\else
+				\stepcounter{footaux}%
+				\expandafter\xdef\csname footauxpage\thefootaux\endcsname{#1}%
+				\expandafter\xdef\csname footauxnumber\thefootaux\endcsname{#2}%
+				\expandafter\protected@xdef\csname footauxtext\thefootaux\endcsname{#3}%
+			\fi}
+
+			% to run at the end of every page (debug version)
+			\newcommand{\addfootaux}{\loop
+			\@ifundefined{footauxpage\thefootaux}{\footauxfalse}{%
+				\count1=\csname footauxpage\thefootaux\endcsname\relax
+				\advance\count1 by -1
+				\ifnum\count1=\value{auxpage}%
+				\expandafter\let\expandafter\footauxnumber\csname footauxnumber\thefootaux\endcsname
+				\expandafter\let\expandafter\footauxtext\csname footauxtext\thefootaux\endcsname
+				\footnotetext[\footauxnumber]{\footauxtext}%
+				\footauxtrue
+				\else
+				\footauxfalse
+				\fi}
+			\iffootaux
+				\global\expandafter\let\csname footauxpage\thefootaux\endcsname\relax
+				\global\expandafter\let\csname footauxnumber\thefootaux\endcsname\relax
+				\global\expandafter\let\csname footauxtext\thefootaux\endcsname\relax
+				\stepcounter{footaux}%
+			\repeat
+			\stepcounter{auxpage}}
+			\makeatother
+
+			\AtBeginDocument{\setcounter{footaux}{1}}% reset counter after \newfootnote
+		\AddToHook{shipout/after}{\addfootaux}
+
+
+	\newtcbox{\inlinebox}[1][]{enhanced,
+		box align=base,
+		nobeforeafter,
+		colback=white,
+		frame hidden,
+		size=small,
+		left=0pt,
+		right=0pt,
+		boxsep=2pt,
+		rounded corners,
+		#1
+	}
+	\renewcommand{\thempfootnote}{\fnsymbol{mpfootnote}}
+	\tcbuselibrary{breakable}
+		\newtcolorbox{idea}{box align = top, breakable, enhanced jigsaw,
+		colback=green!5!white,
+		colframe=green!75!black,fonttitle=\bfseries,
+		title={Idee}
+		}
+		\newtcolorbox{Bastelanleitung}{box align = top, breakable, enhanced jigsaw,
+		colback=green!5!white,
+		colframe=green!75!black,fonttitle=\bfseries,
+		title={Bastelanleitung}
+		}
+		\newtcolorbox{marked}{box align = top,
+		boxrule=0pt,
+		frame hidden,
+		sharp corners,
+		enhanced,
+		borderline west={3pt}{0pt}{OliveGreen},
+		colback = white,
+		fonttitle=\bfseries,
+		}	
+	\tcbuselibrary{theorems}
+		\newcommand{\mytcolorboxenvironment}[2]{
+			\tcolorboxenvironment{#1}{
+			box align = top, 
+			breakable, 
+			enhanced jigsaw,
+			colback= #2!5!white,
+			colframe=#2,
+			before skip=10pt,after skip=10pt,
+			}
+		}
+		\newcommand{\mytcolorboxenvironmentMarked}[2]{
+			\tcolorboxenvironment{#1}{
+				breakable, enhanced jigsaw,
+				boxrule=0pt,
+				frame hidden,
+				sharp corners,
+				enhanced,
+				borderline west={3pt}{0pt}{#2},
+				colback = white,
+				fonttitle=\bfseries,
+			}
+		}
+		\newcommand{\mytcolorboxenvironmentNoCorners}[2]{
+			\tcolorboxenvironment{#1}{
+				breakable, enhanced jigsaw,
+				boxrule=0pt,
+				frame hidden,
+				sharp corners,
+				enhanced,
+				colback = #2,
+				fonttitle=\bfseries,
+			}
+		}
+		\mytcolorboxenvironment{definition}{cyan}
+		\mytcolorboxenvironment{notation}{blue}
+		\mytcolorboxenvironment{convention}{blue}
+		\mytcolorboxenvironment{lemma}{Lavender}
+		\mytcolorboxenvironment{proposition}{orange}
+		\mytcolorboxenvironment{theorem}{red}
+		\mytcolorboxenvironment{corollary}{RedOrange}
+		\mytcolorboxenvironment{corollary_weak}{Lavender}
+		\mytcolorboxenvironmentMarked{remark}{OliveGreen}
+		\mytcolorboxenvironmentNoCorners{proof}{gray!5!white}
+		\mytcolorboxenvironmentMarked{claim}{OliveGreen!100!white}
+\usepackage[colorlinks, allcolors=blue]{hyperref}
+\usepackage[german, nameinlink, noabbrev]{cleveref}
+	\newcommand{\myref}[1]{\cref{#1} (\textcolor{gray}{\footnotesize {\nameref*{#1}}})}
+    \crefname{proposition}{Proposition}{Propositionen}
+    \crefname{claim}{Aussage}{Aussageen}
+\usepackage{csquotes}
+\usepackage[backend=biber, style=alphabetic, maxcitenames=1, natbib]{biblatex}
+	%\usepackage{filecontents}
+	\begin{filecontents}[overwrite]{Bachelorarbeit.bib}
+		@BOOK{ahlfors,
+			AUTHOR = {Ahlfors, L. V.},
+			PUBLISHER = {McGraw-Hill Book Company},
+			DATE = {1966},
+			EDITION = {2},
+			SUBTITLE = {An introduction to the theory of analytic functions of one complex variable},
+			TITLE = {Complex Analysis},
+		}
+		@book{hatcher,
+			address = {New York},
+			title = {Algebraic topology},
+			%isbn = {978-0-521-79540-1},
+			%language = {eng},
+			publisher = {Cambridge university press},
+			author = {Hatcher, Allen},
+			year = {2001},
+		}
+		@book{forster,
+  			title={Lectures on Riemann Surfaces},
+  			author={Forster, O. and Gilligan, B.},
+			%isbn={9781461259619},
+			%series={Graduate Texts in Mathematics},
+			%url={https://books.google.de/books?id=6wvpBwAAQBAJ},
+			year={2012},
+			publisher={Springer New York}
+		}
+		@book{lee2013introduction,
+			title={Introduction to Smooth Manifolds},
+			author={Lee, J.M.},
+			%isbn={9781475756012},
+			series={Graduate Texts in Mathematics},
+			%url={https://books.google.de/books?id=A0sSswEACAAJ},
+			year={2013},
+			publisher={Springer New York}
+		}
+	\end{filecontents}
+	\addbibresource{Bachelorarbeit.bib}
+\usepackage{wrapfig}
+\usepackage{scalerel}
+\usepackage{stackengine,wasysym}
+	%reallywidetilde
+	\newcommand\reallywidetilde[1]{\ThisStyle{%
+	\setbox0=\hbox{$\SavedStyle#1$}%
+	\stackengine{-.1\LMpt}{$\SavedStyle#1$}{%
+		\stretchto{\scaleto{\SavedStyle\mkern.2mu\AC}{.5150\wd0}}{.6\ht0}%
+	}{O}{c}{F}{T}{S}%
+	}}
+
+
+\newcommand*{\nsection}[1]{
+    \section*{#1}
+    \addcontentsline{toc}{section}{#1}
+}
+\newcommand*{\nsubsection}[1]{
+    \subsection*{#1}
+    \addcontentsline{toc}{subsection}{#1}
+}
+\renewcommand{\subset}{\subseteq}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand*{\simsym}{\mathord\sim}
+\newcommand{\mymarginpar}[1]{\marginpar{\tiny #1}}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\End}{End}
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\Image}{Im}
+\NewCommandCopy{\ordinaryforall}{\forall}
+\NewCommandCopy{\ordinaryexists}{\exists}
+\RenewDocumentCommand{\forall}{}{\mathop{{}\ordinaryforall}}
+\RenewDocumentCommand{\exists}{}{\mathop{{}\ordinaryexists}}
+\NewDocumentCommand{\existsunique}{}{\mathop{\ordinaryexists!}}
+\newcommand{\norm}[1]{\left\lvert#1\right\rvert}
+\newcommand{\Norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{
+	\explainabove
+}[2]{
+	\overset{
+	 	\mathclap{
+			\tikz 
+				\node [gray] {$\downarrow$} 
+					node [above=0.5ex, gray, font=\tiny] {#1};
+		}
+	}{#2}
+}
+\newcommand{
+	\explainbelow
+}[2]{
+       	 \underset{
+	 	\mathclap{
+			\tikz 
+				\node [gray] {$\uparrow$} 
+					node [below=0.5ex, gray, font=\tiny] {#1};
+		}
+	}{#2}
+}
+
+\newcommand{
+	\explainabovebelow
+}[3]{
+	\explainabove{#1}{\explainbelow{#2}{#3}}
+}
+\newcommand{\arrow}{\rightarrow}
+\newcommand{\longarrow}{\longrightarrow}
+\setlength{\parindent}{0pt}
