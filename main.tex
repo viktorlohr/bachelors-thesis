@@ -1026,14 +1026,15 @@ Das folgende Lemma benötigen wir, um den Definitionsbereich einer Abbildung so 
 \end{proof}
 
 Mithilfe des vorherigen Lemmas können wir lokale Hochhebungen einer Abbildung konstruieren. Die nächste Aussage garantiert uns, dass wir diese global wieder \enquote{zusammenkleben} können, falls sie auf den Schnitten übereinstimmen.
+
 \begin{lemma} [Verklebung] \label{lemma_pasting}
-Sei \(f:X\longarrow Y\) eine Abbildung topologischer Räume und \(\mathcal{U}\) eine offene Überdeckung von \(X\), sodass für alle \(U\subset \mathcal{U}\) die Einschränkung \(f_{|U}\) stetig ist. Dann ist auch \(f\) stetig.
+Sei \(f:X\longarrow Y\) eine Abbildung topologischer Räume und \(\mathcal{U}\) eine offene Überdeckung von \(X\), sodass für alle \(U\subset \mathcal{U}\) die Einschränkung \(f_{|U}\) stetig ist. Dann ist auch \(f\) stetig. Das gleiche gilt, falls \(\mathcal{U}\) \emph{endlich} ist und nur abgeschlossene Mengen enthält.
 \end{lemma}
 \begin{proof}
 Sei \(V\subset Y\) offen. Dann ist
 \[f^{-1} (V) = f^{-1} (f(X)\cap V)\explainbelow{Morgansche Gesetze}{=}\bigcup_{U\subset \mathcal{U}} f^{-1} (U \cap V) 
 = \bigcup_{U\subset \mathcal{U}}f_{|U}^{-1}(U \cap V)\]
-als Vereinigung offener Mengen offen.
+als Vereinigung offener Mengen offen. Der Beweis für endlich viele abgeschlossene Mengen verläuft analog.
 \end{proof}
 
 
@@ -1735,6 +1736,9 @@ Das folgende Lemma stellt quasi das Kernstück des folgenden Beweises von \myref
 	Ein topologischer Raum \(X\) heißt \emph{lokal wegzusammenhängend}, wenn es für jeden Punkt \(x\in X\) und jede Umgebung \( x \in U\subseteq X\) eine wegzusammenhängende offene Menge \(V\) mit
 	\[x\in V\subseteq U\] gibt.
 \end{definition}
+\begin{remark}
+	Der \(\R^n\) bzw. \(\C^n\) ist lokal wegzusammenhängend, da offene Kugeln konvex und damit wegzusammenhängend sind.
+\end{remark}
 
 \begin{theorem}[Hochheben von Abbildungen] \label{theorem_map_lifting}
 	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X.\) Darüber hinaus sei \(Y\) ein weiterer topologischer Raum, der wegzusammenhängend und lokal wegzusammenhängend ist. Weiter sei \(f:Y\arrow X\) eine stetige Abbildung. Außerdem seien Punkte \(x_0\in X, \tilde{x}_0\in \tilde{X}\) und \(y_0\in Y\) gegeben, sodass \(p(\tilde{x_0})=x_0=f(y_0)\) gilt. Dann existiert eine eindeutige Hochhebung \(\tilde{f}:Y\longarrow \tilde{X}\) mit \(f(y_0)=\tilde{x_0}\), genau dann wenn gilt:
@@ -1982,7 +1986,7 @@ Wir wollen die beiden Aussagen im Beweis des nächsten Satzes verwenden. Zunäch
 		Das widerspricht aber der Injektivität, da \(U\cap V = \emptyset.\)
 	\end{proofofclaim}
 	Also gibt es ein \(n\in \N\), sodass für alle \(z\in \C^\ast\) gilt:
-	\[g(z)=a_1 z^{-1} +\dots + a_n z^{-n}.\]
+	\[g(z)= a_0 + a_1 z^{-1} +\dots + a_n z^{-n}.\]
 	Aus \(f(z)=g(z^{-1})\) folgt jetzt die Behauptung.
 \end{proof}
 
