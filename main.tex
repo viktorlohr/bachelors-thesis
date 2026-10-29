@@ -349,7 +349,7 @@ Eine Gruppe \(G \) operiere jetzt stetig auf \(X.\)
 	
 	Die Projektionsabbildung ist nach \cref{lemma_projection_map_open} offen. Damit sind \(p(U)\) und \(p(V)\) Umgebungen um \(p(x)\) bzw. \(p(y) \). Da \(x,y \) beliebig waren und \(p\) surjektiv ist, folgt die Behauptung aus der letzten Zwischenbehauptung.
 	
-	\item  Wir betrachten den Fall \(y=x\). Ohne Einschränkung\footnote{
+	\item  Wir betrachten den Fall \(y=x\). Ohne Einschränkung\footnote{%
         Ersetze \(U\) durch \(U\cap V\). Sie ist dann immer noch eine Umgebung um \(x\). Wir wählen die kleinste zusammenhängende Komponente von \(U.\) 
     } 
     dürfen wir annehmen, dass \(U\subseteq V\) und dass \(U\) zusammenhängend ist.
@@ -1335,8 +1335,8 @@ Sei jetzt \(1\leq n \leq N\). Induktiv nehmen wir an, dass für alle \(0\leq i \
 		}
 
 		% Projektionsabbildung
-		\draw[xshift=-0.1cm,->] (2,1.6) -- node[left,scale=1]{$p_n$} (2,1.9);
-		\draw[xshift=+0.1cm,<-] (2,1.6) -- node[right,scale=1]{$q_n$} (2,1.9);
+		\draw[xshift=-0.1cm,->] (2,1.6) -- node[left,scale=1]{$q_n$} (2,1.9);
+		\draw[xshift=+0.1cm,<-] (2,1.6) -- node[right,scale=1]{$p_n$} (2,1.9);
 	\end{tikzpicture}
 	}
 	\ht0=92pt
@@ -1732,7 +1732,8 @@ Das folgende Lemma stellt quasi das Kernstück des folgenden Beweises von \myref
 \end{proof}
 
 \begin{definition}
-	Ein topologischer Raum \(X\) heißt \emph{lokal wegzusammenhängend}, wenn es um jeden Punkt in $X$ eine wegzusammenhängende Umgebung gibt.
+	Ein topologischer Raum \(X\) heißt \emph{lokal wegzusammenhängend}, wenn es für jeden Punkt \(x\in X\) und jede Umgebung \( x \in U\subseteq X\) eine wegzusammenhängende offene Menge \(V\) mit
+	\[x\in V\subseteq U\] gibt.
 \end{definition}
 
 \begin{theorem}[Hochheben von Abbildungen] \label{theorem_map_lifting}
@@ -1987,7 +1988,7 @@ Wir wollen die beiden Aussagen im Beweis des nächsten Satzes verwenden. Zunäch
 
 \subsection{Satz über ganze, biholomorphe Funktionen}
 \begin{theorem}[ganze, biholomorphe Funktionen sind linear] \label{theorem_entire_biholo}
-	Sei \(f:\C\longarrow \C\) eine holomorphe Funktion. Dann ist \(f\) linear. Das heißt, es existieren \(a,b\in\C\) mit \(a\neq 0\), sodass für alle \(z\in\C\) gilt: 
+	Sei \(f:\C\longarrow \C\) eine biholomorphe Funktion. Dann ist \(f\) linear. Das heißt, es existieren \(a,b\in\C\) mit \(a\neq 0\), sodass für alle \(z\in\C\) gilt: 
 	\[f(z)=az+b.\] 
 \end{theorem}
 \begin{proof}
@@ -2012,7 +2013,7 @@ Wir sind jetzt endlich in der Lage, die Fragestellung der Arbeit zu beantworten.
 	
 
 	\enquote{\(\implies\):} 
-	Sei \(f: T \arrow S\) biholomorph. Bis auf biholomrophe Kartenwechsel dürfen wir annehmen, dass 
+	Sei \(f: T \arrow S\) biholomorph. Bis auf biholomorphe Translation dürfen wir annehmen, dass 
 	\(f(p(0)) = p'(0)\) gilt.
 	
 	Da die Fundamentalgruppe von \(\C\) trival ist, liefert uns \cref{theorem_map_lifting} eine Hochhebung \(\tilde{f}:\C\longarrow \C\) der Verkettung \(f\circ p\) mit $\tilde{f}(0) = 0$, sodass folgendes Diagramm kommutiert:
@@ -2036,8 +2037,7 @@ Wir sind jetzt endlich in der Lage, die Fragestellung der Arbeit zu beantworten.
 		Die Hochhebungen \(\tilde{f}\) und \(\tilde{g}\) sind holomorph.
 	\end{claim}
 	\begin{proofofclaim}
-		\cref{theorem_complex_quotient_manifold} liefert uns, dass die Projektionsabbildung lokal biholomorph ist. Dann existiert um jeden Punkt eine Umgebung
-		\(U\), sodass \[\tilde{f}_{|U}=p'^{-1}\circ f\circ p_U\] durch Komposition biholomorph ist. Analoges gilt für $\tilde{g}.$ 
+		\cref{theorem_complex_quotient_manifold} liefert uns, dass die Projektionsabbildung lokal biholomorph ist. Per Konstruktion der Hochhebung gibt es an jeder Stelle geeignete Umgebungen $U$ und $V$, sodass \[\tilde{f}_{|U}={p'_V}^{-1}\circ f\circ p_U\] durch Komposition biholomorph ist. Analoges gilt für $\tilde{g}.$ 
 		Da Holomorphie eine lokale Eigenschaft ist, folgt die Behauptung.
 	\end{proofofclaim}
 
@@ -2072,20 +2072,25 @@ Wir sind jetzt endlich in der Lage, die Fragestellung der Arbeit zu beantworten.
 	\[p(a^{-1}\gamma)=p \circ \tilde{g}(\gamma)=f^{-1}\circ  p' (\gamma)=f^{-1}(0)=0.\]
 	Also existiert ein \(\lambda\in \Lambda\), sodass \(a^{-1}\gamma = \lambda\), was äquivalent ist zu \(\gamma=a\lambda\in a\Lambda.\) Da \(\lambda\) und \(\gamma\) beliebig waren, folgt \[a\Lambda=\Gamma.\]  
 
-	\enquote{\(\impliedby\):} Wir betrachten die biholomorphe Abbildung 
+	\enquote{\(\impliedby\):} Sei \(a \in \C \setminus \{0\},\) sodass \(a \Lambda = \Gamma.\)Wir betrachten die biholomorphe Abbildung 
 	\[\tilde{f}:\C\longarrow\C,\quad z\mapsto az.\]
+	Ihre Inverse bezeichnen wir wieder mit \(\tilde{g}.\)
 	Außerdem definieren wir \[f:T\longarrow S,\quad p(z)\mapsto p'\circ\tilde{f}(z)=p'(az).\]
+	und analog 
+	\[g:S\longarrow T,\quad p'(z)\mapsto p\circ\tilde{g}(z)=p(a^{-1}z).\]
+
+	Man sieht leicht, dass $f$ und $g$ zueinander invers sind.
 	\begin{claim}
-		\(f\) ist wohldefiniert.
+		\(f\) und \(g\) sind wohldefiniert.
 	\end{claim}
 	\begin{proofofclaim}
 		Seien \(z,z'\in\C\) mit \(p(z)=p(z')\). Dann  gibt es ein \(\lambda\in\Lambda\) mit \(z'= z+\lambda\). Nach Voraussetzung gibt es ein \(\gamma\in\Gamma\), sodass \(a\lambda=\gamma\). Daraus folgt:
 		\[f(p(z'))=p'(az')=p'(a(z+\lambda))=p'(az+a\lambda)=p'(az + \gamma)=p'(az)=f(p(z)).\]
 	\end{proofofclaim}
 	
-	Die Karten im kanonischen Atlas von \(T\) und \(S\) sind per Konstruktion lokale Inverse der Projektionsabbildungen. Wir bezeichnen diese wie üblich mit dem Buchstaben \(q\). Wählen wir geeignete Karten, ergibt sich
+	Die Karten im kanonischen Atlas von \(T\) und \(S\) sind per Konstruktion lokale Inverse der Projektionsabbildungen. Wir bezeichnen diese wie üblich mit dem Buchstaben \(q\). Wählen wir geeignete Karten, ergibt sich an beliebigen Stellen lokal (auf Details wird an dieser Stelle verzichtet)
 	\[q'\circ f\circ p=q'\circ p'\circ \tilde{f}=\tilde{f}.\]
-	Damit ist \(f\) per Definition biholomorph.
+	Damit ist \(f\) per Definition überall lokal -- und damit global -- biholomorph. Das Argument für \(g\) verläuft analog.
 \end{proof}
 
 
