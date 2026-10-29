@@ -440,7 +440,7 @@ Eine Gruppe \(G \) operiere jetzt stetig auf \(X.\)
 \begin{proof}
 	Translation im \(\R^n\) ist sogar ein Homöomorphismus und frei.Es bleibt zu zeigen, dass die Operation eigentlich ist. Wir bemerken zuerst, dass es 
 	einen linearen Isomorphismus gibt, der die Basis des Gitters auf die Standardbasis schickt. Da lineare Abbildungen stetig sind, können wir ohne Einschränkung annehmen, dass
-	 \(\Lambda = \Z\) ist. 
+	 \(\Lambda = \Z^n\) ist. 
 	Betrachte die offene Menge
 	\[U := (-1,1)^n \subseteq \R^n.\]
 	
@@ -626,7 +626,7 @@ Ein zentraler Schritt in dem später folgenden Beweis der Kettenregel wird eine 
 \end{proof}
 
 
-Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegebenermaßen nicht sehr elegant und recht umfangreich; dafür ist das Vorgehen aber sehr simpel.
+Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegebenermaßen nicht sehr elegant und recht umfangreich; dafür ist das Vorgehen aber sehr simpel. Die Idee dafür wurde vom Verfasser eigenständig entwickelt.
 \begin{idea}
 	Wir wenden \myref{definition_complex_differentiable} auf verkettete Abbildungen \(f\) und \(g\) an und setzen die Ausdrücke ineinander ein. Dann formen wir den Gesamtausdruck so um, dass er wieder dem Ausdruck in \cref{definition_complex_differentiable} entspricht. 
 	
@@ -1032,15 +1032,7 @@ Als nächstes betrachten wir Wege. Diese und ihre Hochhebungen werden sich in de
 \end{proof}
 \fi
 
-\begin{lemma}[Das Eckige muss ins Runde] \label{lemma_hypercube} 
-	Ein Hyperwürfel \(Q\subset\R^n\) mit Kantenlänge \(a\) liegt vollständig in einem Ball mit Radius \(\frac{a}{2}\sqrt{n}\). 
-\end{lemma}
-\begin{proof}
-	Da Translation längenerhaltend ist, können wir ohne Einschränkung annehmen, dass der Mittelpunkt des Würfels am Ursprung liegt. Das heißt
-	\(Q=\prod_{i=1}^n\big[-\frac{a}{2},+\frac{a}{2}\big]\).
-	Für alle \(x\in Q\) ist also \(x_i^2 \leq \frac{a^2}{4}\) und somit
-	\(\Norm{x}= \sqrt{x_1^2 + \dots + x_n^2} \leq \sqrt{n\cdot \frac{a^2}{4}} = \frac{a}{2}\sqrt{n}.\)
-\end{proof}
+
 
 
 \begin{corollary_weak} [Lebesgue-Anwendung]
@@ -1280,7 +1272,7 @@ Also gilt \(\tilde{\beta}(t_1)=\tilde{\alpha}(t_1)=\tilde{x}_1.\) Das Argument l
 \begin{lemma}[Hochheben von Konkatenationen] 
 	\label{lemma_lift_concatenation}
 	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X\) und 
-	\(\alpha\ast\beta\) eine Konkatenation von Wegen in \(X.\) Dann gibt es für jede Hochhebung von \(\alpha\) genau eine Hochhebung $\tilde{\alpha}$ von \(\beta\), sodass gilt:
+	\(\alpha\ast\beta\) eine Konkatenation von Wegen in \(X.\) Dann gibt es für jede Hochhebung von \(\alpha\) genau eine Hochhebung $\tilde{\beta}$ von \(\beta\), sodass gilt:
 	\[\reallywidetilde{\alpha \ast \beta} = \tilde{\alpha} \ast \tilde{\beta}.\]
 	Außerdem ist dies auch die einzige Hochhebung von \(\alpha\ast\beta\) zum Anfangspunkt \(\tilde{\alpha}(0).\)
 \end{lemma}
@@ -1300,7 +1292,7 @@ Also gilt \(\tilde{\beta}(t_1)=\tilde{\alpha}(t_1)=\tilde{x}_1.\) Das Argument l
 	die von \(\alpha\) und \(\overline{\beta}\) gebildete Schleife in \(X\) und \(\tilde{\gamma}\) dessen Hochhebung zu einem Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0) \) in \(\tilde{X}.\) Dann ist \(\tilde{\gamma}\) genau dann eine Schleife, wenn die Hochhebungen \(\tilde{\alpha}\) und \(\tilde{\beta}\) zum selben Anfangspunkt \(\tilde{x}_0\) den selben Endpunkt besitzen.
 \end{lemma}
 
-\pagebreak
+
 \begin{idea}
 	\begin{wrapfigure}{r}{2cm}
 	\setbox0\hbox{
@@ -1391,7 +1383,7 @@ eingehen. Dort werden wir mithilfe von Wegen die gesuchte Hochhebung einer Abbil
 \begin{idea}
 	Genau wie bei Wegen, können wir das Quadrat \(I^2\) in kleine Quadrate aufteilen, sodass deren Bilder in einer elementaren Umgebung enthalten sind. Wir setzen das große Quadrat jetzt Stück für Stück zusammen und müssen dabei nur aufpassen, dass die überlappenden Kanten übereinstimmen.
 \end{idea}
-
+\pagebreak
 \begin{proof}
 	\begin{wrapfigure}{r}{3cm}
 	%\centering
@@ -1977,6 +1969,7 @@ Wir sind jetzt endlich in der Lage, die Fragestellung der Arbeit zu beantworten.
 	Damit ist \(f\) per Definition überall lokal -- und damit global -- biholomorph. Das Argument für \(g\) verläuft analog.
 \end{proof}
 
+\pagebreak
 
 \begin{section}{Anhang}
 
@@ -2099,6 +2092,16 @@ Sei \(V\subset Y\) offen. Dann ist
 \[f^{-1} (V) = f^{-1} (f(X)\cap V)\explainbelow{Morgansche Gesetze}{=}\bigcup_{U\subset \mathcal{U}} f^{-1} (U \cap V) 
 = \bigcup_{U\subset \mathcal{U}}f_{|U}^{-1}(U \cap V)\]
 als Vereinigung offener Mengen offen. Der Beweis für endlich viele abgeschlossene Mengen verläuft analog.
+\end{proof}
+
+\begin{lemma}[Das Eckige muss ins Runde] \label{lemma_hypercube} 
+	Ein Hyperwürfel \(Q\subset\R^n\) mit Kantenlänge \(a\) liegt vollständig in einem Ball mit Radius \(a\sqrt{n}\). 
+\end{lemma}
+\begin{proof}
+	Da Translation längenerhaltend ist, können wir ohne Einschränkung annehmen, dass der Mittelpunkt des Würfels am Ursprung liegt. Das heißt
+	\(Q=\prod_{i=1}^n\big[-\frac{a}{2},+\frac{a}{2}\big]\).
+	Für alle \(x\in Q\) ist also \(x_i^2 \leq \frac{a^2}{4}\) und somit
+	\(\Norm{x}= \sqrt{x_1^2 + \dots + x_n^2} \leq \sqrt{n\cdot \frac{a^2}{4}} = \frac{a}{2}\sqrt{n} < a\sqrt{n}.\)
 \end{proof}
 
 
