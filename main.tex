@@ -1277,14 +1277,17 @@ Also gilt \(\tilde{\beta}(t_1)=\tilde{\alpha}(t_1)=\tilde{x}_1.\) Das Argument l
 	Außerdem ist dies auch die einzige Hochhebung von \(\alpha\ast\beta\) zum Anfangspunkt \(\tilde{\alpha}(0).\)
 \end{lemma}
 \begin{proof}
-	Aus den Definitionen folgt \(x_1:=\alpha(1)=\beta(0)\) und $\tilde{x}_1:=\tilde{\alpha}(1)\in p^{-1} (x_1).$ Wegen \cref{lemma_path_lifting} gibt es genau eine Hochhebung \(\tilde{\beta}\) zum Anfangspunkt \(\tilde{x}_1.\) Also ist der Ausdruck \(\tilde{\alpha}\ast\tilde{\beta}\) auch nur in genau diesem Fall wohldefiniert und es gilt
-	\[\reallywidetilde{\alpha \ast \beta}=p (\alpha \ast \beta) \explainbelow{folgt direkt aus der Definition}{=} p \alpha \ast p \beta = \tilde{\alpha} \ast \tilde{\beta}.\]
-	Die Eindeutigkeit von Hochhebungen von Wegen impliziert die letzte Aussage des Lemmas.
+  Aus den Definitionen folgt \(x_1:=\alpha(1)=\beta(0)\) und $\tilde{x}_1:=\tilde{\alpha}(1)\in p^{-1} (x_1).$ Wegen \cref{lemma_path_lifting} gibt es genau eine Hochhebung \(\tilde{\beta}\) zum Anfangspunkt \(\tilde{x}_1.\) Also ist der Ausdruck \(\tilde{\alpha}\ast\tilde{\beta}\) auch nur in genau diesem Fall wohldefiniert. Für \(t \in [0,1]\) gilt per Definition der Konkatenation:
+  \[ p\bigl((\tilde{\alpha}\ast\tilde{\beta})(t)\bigr) = 
+  \begin{cases} 
+    p(\tilde{\alpha}(2t)) = \alpha(2t) & \text{für } t \in [0, \frac{1}{2}], \\ 
+    p(\tilde{\beta}(2t-1)) = \beta(2t-1) & \text{für } t \in [\frac{1}{2}, 1]. 
+  \end{cases} 
+  \]
+  Dies stimmt exakt mit der Definition von \((\alpha\ast\beta)(t)\) überein, weshalb \(p \circ (\tilde{\alpha}\ast\tilde{\beta}) = \alpha\ast\beta\) gilt. 
+  Die Eindeutigkeit von Hochhebungen von Wegen impliziert die letzte Aussage des Lemmas.
 \end{proof}
 
-%\begin{tcolorbox}[frame hidden]
-
-%\end{tcolorbox}
 
 
 \begin{lemma} [Hochheben von Schleifen] \label{lemma_loop_lifting}
