@@ -318,7 +318,7 @@ Eine Gruppe \(G \) operiere jetzt stetig auf \(X.\)
 		Um jedes \(x\in X\) existiert eine einsame Umgebung. (Vgl. \cref{def_lonely})
         \item Für jede einsame Teilmenge \(U\subseteq X\) existiert eine stetige Abbildung \[q_U : p(U)\longarrow U,\] welche invers zur Einschränkung \(p_U:=p_{\vert U}\) von \(p\) auf \(U.\) ist.
     \end{enumerate}
-    Seien nun \(U,V\subseteq X\) einsame Teilmengen, sodass \(U=q_U (p(V))\neq \emptyset\). Dann gilt:
+    Seien nun \(U,V\subseteq X\) einsame Teilmengen, sodass \(p(U)\subseteq p(V)\) ist. Dann gilt:
     \begin{enumerate}[resume]
          \item \label{qp=tau} Es gibt ein \(g\in G\), sodass \[\tau := q_V\circ p_U = \tau_{g\vert U}.\]
     \end{enumerate} 
@@ -809,7 +809,7 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 	\[ \psi_i \circ \phi^{-1}: \phi(U \cap V_i) \rightarrow \psi_i (U \cap V_i) \]
 	biholomorph. Also gilt auf \(U\cap V_i\) für alle \(i\in I\), dass
 	\[\psi_i= \psi_i \circ (\phi^{-1} \circ \phi)=(\psi_i \circ \phi^{-1}) \circ \phi \]
-	Damit unterscheidet sich \(\phi\) bis auf Komposition mit einer biholomorphen Abbildung nicht von den Karten aus \(\mathcal{A}.\)
+	Damit unterscheidet sich \(\phi\) bis auf Komposition mit einer biholomorphen Abbildung nicht von den Kartenabbildungen \(\Psi_i\) aus \(\mathcal{A}.\)
 \end{proof}
 
 \begin{lemma}[Karten sind holomorph] \label{lemma_chart_holomorphic}
@@ -849,31 +849,23 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 \end{theorem}
 \begin{proof}
 	\begin{enumerate}
-	\item Wir benutzen wieder die im vorherigen Kapitel verwendeten Bezeichnungen für die lokalen Projektionsabbildungen und deren Inverse. Eine beliebige Karte in \(\mathcal{M}/G\) hat die Form \((p(U), \Phi q_U),\) wobei \(\Phi\) eine Kartenabbildung von \(\mathcal{M}\) und \(U\) eine einsame Umgebung in \(\mathcal{M}\) ist. Sei \((p(V), \Psi q_V)\) eine weitere solche Karte von \(\mathcal{M}/G\), sodass 
+	\item Wir benutzen wieder die im vorherigen Kapitel verwendeten Bezeichnungen für die lokalen Projektionsabbildungen und deren Inverse. Eine beliebige Karte in \(\mathcal{M}/G\) hat die Form \((p(U), \Phi q_U),\) wobei \(U\) eine einsame Umgebung in \(\mathcal{M}\) und \((U, \Phi)\) eine Karte von \(\mathcal{M}\)  ist. Sei \((p(V), \Psi q_V)\) eine weitere solche Karte von \(\mathcal{M}/G\), sodass 
 	\begin{equation*}
-		p(U) \cap p(V) \neq \emptyset
+		p(U) \cap p(V) \neq \emptyset.
 	\end{equation*}
-	ist.
-	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung an, dass \(p(U) = p(V)\) ist. (Ersetze \(U\) und \(V\) jeweils durch deren Schnitt; das funktioniert um jeden Punkt.)
+	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung an, dass \(p(U) = p(V)\) ist. (Ersetze \(U\) und \(V\) jeweils durch deren Schnitt)
+	Dann folgt aus \cref{qp=tau} in  \cref{lemma_quotient_is_hausdorff} für ein \(g\in G\) und die zugehörige Translationsabbildung \(\tau_g\), dass
+	\begin{equation*}
+		\Psi q_V (\Phi q_U )^{-1}
+		= \Psi q_V p_U \Phi^{-1}
+		= \Psi \tau_g \Phi^{-1}.
+	\end{equation*}
+	 Diese Abbildung ist wegen der Forderung, dass \(G\) holomorph operiert und wegen \cref{lemma_chart_holomorphic} selbst holomorph. Die inverse Translation \(\tau_{g^{-1}}\) ist nach Voraussetzung auch wieder holomorph. Dasselbe gilt für die Inversen der Kartenabbildungen. Damit ist der Kartenwechsel biholomorph.
 	
-	
-	
-	
-	Seien \(U,V\subset M\) eine einsame Teilmengen und \(\Phi\) und \(\Psi\) Karten, sodass \((p(U),\varphi)\) und \((p(V),\psi)\) Karten von \(M/G\) sind. Wir fordern ohne Einschränkung, dass \(p(U)\subseteq p(V).\) Dann exisiteren per Konstruktion der Quotientenmannigfaltigkeit und \cref{qp=tau} in  \cref{lemma_quotient_is_hausdorff} Kartenabbildungen \(\Phi,\Psi\), von \(M\), sodass 
-	\begin{equation}
-	\phi = q_U \phi
-	\end{equation}
-	
-	
-	für ein \(g\in G\) gilt:
-	\[\psi \circ \varphi^{-1} = \Psi \circ \tau_g \circ \Phi^{-1}: \varphi (U) \longarrow \psi(V) \]
-	Die Abbildung ist wegen der Forderung, dass \(G\) holomorph operiert und wegen \cref{lemma_chart_holomorphic} selbst holomorph.
 
-	\item Sei \((U,\varphi)\) eine beliebige Karte von \(M\). Ohne Einschränkung\footnote{
-			Einsame Mengen überdecken \(M\)
-	} dürfen wir annehmen, dass \(U\) einsam ist und wegen \cref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\varphi q_U)\) in \(M/G\) betrachten. Dann gilt
-	\[(\varphi q_U) p_U \varphi^{-1}=\varphi q_U p_U \varphi^{-1}=\id_{\C^n}.\]
-	Per Definition ist \(p_U\) damit holomorph. Die selbe Gleichung zeigt, dass \(q_U\) holomorph ist, da \((\varphi q_U)^{-1}=p_U \varphi^{-1}\).
+	\item Sei \((U,\Phi)\) eine beliebige Karte von \(M\). Da \(\mathcal{M}\) von einsamen Mengen überdeckt wird, dürfen wir ohne Einschränkung annehmen, dass \(U\) einsam ist. Wegen \cref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\Phi q_U)\) in \(M/G\) betrachten. Dann gilt
+	\[(\Phi q_U) p_U \Phi^{-1}=\Phi q_U p_U \Phi^{-1}=\id_{\C^n}.\]
+	Per Definition ist \(p_U\) damit holomorph. Die selbe Gleichung zeigt, dass \(q_U\) holomorph ist, da \((\Phi q_U)^{-1}=p_U \Phi^{-1}\).
 	\end{enumerate}
 \end{proof}
 
@@ -881,7 +873,7 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 	Für ein zweidimensionales Gitter $\Lambda$ ist der \emph{komplexe Torus} \(\C / \Lambda\) eine komplexe Quotientenmannigfaltigkeit.
 \end{corollary}
 \begin{proof}
-	Da Translation holomorph ist, operiert \(\Lambda \cong  \Z + i\Z\) holomorph auf \(\C.\) Der Rest folgt aus \cref{theorem_complex_quotient_manifold} und \cref{lemma_lattice_acts_properly}
+	Da Translation holomorph ist, operiert \(\Lambda \cong  \Z + i\Z\) holomorph auf \(\C.\) Der Rest folgt aus \cref{theorem_complex_quotient_manifold} und \cref{lemma_lattice_acts_properly}.
 \end{proof}
 
 \section{Hochheben von Abbildungen}
