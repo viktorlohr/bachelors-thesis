@@ -1,0 +1,47 @@
+\section{Aussagen der Funktionentheorie}
+
+\subsection{Wiederholung wichtiger Sätze}
+Die folgenden beiden Resultate aus der Funktionentheorie werden ohne Beweis verwendet. Vergleiche beispielsweise \cite{ahlfors}.
+Ein Gebiet ist eine offene, zusammenhängende Menge ist.
+\begin{lemma} [Satz von der Gebietstreue]
+	Sei \(U\subset\C\) ein Gebiet und \(f:U\longarrow \C\) eine nicht konstante holomorphe Funktion. Dann ist \(f(U)\subset \C\) offen.
+\end{lemma}
+\begin{lemma} [Casorati-Weierstraß]
+	Sei \(U\subset \C\) ein Gebiet und \(z_0\in U\) eine wesentliche Singularität einer holomorphen Funktion \(f:U\setminus\{z_0\}\longarrow \C.\) Dann ist das Bild \(f(U\setminus \{z_0\})\) dicht in \(\C.\)
+\end{lemma}
+
+Wir wollen die beiden Aussagen im Beweis des nächsten Satzes verwenden. Zunächst beweisen wir dazu folgendes Lemma.
+\begin{lemma} \label{lemma_entire_biholo_polynomial}
+	Sei \(f:\C\longarrow\C\) biholomorph. Dann ist \(f\) ein nicht-konstantes Polynom.
+\end{lemma} 
+\begin{idea}
+	Wir betrachten die Funktion \(z\mapsto f(z^{-1})\), welche eine Singularität am Ursprung besitzt. Wie wir gleich einsehen werden, kann diese nicht wesentlich sein. Damit ist der Hauptteil der Laurentreihe von \(g\) endlich. Dieser ist aber genau der Nebenteil von \(f.\)
+\end{idea}
+\begin{proof}
+	Da \(f\) ganz ist, ist sie gleich ihrer Potenzreihenentwicklung um den Ursprung. Also existieren \(a_1,\dots a_n\in\C\), sodass für alle \(z\in\C \) gilt:
+	\[f(z)=a_0+a_1z+a_2z^2+\dots \quad .\]
+	Wir definieren
+	\[g:\C^\ast\longarrow\C, \quad g(z):=f(z^{-1})=a_0+a_1 z^{-1} + a_2 z^{-1} + \dots \quad .\]
+	Da \(f\) injektiv ist, ist sie und damit auch \(g\) nicht konstant. Das heißt, dass \(g\) eine Singularität am Ursprung besitzt.
+	\begin{claim}
+		Die Singularität ist nicht wesentlich.
+	\end{claim}
+	\begin{proofofclaim}
+		Seien \(U,V\subseteq \C^\ast\) disjunkte offene Mengen, wobei \(U\) eine Umgebung um den Ursprung ist. Angenommen, die Singularität wäre wesentlich. Dann folgt aus Casorati-Weierstraß, dass 
+		\[g(U)\cap g(V)\neq \emptyset.\]
+		Das widerspricht aber der Injektivität, da \(U\cap V = \emptyset.\)
+	\end{proofofclaim}
+	Also gibt es ein \(n\in \N\), sodass für alle \(z\in \C^\ast\) gilt:
+	\[g(z)= a_0 + a_1 z^{-1} +\dots + a_n z^{-n}.\]
+	Aus \(f(z)=g(z^{-1})\) folgt jetzt die Behauptung.
+\end{proof}
+
+\subsection{Satz über ganze, biholomorphe Funktionen}
+\begin{theorem}[ganze, biholomorphe Funktionen sind linear] \label{theorem_entire_biholo}
+	Sei \(f:\C\longarrow \C\) eine biholomorphe Funktion. Dann ist \(f\) linear. Das heißt, es existieren \(a,b\in\C\) mit \(a\neq 0\), sodass für alle \(z\in\C\) gilt: 
+	\[f(z)=az+b.\] 
+\end{theorem}
+\begin{proof}
+	\cref{lemma_entire_biholo_polynomial} liefert uns, dass \(f\) ein nicht-konstantes Polynom ist. Es bleibt also zu zeigen, dass \(n:=\deg f =1\) ist. Nach dem Fundamentalsatz der Algebra besitzt \(f\) genau \(n\) Nullstellen. Diese müssen aber alle identisch sein, da \(f\) injektiv ist. Bis auf eine lineare Transformation können wir annehmen, dass für alle \(z\in \C\) gilt: \[f(z)=z^n.\]
+	Es ist bekannt, dass die Gleichung \(z^n=c\) für alle \(c\in\C^\ast\) genau $n$ verschiedene Lösungen in \(\C\) besitzt. Also muss \(n=1\) sein, da \(f\) injektiv ist. Die Behauptung folgt, da wir eine lineare Transformation durchgeführt haben.
+\end{proof}

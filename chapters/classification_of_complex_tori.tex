@@ -1,0 +1,97 @@
+\section{Klassifikation komplexer Tori}
+Wir sind jetzt endlich in der Lage, die Fragestellung der Arbeit zu beantworten.
+
+\begin{theorem}[biholomorphe komplexe Tori]
+	Seien \(\Lambda,\Gamma\) zweidimensionale Gitter und \(T:=\C/\Lambda, S:=\C/\Gamma\) die zugehörigen komplexen Tori. Dann gibt es eine biholomorphe Abbildung 
+	\(f:T\xrightarrow{\sim} S\), genau dann wenn es ein \(a\in \C\) gibt, sodass \[a\Lambda=\Gamma.\] 
+\end{theorem}
+\begin{idea}
+	Wir führen jetzt alle bisherigen Resultate zusammen. Für die Implikation \enquote{\(\implies\)} verwenden wir die Tatsache, dass die Projektionsabbildung eine Überlagerung ist, um eine biholomorphe Abbildung zwischen den Tori hochzuheben.
+	Dann liefert uns \cref{theorem_entire_biholo}, dass die Funktion linear ist. 
+\end{idea}
+\begin{proof}
+	Wir bezeichnen die Projektionsabbildungen mit \(p:\C\longarrow T\), \(p':\C\longarrow S\).
+	
+
+	\enquote{\(\implies\):} 
+	Sei \(f: T \arrow S\) biholomorph. Bis auf biholomorphe Translation dürfen wir annehmen, dass 
+	\(f(p(0)) = p'(0)\) gilt.
+	
+	Da die Fundamentalgruppe von \(\C\) trival ist, liefert uns \cref{theorem_map_lifting} eine Hochhebung \(\tilde{f}:\C\longarrow \C\) der Verkettung \(f\circ p\) mit $\tilde{f}(0) = 0$, sodass folgendes Diagramm kommutiert:
+	\begin{equation*}
+	\begin{tikzcd}
+		\C 
+		\ar[d,"p"] 
+		\ar[r, "\tilde{f}", dashed] 
+		& \C
+		\ar[d,"p'"]
+		\\ 
+		T 
+		\ar[r,"f"] 
+		& S
+	\end{tikzcd}
+	\end{equation*}
+
+	Analog erhalten wir eine Hochhebung $\tilde{g}$ der Verkettung $f^{-1} \circ p'$ mit $\tilde{g}(0) = 0.$ 
+
+	\begin{claim}
+		Die Hochhebungen \(\tilde{f}\) und \(\tilde{g}\) sind holomorph.
+	\end{claim}
+	\begin{proofofclaim}
+		\cref{theorem_complex_quotient_manifold} liefert uns, dass die Projektionsabbildung lokal biholomorph ist. Per Konstruktion der Hochhebung gibt es an jeder Stelle geeignete Umgebungen $U$ und $V$, sodass \[\tilde{f}_{|U}={p'_V}^{-1}\circ f\circ p_U\] durch Komposition biholomorph ist. Analoges gilt für $\tilde{g}.$ 
+		Da Holomorphie eine lokale Eigenschaft ist, folgt die Behauptung.
+	\end{proofofclaim}
+
+	\begin{claim}
+		 Es gilt also \(\tilde{g} \circ \tilde{f} = \id = \tilde{f} \circ \tilde{g}. \) Die beiden Hochhebungen sind also zueinander invers.
+	\end{claim}
+	\begin{proofofclaim}
+		Es gilt nach Konstruktion, dass 
+		\begin{align*}
+			p \circ (\tilde{g} \circ \tilde{f}) 
+			&= (p \circ \tilde{g}) \circ \tilde{f} \\
+			&= (f^{-1} \circ p') \circ \tilde{f} \\
+			&= f^{-1} \circ (p' \circ \tilde{f}) \\
+			&= f^{-1} \circ (f \circ p) \\
+			&= (f^{-1} \circ f) \circ p \\
+			&= p = p \circ \id_{\C}.
+		\end{align*}
+		Das heißt, dass sowohl \(\tilde{g} \circ \tilde{f}\) als auch die Identität Hochhebungen entlang $p$ der Abbildung $p$ selbst sind. 
+		In beiden Fällen wird die Null zur Null hochgehoben. Analog kann für \(\tilde{f} \circ \tilde{g}\) argumentiert werden. Die Eindeutigkeit von Hochhebungen zum selben Anfangswert liefert dann die Behauptung.
+	\end{proofofclaim}
+
+
+	\cref{theorem_entire_biholo} liefert uns jetzt komplexe Zahlen \(a,b\in\C\) mit \(a\neq 0\), sodass für alle \(z\in \C\) gilt, dass
+	\(\tilde{f}(z)=az+b.\) Per Konstruktion gilt \(\tilde{f}(0) = 0\) und \(\tilde{g}(0) = 0.\) Also folgt \(b= 0\) und damit für alle \(z \in \C\), dass 
+	\[
+		\tilde{f}(z) = az \quad \text{und} \quad  
+		\tilde{g}(z) = a^{-1} z.
+	\]
+	Aus der Kommutativität des obigen Diagramms folgt für ein \(\lambda\in \Lambda\), dass
+	\[p' (a\lambda) = p'\circ\tilde{f}(\lambda)=f\circ p (\lambda)=f(0)=0.\]
+	Also ist \(a\lambda \in \Gamma.\) Umgekehrt sei \(\gamma\in\Gamma.\) Dann gilt
+	\[p(a^{-1}\gamma)=p \circ \tilde{g}(\gamma)=f^{-1}\circ  p' (\gamma)=f^{-1}(0)=0.\]
+	Also existiert ein \(\lambda\in \Lambda\), sodass \(a^{-1}\gamma = \lambda\), was äquivalent ist zu \(\gamma=a\lambda\in a\Lambda.\) Da \(\lambda\) und \(\gamma\) beliebig waren, folgt \[a\Lambda=\Gamma.\]  
+
+	\enquote{\(\impliedby\):} Sei \(a \in \C \setminus \{0\},\) sodass \(a \Lambda = \Gamma.\)Wir betrachten die biholomorphe Abbildung 
+	\[\tilde{f}:\C\longarrow\C,\quad z\mapsto az.\]
+	Ihre Inverse bezeichnen wir wieder mit \(\tilde{g}.\)
+	Außerdem definieren wir \[f:T\longarrow S,\quad p(z)\mapsto p'\circ\tilde{f}(z)=p'(az).\]
+	und analog 
+	\[g:S\longarrow T,\quad p'(z)\mapsto p\circ\tilde{g}(z)=p(a^{-1}z).\]
+
+	Man sieht leicht, dass $f$ und $g$ zueinander invers sind.
+	\begin{claim}
+		\(f\) und \(g\) sind wohldefiniert.
+	\end{claim}
+	\begin{proofofclaim}
+		Seien \(z,z'\in\C\) mit \(p(z)=p(z')\). Dann  gibt es ein \(\lambda\in\Lambda\) mit \(z'= z+\lambda\). Nach Voraussetzung gibt es ein \(\gamma\in\Gamma\), sodass \(a\lambda=\gamma\). Daraus folgt:
+		\[f(p(z'))=p'(az')=p'(a(z+\lambda))=p'(az+a\lambda)=p'(az + \gamma)=p'(az)=f(p(z)).\]
+	\end{proofofclaim}
+	
+	Die Karten im kanonischen Atlas von \(T\) und \(S\) sind per Konstruktion lokale Inverse der Projektionsabbildungen. Wir bezeichnen diese wie üblich mit dem Buchstaben \(q\). Wählen wir geeignete Karten, ergibt sich an beliebigen Stellen lokal (auf Details wird an dieser Stelle verzichtet)
+	\[q'\circ f\circ p=q'\circ p'\circ \tilde{f}=\tilde{f}.\]
+	Damit ist \(f\) per Definition überall lokal -- und damit global -- biholomorph. Das Argument für \(g\) verläuft analog.
+\end{proof}
+
+\pagebreak
