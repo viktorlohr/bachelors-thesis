@@ -1,0 +1,109 @@
+\section{komplexe Mannigfaltigkeiten}
+Wir sind jetzt in der Lage, den Begriff der \emph{komplexen Mannigfaltigkeit} zu definieren. 
+\begin{definition}[komplexe Mannigfaltigkeit und Struktur]
+	Eine \emph{komplexe Mannigfaltigkeit} \(M\) ist eine (topologische) Mannigfaltigkeit, für die folgende weitere Bedingungen gelten:
+	\begin{enumerate}[(a)]
+		\item \(M\) ist lokal homöomorph zu offenen Teilmengen des \(\C^n \cong \R^{2n}.\)
+		\item Die Kartenwechsel sind biholomorph. 
+	\end{enumerate}
+	Ist \(\mathcal{A}\) ein Atlas von \(M\), sodass alle Kartenwechsel von Karten in \(\mathcal{A}\) biholomorph sind, heißt dieser \emph{komplexer Atlas}. Zwei komplexe Atlanten von $M$ heißen \emph{äquivalent}, falls ihre Vereinigung immer noch ein komplexer Atlas ist. Eine \emph{komplexe Struktur} ist die Vereinigung aller zu diesem Atlas äquivalenten Atlanten. 
+\end{definition}
+
+\begin{convention}
+    Wir sagen nicht immer explizit, welche Dimension eine (komplexe) Mannigfaltigkeit hat, wenn sie beliebig sein kann. Wir notieren die Dimensionen meist implizit mit den Buchstaben \(n,m\) oder \(d\).
+\end{convention}
+
+
+Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit konstruieren. Das folgende Lemma garantiert, dass es genügt, nur mit Karten aus diesem Atlas zu arbeiten.
+
+
+
+\subsection{holomorphe Abbildungen}
+Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Kartenabbildungen auf komplexe Mannigfaltigkeiten übertragen.
+
+\begin{convention} [Definitionsbereich]
+    Wir nehmen immer an, dass unsere betrachteten Mannigfaltigkeiten bezüglich der jeweiligen Toplogie offen sind. Man kann sich leicht überlegen, dass jede offene Teilmenge einer (komplexen) Mannigfaltigkeit selbst eine (komplexe) Mannigfaltigkeit (der gleichen Dimension) ist. Wir schreiben deshalb ohne Einschränkung \[f:M\longarrow N\] für eine Abbildung komplexer Mannigfaltigkeiten und ersetzen \(M\) ggf. durch die offene Teilmenge, auf der \(f\) definiert ist.
+\end{convention}
+
+\begin{definition}
+    Eine stetige Abbildung \(f: M \rightarrow N\) zwischen komplexen Mannigfaltigkeiten heißt \emph{holomorph}, falls für alle Karten \((U,\phi)\), \((V,\psi)\) von \(M\) bzw. \(N\) mit \(f(U)\subseteq V\) die Abbildung
+    \[\psi \circ f \circ \phi^{-1} : \phi(U)\longrightarrow \psi (V)\]
+    holomorph ist. \(f\) heißt \emph{biholomorph}, wenn sie bijektiv ist und ihr Inverses holomorph ist.
+\end{definition}
+
+\begin{lemma} [\enquote{ein Atlas reicht}] \label{lemma_single_atlas_enough}
+	Sei \(\mathcal{\overline{A}}\) eine komplexe Struktur auf einer komplexen Mannigfaltigkeit \(M\). Außerdem sei \(\mathcal{A}\subseteq \mathcal{\overline{A}}\) ein Atlas, der eine Teilmenge dieser Struktur ist. Dann genügt es -- bis auf Komposition mit einer biholomorphen Abbildung -- nur Karten aus \(\mathcal{A}\) zu betrachten.
+\end{lemma}
+\begin{proof}
+	Sei \((U,\phi)\in \mathcal{\overline{A}}\) beliebig. Da \(\mathcal{A}\) ein Atlas ist, gibt es Karten \((V_i,\psi_i)\in\mathcal{A}\), \(i\in I\), sodass die Mengen \(V_i\) die Menge $U$ überdecken. Per Definition sind die Kartenwechsel
+	\[ \psi_i \circ \phi^{-1}: \phi(U \cap V_i) \rightarrow \psi_i (U \cap V_i) \]
+	biholomorph. Also gilt auf \(U\cap V_i\) für alle \(i\in I\), dass
+	\[\psi_i= \psi_i \circ (\phi^{-1} \circ \phi)=(\psi_i \circ \phi^{-1}) \circ \phi \]
+	Damit unterscheidet sich \(\phi\) bis auf Komposition mit einer biholomorphen Abbildung nicht von den Kartenabbildungen \(\Psi_i\) aus \(\mathcal{A}.\)
+\end{proof}
+
+\begin{lemma}[Karten sind holomorph] \label{lemma_chart_holomorphic}
+    Sei \(M\) eine komplexe Mannigfaltigkeit und \((U,\phi)\) eine Karte von \(M.\) Dann ist $\phi$ eine holomorphe Abbildung.
+\end{lemma}
+\begin{proof}
+    Wegen \myref{lemma_single_atlas_enough} genügt es für die komplexen Mannigfaltigkeiten \(U\) und \(\C^n\) nur die Atlanten $\{(U,\phi)\}$ bzw.  \(\{(\C^n, \id_{\C^n})\}\) zu betrachten. Die Behauptung folgt dann direkt per Definition, da die Abbildung
+    \begin{equation*}
+        \id_{\C^n} \circ \phi \circ \phi^{-1} = \id_{\C^n} : \phi(U) \longarrow \C^n
+    \end{equation*}
+    trivialerweise holomorph ist.
+\end{proof}
+
+\begin{lemma}[Kettenregel für Mannigfaltigkeiten]
+    Seien \(f:M\rightarrow N\) und \(g:N\rightarrow L\) holomorphe Abbildungen zwischen komplexen Mannigfaltigkeiten. Dann ist auch \[g\circ f:M\rightarrow L\]
+    holomorph.
+\end{lemma}
+\begin{proof}
+    Seien \((U,\phi),(W,\theta)\) Karten von \(M\) bzw. \(L\) mit \(g(f(U))\subseteq W.\) Dann gibt es -- nach geeigneten Schnitten -- eine offene Überdeckung \(\mathcal{V}\) von \(f(U)\) und Karten \((V,\psi)\) mit \(V\in\mathcal{V}\), sodass 
+		\[g^{-1}(W) \supseteq \bigcup_{V\in\mathcal{V}}V \supseteq f(U).\]
+
+    Sei \((V,\psi)\) eine solche Karte und setze $U_V:=U\cap f^{-1} (V)$. Dann ist die Abbildung
+    \[\theta (g f) \phi^{-1} = \theta  g  (\psi^{-1} \psi) f \phi^{-1} = (\theta  g  \psi^{-1}) (\psi f \phi^{-1}): \phi(U_V) \longarrow \theta(W)\] nach Voraussetzung eine Komposition holomorpher Abbildungen. Wegen \(\bigcup_{V\in\mathcal{V}} U_V = U\) und da Holomorphie eine lokale Eigenschaft ist, liefert \myref{chainrule} die Behauptung.
+\end{proof}
+
+
+
+\subsection{komplexe Quotientenmannigfaltigkeiten}
+\begin{definition}
+	Eine Gruppe \(G\) operiere auf einer Mannigfaltigkeit \(M\). Die Operation heißt \emph{holomorph}, falls die Translationsbbildung \[\tau_g :M\longrightarrow M, m\mapsto gm\]für alle \(g\in G\) holomorph ist.
+\end{definition}
+
+\begin{theorem} [komplexe Quotientenmannigfaltigkeit] \label{theorem_complex_quotient_manifold}
+    Falls in \myref{proposition_topological_quotient_manifold} zusätzlich gefordert wird, dass \(M\) eine komplexe Mannigfaltigkeit und die Gruppenoperation holomorph ist, gilt:
+    \begin{enumerate}
+        \item Die Kartenwechsel eines kanonischen Atlas' für \(M/G\) sind biholomorph. Insbesondere ist \(M/G\) eine komplexe Mannigfaltigkeit.
+        \item Die Projektionsabbildung ist lokal biholomorph.
+    \end{enumerate}
+\end{theorem}
+\begin{proof}
+	\begin{enumerate}
+	\item Wir benutzen wieder die im vorherigen Kapitel verwendeten Bezeichnungen für die lokalen Projektionsabbildungen und deren Inverse. Eine beliebige Karte in \(\mathcal{M}/G\) hat die Form \((p(U), \Phi q_U),\) wobei \(U\) eine einsame Umgebung in \(\mathcal{M}\) und \((U, \Phi)\) eine Karte von \(\mathcal{M}\)  ist. Sei \((p(V), \Psi q_V)\) eine weitere solche Karte von \(\mathcal{M}/G\), sodass 
+	\begin{equation*}
+		p(U) \cap p(V) \neq \emptyset.
+	\end{equation*}
+	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung an, dass \(p(U) = p(V)\) ist. (Ersetze \(U\) und \(V\) jeweils durch die Urbilder des Schnitts)
+	Dann folgt aus \cref{qp=tau} in  \cref{lemma_quotient_is_hausdorff} für ein \(g\in G\) und die zugehörige Translationsabbildung \(\tau_g\), dass
+	\begin{equation*}
+		\Psi q_V (\Phi q_U )^{-1}
+		= \Psi q_V p_U \Phi^{-1}
+		= \Psi \tau_g \Phi^{-1}.
+	\end{equation*}
+	 Diese Abbildung ist wegen der Forderung, dass \(G\) holomorph operiert und wegen \cref{lemma_chart_holomorphic} selbst holomorph. Die inverse Translation \(\tau_{g^{-1}}\) ist nach Voraussetzung auch wieder holomorph. Dasselbe gilt für die Inversen der Kartenabbildungen. Damit ist der Kartenwechsel biholomorph.
+	
+
+	\item Sei \((U,\Phi)\) eine beliebige Karte von \(M\). Da \(\mathcal{M}\) von einsamen Mengen überdeckt wird, dürfen wir ohne Einschränkung annehmen, dass \(U\) einsam ist. Wegen \cref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\Phi q_U)\) in \(M/G\) betrachten. Dann gilt
+	\[(\Phi q_U) p_U \Phi^{-1}=\Phi q_U p_U \Phi^{-1}=\id_{\C^n}.\]
+	Per Definition ist \(p_U\) damit holomorph. Die selbe Gleichung zeigt, dass \(q_U\) holomorph ist, da \((\Phi q_U)^{-1}=p_U \Phi^{-1}\).
+	\end{enumerate}
+\end{proof}
+
+\begin{corollary}[komplexer Torus]
+	Für ein zweidimensionales Gitter $\Lambda$ ist der \emph{komplexe Torus} \(\C / \Lambda\) eine komplexe Quotientenmannigfaltigkeit.
+\end{corollary}
+\begin{proof}
+	Da Translation holomorph ist, operiert \(\Lambda\) holomorph auf \(\C.\) Der Rest folgt aus \cref{theorem_complex_quotient_manifold} und \cref{lemma_lattice_acts_properly}.
+\end{proof}
