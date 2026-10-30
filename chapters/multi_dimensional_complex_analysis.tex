@@ -1,12 +1,14 @@
 \section{Holomorphie in mehreren Veränderlichen}
 Wie anfangs beschrieben, fassen wir den Torus in dieser Arbeit als \emph{komplexe} Mannigfaltigkeit auf. Eine komplexe Mannigfaltigkeit ist mit einer \emph{holomorphen Struktur} ausgestattet. Diese ist ganz analog zum Begriff der \emph{differenzierbaren} Struktur im reellen Fall definiert.  
 
-Um also über komplexe Mannigfaltigkeiten im Allgemeinen sprechen zu können, müssen wir erst verstehen, was Holomorphie in höheren Dimensionen bedeutet. Im folgenden Kapitel soll deshalb analog zum reellen Fall ein Differenzierbarkeitsbegriff im \(\C^n\) erarbeitet.
+Um also über komplexe Mannigfaltigkeiten im Allgemeinen sprechen zu können, müssen wir erst verstehen, was Holomorphie in höheren Dimensionen bedeutet. Im folgenden Kapitel soll deshalb analog zum reellen Fall ein Differenzierbarkeitsbegriff im \(\C^n\) erarbeitet werden.
 
 Für den Grenzwert einer Abbildung verwenden wir folgende Definition. Diese wird später sehr nützlich im Beweis der Kettenregel sein.
 
 \begin{definition}[Grenzwert via Folgenkonvergenz] \label{definition_limit}
-	Sei $f: X \rightarrow Y$ eine Abbildung zwischen metrischen Räumen. Außerdem seien \(a\in X\) und \(y\in Y\), sodass für \emph{jede} beliebige Folge $(a_n)_{n\in\N}$ in einer Teilmenge $A\subseteq X$ von \(X\) mit \[\lim_{n\rightarrow\infty} a_n= a\] auch
+	Sei $f: X \rightarrow Y$ eine Abbildung zwischen metrischen Räumen. Außerdem sei \(y\in Y\), sodass für \emph{jede} beliebige Folge $(a_n)_{n\in\N}$ in einer Teilmenge $A\subseteq X$ und ein \(a \in \overline{A}\) mit 
+  \[\lim_{n\rightarrow\infty} a_n= a\]
+  auch
 		\[\lim_{n\rightarrow\infty} f(a_n)=y\]
 	gilt. Wir definieren dann den Grenzwert
 	\[
@@ -51,8 +53,6 @@ Das folgende Lemma soll rechtfertigen, warum wir von \emph{dem} Differential spr
 
 \begin{lemma}[Eindeutigkeit des Differentials]
 
-%TODO: Ersetze ein durch eine andere Restabbildung.
-
 	Die Abbildung $L$ aus \cref{definition_complex_differentiable} ist eindeutig.
 \end{lemma}
 \begin{proof}
@@ -87,7 +87,7 @@ Das folgende Lemma soll rechtfertigen, warum wir von \emph{dem} Differential spr
 		{=}
 		0-0 = 0.
 	\end{align*}
-	Die Abbildung \(L'-L\) bildet also alle von Null verschiedenen Elemente auf Null ab. Als Verknüpfung linearer Abbildung ist sie selbst linear, womit auch auch \((L'-L)(0)=0\) gilt.
+	Die Abbildung \(L'-L\) bildet also alle von Null verschiedenen Elemente auf Null ab. Als Differenz linearer Abbildung ist sie selbst linear, womit auch \((L'-L)(0)=0\) gilt.
 	Daraus folgt $L'-L \equiv 0$ und damit $L'=L$.
 	
 
@@ -101,7 +101,7 @@ Das folgende Lemma soll rechtfertigen, warum wir von \emph{dem} Differential spr
 	\[r(0)=f(a+0)-f(a)-L(0) = f(a)-f(a)-0=0.\]
     Außerdem gilt für $h \in \C^n \setminus \{0\}$:
     \begin{equation*}
-        0 = 0 \cdot 0 = \lim_{h\rightarrow 0} \frac{r(h)}{\Norm{h}} \cdot \lim_{h \arrow 0} \Norm{h} \explainbelow{beide Folgen konvergieren (per Definition)}{=} \lim_{h \arrow 0} \left(\frac{r(h)\cdot \Norm{h}}{\Norm{h}}\right) = \lim_{h \arrow 0} r(h).
+        0 = 0 \cdot 0 = \lim_{h\rightarrow 0} \frac{r(h)}{\Norm{h}} \cdot \lim_{h \arrow 0} \Norm{h} \explainbelow{beide konvergieren (per Definition)}{=} \lim_{h \arrow 0} \left(\frac{r(h)\cdot \Norm{h}}{\Norm{h}}\right) = \lim_{h \arrow 0} r(h).
     \end{equation*}
 \end{proof}
 \begin{corollary}[Stetigkeit holomorpher Abbildungen] \label{lemma_differentiable_implies_continous}
@@ -128,7 +128,7 @@ Das folgende Lemma soll rechtfertigen, warum wir von \emph{dem} Differential spr
 
 Ein zentraler Schritt in dem später folgenden Beweis der Kettenregel wird eine \emph{Einsergänzung} sein. So wird (im reellen, eindimensionalen Fall) auch in vielen Schulbüchern argumentiert. Dabei wird allerdings \emph{mit} Beschränkung der Allgemeinheit angenommen, dass der ergänzte Ausdruck ungleich Null ist. Mithilfe geeigneter Teilfolgen und unserer gewählten \cref{definition_limit} von Grenzwerten kann man das Vorgehen allerdings verallgemeinern. Dazu benötigen wir das folgende, etwas technische Lemma.
 \begin{lemma} [Grenzwert von Teilfolgen ist Grenzwert der Gesamtfolge] \label{limit_subsequences}
-	Seien $(X,d)$ ein metrischer Raum und \((x_n)_{n\in\N}\) eine Folge in $X$. Außerdem seien natürliche Zaheln
+	Seien $(X,d)$ ein metrischer Raum und \((x_n)_{n\in\N}\) eine Folge in $X$. Außerdem seien natürliche Zahlen
 	$i_1 < i_2 < \dots$ und $j_1 < j_2 < \dots$ gegeben, sodass 
 	\begin{equation*}
 		\{i_k \vert k \in\N\} \cup \{j_k \vert k \in\N\} = \N. 
@@ -170,7 +170,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
 	f: U \arrow V$,  $g:V \arrow \C^l$ holomorphe Abbildungen. Sei außerdem $a \in U$.
 	
 	Wir müssen eine lineare Abbildung
-	$L: \C^n \arrow \C^l$ und eine  Abbildung $r: \C^n \arrow \C^l$ mit $\lim_{h \arrow 0}{\frac{r(h)}{\Norm{h}}}=0$ finden, sodass für geeignete $h \in \C^n$ gilt:
+	$L: \C^n \arrow \C^l$ und eine  Abbildung $r: \C^n \ \{a\} \arrow \C^l$ mit $\lim_{h \arrow 0}{\frac{r(h)}{\Norm{h}}}=0$ finden, sodass für geeignete $h \in \C^n$ gilt:
 	\[
 		(g \circ f)(a+h) = (g \circ f)(a) + Lh + r(h)
 	\]
@@ -196,7 +196,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
         \end{equation*}
     \end{claim}
 	\begin{proofofclaim}
-    Wegen der Stetigkeit der Norm ist dieser Ausdruck äquivalent zu
+    Wegen der Stetigkeit der Norm ist dieser Ausdruck -- falls der Grenzwert existiert -- äquivalent zu
 	\begin{equation*}  
         \lim_{h \arrow 0}\Norm{{\frac{r(h)}{\Norm{h}}}}
 		{=} \Norm{\lim_{h \arrow 0}{\frac{r(h)}{\Norm{h}}}}=0  .
@@ -220,7 +220,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
 
     \begin{claim} [zweiter Summand \(\rightarrow 0\)] \label{chainrule_limit_second_summand}
         \begin{equation*} 
-        \lim_{h \arrow 0}{\frac{t(\eta(h))}{\Norm{h}}} = 0, 
+        \lim_{h \arrow 0}{\frac{t(\eta(h))}{\Norm{h}}} = 0.
         \end{equation*}
     \end{claim}
     \begin{proofofclaim}
@@ -230,7 +230,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
     \]
     ist. Sei nun $(h_i)_{i \in \N}$ eine solche Nullfolge. Wir machen eine Fallunterscheidung:
     \begin{enumerate}
-        \item  Es gibt nur endlich viele \(i\in\N\), sodass \(\eta (h_i)\neq 0.\) Dann gibt es ein $N \in \N$, sodass alle für alle $i \geq N$ alle Folgenglieder $\eta(h_i)$ = 0 sind. Es folgt:
+        \item  Es gibt nur endlich viele \(i\in\N\), sodass \(\eta (h_i)\neq 0\) ist. In diesem Fall gibt es ein $N \in \N$, sodass alle für alle $i \geq N$ alle Folgenglieder $\eta(h_i)$ = 0 sind. Es folgt:
         \begin{equation*}
             \lim_{i \arrow \infty} \frac{t(\eta(h_i))}{\Norm{h_i}} = 
             \lim_{\substack{i \arrow \infty \\ i \geq N}} \frac{t(\overbrace{\eta(h_i)}^{= 0 ~ \forall i \geq N})}{\Norm{h_i}} = 
@@ -241,7 +241,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
 	In Vorbereitung für den nächsten Fall machen wir zunächst folgende Beobachtung für alle $h \in \C^n \setminus \{0\}$:
         \begin{equation*}
            0 \leq \Norm{\frac{Df(a){h}}{\Norm{h}}}\explainabove{Differential linear}{=} \Norm{Df(a) \frac{h}{\Norm{h}}} {\leq}
-            \sup {\{\Norm{Df(a)z}:\Norm{z}=1 \}}=: C  .
+            \underbrace{\sup {\{\Norm{Df(a)z}:\Norm{z}=1 \}}}_{=: C}  .
         \end{equation*}
         Weiter stellen wir fest:
         \begin{equation} \label{eta_Nullsequence}
@@ -251,7 +251,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
 	
 
 	\begin{enumerate}[resume]
-        \item Es gibt nur endlich viele \(i\in\N\), sodass \(\eta (h_i)=0\) ist. Dann gibt es ein $N \in \N$, sodass für alle $i \geq N$ alle Folgenglieder $\eta(h_i) \neq 0$ sind. Wir dürfen also für $i \geq N$ folgende Einsergänzung machen:
+        \item Es gibt nur endlich viele \(i\in\N\), sodass \(\eta (h_i)=0\) ist. In diesem Fall gibt es ein $N \in \N$, sodass für alle $i \geq N$ alle Folgenglieder $\eta(h_i) \neq 0$ sind. Wir dürfen also für $i \geq N$ folgende Einsergänzung machen:
 
         \begin{equation} \label{chainrule_monster}
             \begin{aligned}
@@ -282,13 +282,14 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
                 \Big)
             \end{aligned} 
         \end{equation} 
-        Der linke und der rechte Term gehen gegen Null für $i \arrow \infty$. Denn sowohl $(h_i)_{i\in \N}$ als auch $(\eta(h_i))_{i\in\N}$, wie in \cref{eta_Nullsequence} gezeigt wurde, sind Nullfolgen. Es folgt mit den Grenzwertsätzen und \cref{chainrule_monster}:
+        Der linke und der rechte Term gehen gegen Null für $i \arrow \infty$. Denn sowohl $(h_i)_{i\in \N}$ als auch $(\eta(h_i))_{i\in\N}$, wie in \cref{eta_Nullsequence} gezeigt wurde, sind Nullfolgen. 
+        Der mittlere Term kann durch \(C\) nach unten abgeschätzt werden. Auf diese Abschätzung sind die Grenzwertsätze anwendbar und es folgt \cref{chainrule_monster}:
         \begin{equation*}
             \lim_{i \arrow \infty}{\frac{\Norm{t(\eta(h_i))}}{\Norm{h_i}}} = \lim_{\substack{i \arrow \infty \\ i \geq N}}{\frac{\Norm{t(\eta(h_i))}}{\Norm{h_i}}} \leq 0 \cdot (C+0) = 0.
         \end{equation*}
         \item \emph{Es gibt jeweils unendlich viele Folgenglieder, die gleich Null bzw. nicht Null sind}.
 	
-		Wir wollen diesen Fall auf die beiden obigen Fälle zurückführen, indem wir die Folge aufspalten.
+		Wir können diesen Fall auf die beiden obigen Fälle zurückführen, indem wir die Folge aufspalten.
         Es existieren jetzt Teilfolgen \((\eta(h_{i_k}))_{k\in \N}\) und \((\eta(h_{j_k}))_{k \in \N}\), welche alle Folgenglieder von $(\eta{(h_i))_{i \in \N}}$ enthalten, die Null bzw. Nicht-Null sind. Die beiden Teilfolgen erfüllen also die Voraussetzungen des ersten bzw. zweiten Falles. Da sie zusammen alle Folgenglieder von $(\eta(h_i))_{i \in \N}$ enthalten, folgt mit \myref{limit_subsequences}:
 		\begin{equation*}
 			\lim_{i \arrow \infty}{\frac{t(\eta{(h_i)})}{\Norm{h_i}}} = \lim_{k \arrow \infty}{\frac{t(\eta(h_{i_k}))}{\Norm{h_{i_k}}}}=
