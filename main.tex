@@ -1,47 +1,10 @@
 \documentclass[11pt, oneside]{article}  			
 \input{preamble.tex}
-% === TITELBLATT-DEFINITION ===
-\usepackage{titlesec} % für elegante Überschriften
 
-% Titelblatt-Layout
-\newcommand{\makemytitle}{
-	\begin{titlepage}
-			\centering
-			% --- Logo oben ---
-			% Falls du ein Uni-Logo hast:
-			% \includegraphics[width=0.3\textwidth]{logo.pdf}\par\vspace{1cm}
-			
-			% --- Haupttitel ---
-			{\Huge\bfseries \color{black} Klassifikation komplexer Tori \par}
-			\vspace{1cm}
-			% {\Large\itshape Eine geometrische und topologische Perspektive\par}
-			\vfill
-			
-			% --- Untertitel / Typ der Arbeit ---
-			{\large\bfseries Bachelorarbeit im Fach Mathematik\par}
-			\vfill
-			
-			% --- Autor / Betreuer / Datum ---
-			\begin{tabular}{rl}
-			\textbf{Autor:} & Viktor Lohr \\[0.3cm]
-			\textbf{Matrikelnummer:} & 1234567 \\[0.3cm]
-			\textbf{Betreuung:} & Prof. Dr. Stefan Friedl \\[0.3cm]
-			\textbf{Institut:} & Fakultät für Mathematik\\[0.3cm]
-			\textbf{Universität:} & Universität Regensburg \\[0.3cm]
-			\textbf{Abgabedatum:} & 1. April 2026 \\
-			\end{tabular}
-			
-			\vfill
-	\end{titlepage}
-}
-
-\setcounter{section}{-1}
+\includeonly{chapters/quotient_manifolds}
 
 \begin{document}
-
-\makemytitle
-
-
+\include{title_page.tex}
 \include{chapters/introduction}
 \tableofcontents
 \include{chapters/conventions}
@@ -52,5 +15,4 @@
 \include{chapters/one_dimensional_complex_analysis}
 \include{chapters/classification_of_complex_tori}
 \include{chapters/appendix}
-
 \end{document}
