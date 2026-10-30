@@ -79,7 +79,7 @@ Wir werden im Folgenden mithilfe spezieller Gruppenoperationen eine Äquivalenzr
 	\begin{enumerate}
 		\item Es gilt \(x =ex \) und damit Reflexivität.
 		\item \(y=gx\) gilt genau dann, wenn \(x=g^{-1}y\). Daraus folgt Symmetrie.
-		\item Es gelte \(y=gx\) und \(z=hy\). Also ist \(z=(hg)x.\) Damit gilt auch Transitivität
+		\item Es gelte \(y=gx\) und \(z=hy\). Also ist \(z=(hg)x.\) Damit gilt auch Transitivität.
 	\end{enumerate}
 	Außerdem gilt \[p(x) = \{y\in X\mid \exists_{g\in G} y=gx\} = Gx.\]
 \end{proof}
@@ -163,7 +163,7 @@ Eine Gruppe \(G \) operiere jetzt stetig auf \(X.\)
 \end{notation}
 
 \begin{proposition}[\(X/G\) Hausdorff, \(p\) lokal bijektiv, \enquote{$pq=\tau$} ] \label{lemma_quotient_is_hausdorff}
-	Sei \(G\) eine Gruppe, die auf einem Hausdorffraum \(X\) stetig und eigentlich operiert. Seien \(x,y\in X\).
+	Sei \(G\) eine Gruppe, die auf einem lokal-zusammenhängenden Hausdorffraum \(X\) stetig und eigentlich operiert. Seien \(x,y\in X\).
 	\begin{enumerate}
         \item \label{lemma_quotient_is_hausdorff_a}Es gibt Umgebungen \(U,V\subseteq X\) von \(x\) bzw. \(y\), sodass für alle \(g\in G\) mit \(gx\neq y\) gilt: 
         \[gU\cap V = \emptyset.\]
@@ -207,7 +207,7 @@ Eine Gruppe \(G \) operiere jetzt stetig auf \(X.\)
 	Die Projektionsabbildung ist nach \cref{lemma_projection_map_open} offen. Damit sind \(p(U)\) und \(p(V)\) Umgebungen um \(p(x)\) bzw. \(p(y) \). Da \(x,y \) beliebig waren und \(p\) surjektiv ist, folgt die Behauptung aus der letzten Zwischenbehauptung.
 	
 	\item  Wir betrachten den Fall \(y=x\). Ohne Einschränkung\footnote{%
-        Ersetze \(U\) durch \(U\cap V\). Sie ist dann immer noch eine Umgebung um \(x\). Wir wählen die kleinste zusammenhängende Komponente von \(U.\) 
+        Ersetze \(U\) durch \(U\cap V\). Sie ist dann immer noch eine Umgebung um \(x\). Wir wählen die zusammenhägende Komponente von \(U,\) die \(x\) enthält. 
     } 
     dürfen wir annehmen, dass \(U\subseteq V\) und dass \(U\) zusammenhängend ist.
 	Dann liefert \cref{lemma_quotient_is_hausdorff_a} für alle \(g\in G\setminus\{e\}\), dass
@@ -240,15 +240,15 @@ Eine Gruppe \(G \) operiere jetzt stetig auf \(X.\)
         \end{equation*}
     \end{claim}
     \begin{proofofclaim}
-        Folgt direkt aus \cref{claim_tau_is_tau_pointwise}. Die Vereinigung ist disjunkt, da \(\tau\) sonst nicht wohldefiniert wäre.
+        Folgt direkt aus \cref{claim_tau_is_tau_pointwise}. Die Vereinigung ist disjunkt, da \(G\) frei operiert.
     \end{proofofclaim}
     Wir beobachten außerdem:
     \begin{claim}
         \(U_g\) ist offen für alle \(g\in G.\)
     \end{claim}
     \begin{proofofclaim}
-        Per Definition gilt \[\tau(U_g)= \{y\in \tau (U) \mid y \in \tau_g (U)\} = \tau(U) \cap \tau_g(U).\]
-        \(\tau\) ist als Komposition von Homöomorphismen selbst einer und insbesondere offen. Die Translationsabbildung ist auch offen. Also ist \(\tau(U_g)\) offen und damit \(U_g = \tau^{-1} (\tau (U_g))\) als Urbild einer stetigen Abbildung offen.
+        Es gilt \[\tau(U_g)= \{y\in \tau (U) \mid y \in \tau_g (U)\} = \tau(U) \cap \tau_g(U).\]
+        Die Abbildung \(\tau\) ist als Komposition von Homöomorphismen selbst einer und insbesondere offen. Die Translationsabbildung ist auch offen. Also ist \(\tau(U_g)\) offen und damit \(U_g = \tau^{-1} (\tau (U_g))\) als Urbild einer stetigen Abbildung offen.
     \end{proofofclaim}
     Es folgt, dass die zusammenhängende, offene Menge \(U\) eine disjunkte Vereinigung offener Teilmengen ist. Das ist nur dann möglich, wenn es höchstens ein \(g\in G\) gibt, sodass \(U_g\neq \emptyset.\) Es folgt \[U = U_g\] und damit die Behauptung.
      
@@ -275,7 +275,7 @@ Eine Gruppe \(G \) operiere jetzt stetig auf \(X.\)
 
     Sei \(x\in M.\) Dann gibt es nach \cref{lemma_quotient_is_hausdorff} eine einsame Umgebung \(U\) von \(x\), sodass $p$ ein lokaler Homöomorphismus ist.
     Da \(M\) eine Mannigfaltigkeit ist, gibt es ohne Einschränkung\footnote{
-        Ggf. müssen wir \(U\) \enquote{verkleinern}, das heißt, ersetze \(U\) durch deren Schnitt mit dem offenen Definitionsbereich von \(\phi\). Dann ist \(U\) \enquote{noch kleiner} als vorher und damit immer noch einsam.
+        Ggf. müssen wir \(U\) \enquote{verkleinern.} Wähle dazu einen Ball um \(\phi(x),\) der in \(\phi(U \cap \phi^{-1}(U))\) und erstze $U$ durch dessen Urbild. Dieses ist immer noch einsam.
         }
     eine Karte \((U,\phi)\) um \(x\). 
     Dann ist die Abbildung
