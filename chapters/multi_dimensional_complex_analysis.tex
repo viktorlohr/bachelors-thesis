@@ -6,7 +6,8 @@ Um also über komplexe Mannigfaltigkeiten im Allgemeinen sprechen zu können, m�
 Für den Grenzwert einer Abbildung verwenden wir folgende Definition. Diese wird später sehr nützlich im Beweis der Kettenregel sein.
 
 \begin{definition}[Grenzwert via Folgenkonvergenz] \label{definition_limit}
-	Sei $f: X \rightarrow Y$ eine Abbildung zwischen metrischen Räumen. Außerdem sei \(y\in Y\), sodass für \emph{jede} beliebige Folge $(a_n)_{n\in\N}$ in einer Teilmenge $A\subseteq X$ und ein \(a \in \overline{A}\) mit 
+	Sei $f: X \rightarrow Y$ eine Abbildung zwischen metrischen Räumen. 
+  Seien außerdem $A \subseteq X, a \in \overline{A}$ und \(y\in Y\), sodass  für \emph{jede} beliebige Folge $(a_n)_{n\in\N}$ in $A$ mit
   \[\lim_{n\rightarrow\infty} a_n= a\]
   auch
 		\[\lim_{n\rightarrow\infty} f(a_n)=y\]
@@ -87,7 +88,8 @@ Das folgende Lemma soll rechtfertigen, warum wir von \emph{dem} Differential spr
 		{=}
 		0-0 = 0.
 	\end{align*}
-	Die Abbildung \(L'-L\) bildet also alle von Null verschiedenen Elemente auf Null ab. Als Differenz linearer Abbildung ist sie selbst linear, womit auch \((L'-L)(0)=0\) gilt.
+	Wegen der Linearität gilt für jedes $z \neq 0$ damit
+$(L'-L)z = \Norm{z}\,(L'-L)\frac{z}{\Norm{z}} = 0$. Als Differenz linearer Abbildung ist sie selbst linear, womit auch \((L'-L)(0)=0\) gilt.
 	Daraus folgt $L'-L \equiv 0$ und damit $L'=L$.
 	
 
@@ -170,7 +172,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
 	f: U \arrow V$,  $g:V \arrow \C^l$ holomorphe Abbildungen. Sei außerdem $a \in U$.
 	
 	Wir müssen eine lineare Abbildung
-	$L: \C^n \arrow \C^l$ und eine  Abbildung $r: \C^n \ \{a\} \arrow \C^l$ mit $\lim_{h \arrow 0}{\frac{r(h)}{\Norm{h}}}=0$ finden, sodass für geeignete $h \in \C^n$ gilt:
+	$L: \C^n \arrow \C^l$ und eine  Abbildung $r: \C^n \arrow \C^l$ mit $\lim_{h \arrow 0}{\frac{r(h)}{\Norm{h}}}=0$ finden, sodass für geeignete $h \in \C^n$ gilt:
 	\[
 		(g \circ f)(a+h) = (g \circ f)(a) + Lh + r(h)
 	\]
@@ -196,18 +198,15 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
         \end{equation*}
     \end{claim}
 	\begin{proofofclaim}
-    Wegen der Stetigkeit der Norm ist dieser Ausdruck -- falls der Grenzwert existiert -- äquivalent zu
-	\begin{equation*}  
-        \lim_{h \arrow 0}\Norm{{\frac{r(h)}{\Norm{h}}}}
-		{=} \Norm{\lim_{h \arrow 0}{\frac{r(h)}{\Norm{h}}}}=0  .
-    \end{equation*}
+    Es genügt zu zeigen, dass $\Norm{\frac{r(h)}{\Norm{h}}} \to 0$, denn
+$x \to 0$ gilt genau dann, wenn $\Norm{x} = d(x,0) \to 0$.
     Aus der Dreiecksungleichung folgt
     \begin{equation} \label{chainrule_triangle_equation}
        0 \leq \Norm{\frac{r(h)}{\Norm{h}}}
 		\leq \Norm{\frac{Dg(f(a))s(h)}{\Norm{h}}} 
 		+ \Norm{\frac{t(\eta(h))}{\Norm{h}}}.
     \end{equation}
-	Im Folgenden werden wir zeigen, dass die Grenzwerte der Summanden gleich Null sind. Dafür genügt es wegen der Stetigkeit und Definitheit der Normabbildung die inneren Terme zu betrachten. Für den ersten Summanden gilt wegen der Linearität des Differentials
+	Im Folgenden werden wir zeigen, dass die Grenzwerte der Summanden gleich Null sind. Das Sandwich-Theorem liefert dann die Behauptung. Wegen der Stetigkeit und Definitheit der Normabbildung genügt es die inneren Terme zu betrachten. Für den ersten Summanden gilt wegen der Linearität des Differentials
     \begin{equation} \label{chainrule_first_summand}
         \begin{aligned}
           \lim_{h\arrow0} \frac{Dg(f(a))s(h)}{\Norm{h}} 
@@ -230,7 +229,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
     \]
     ist. Sei nun $(h_i)_{i \in \N}$ eine solche Nullfolge. Wir machen eine Fallunterscheidung:
     \begin{enumerate}
-        \item  Es gibt nur endlich viele \(i\in\N\), sodass \(\eta (h_i)\neq 0\) ist. In diesem Fall gibt es ein $N \in \N$, sodass alle für alle $i \geq N$ alle Folgenglieder $\eta(h_i)$ = 0 sind. Es folgt:
+        \item  Es gibt nur endlich viele \(i\in\N\), sodass \(\eta (h_i)\neq 0\) ist. In diesem Fall gibt es ein $N \in \N$, sodass für alle $i \geq N$ alle Folgenglieder $\eta(h_i)$ = 0 sind. Es folgt:
         \begin{equation*}
             \lim_{i \arrow \infty} \frac{t(\eta(h_i))}{\Norm{h_i}} = 
             \lim_{\substack{i \arrow \infty \\ i \geq N}} \frac{t(\overbrace{\eta(h_i)}^{= 0 ~ \forall i \geq N})}{\Norm{h_i}} = 
@@ -243,6 +242,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
            0 \leq \Norm{\frac{Df(a){h}}{\Norm{h}}}\explainabove{Differential linear}{=} \Norm{Df(a) \frac{h}{\Norm{h}}} {\leq}
             \underbrace{\sup {\{\Norm{Df(a)z}:\Norm{z}=1 \}}}_{=: C}  .
         \end{equation*}
+
         Weiter stellen wir fest:
         \begin{equation} \label{eta_Nullsequence}
             \lim_{h \rightarrow 0}\eta (h) = \lim_{h\rightarrow 0} \Big( \overbrace{Df(a)h}^{\rightarrow 0}+ \overbrace{s(h)}^{ \mathrlap{\rightarrow 0 \text{ (\cref{lemma_rest_approaches_zero})}}} \Big) = 0.
@@ -283,7 +283,7 @@ Im Folgenden wollen wir jetzt \myref{chainrule} beweisen. Der Beweis ist zugegeb
             \end{aligned} 
         \end{equation} 
         Der linke und der rechte Term gehen gegen Null für $i \arrow \infty$. Denn sowohl $(h_i)_{i\in \N}$ als auch $(\eta(h_i))_{i\in\N}$, wie in \cref{eta_Nullsequence} gezeigt wurde, sind Nullfolgen. 
-        Der mittlere Term kann durch \(C\) nach unten abgeschätzt werden. Auf diese Abschätzung sind die Grenzwertsätze anwendbar und es folgt \cref{chainrule_monster}:
+        Der mittlere Term kann durch \(C\) nach oben abgeschätzt werden. Auf diese Abschätzung sind die Grenzwertsätze anwendbar und es folgt mit \cref{chainrule_monster} und dem Sandwich-Theorem, dass
         \begin{equation*}
             \lim_{i \arrow \infty}{\frac{\Norm{t(\eta(h_i))}}{\Norm{h_i}}} = \lim_{\substack{i \arrow \infty \\ i \geq N}}{\frac{\Norm{t(\eta(h_i))}}{\Norm{h_i}}} \leq 0 \cdot (C+0) = 0.
         \end{equation*}
