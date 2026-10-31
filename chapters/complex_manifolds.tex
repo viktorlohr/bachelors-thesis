@@ -28,28 +28,6 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
     holomorph ist. \(f\) heißt \emph{biholomorph}, wenn sie bijektiv ist und ihr Inverses holomorph ist.
 \end{definition}
 
-Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit konstruieren. Das folgende Lemma garantiert, dass es genügt, nur mit Karten aus diesem Atlas zu arbeiten.
-
-\begin{lemma} [\enquote{ein Atlas reicht}] \label{lemma_single_atlas_enough}
-	Sei \(\mathcal{\overline{A}}\) eine komplexe Struktur auf einer komplexen Mannigfaltigkeit \(M\). Außerdem sei \(\mathcal{A}\subseteq \mathcal{\overline{A}}\) ein Atlas, der eine Teilmenge dieser Struktur ist. Dann genügt es -- bis auf Komposition mit einer biholomorphen Abbildung -- nur Karten aus \(\mathcal{A}\) zu betrachten.
-\end{lemma}
-\begin{proof}
-	Sei \((U,\phi)\in \mathcal{\overline{A}}\) beliebig. Da \(\mathcal{A}\) ein Atlas ist, gibt es Karten \((V_i,\psi_i)\in\mathcal{A}\), \(i\in I\), sodass die Mengen \(V_i\) die Menge $U$ überdecken. Per Definition sind die Kartenwechsel
-	\[ \psi_i \circ \phi^{-1}: \phi(U \cap V_i) \rightarrow \psi_i (U \cap V_i) \]
-	biholomorph. Also gilt auf \(U\cap V_i\) für alle \(i\in I\), dass
-	\[\psi_i= \psi_i \circ (\phi^{-1} \circ \phi)=(\psi_i \circ \phi^{-1}) \circ \phi \]
-	Damit unterscheidet sich \(\phi\) bis auf Komposition mit einer biholomorphen Abbildung nicht von den Kartenabbildungen \(\Psi_i\) aus \(\mathcal{A}.\)
-\end{proof}
-\begin{lemma}[Karten sind holomorph] \label{lemma_chart_holomorphic}
-    Sei \(M\) eine komplexe Mannigfaltigkeit und \((U,\phi)\) eine Karte von \(M.\) Dann sind sowohl $\phi$ als auch \(\phi^{-1}\) holomorphe Abbildungen.
-\end{lemma}
-\begin{proof}
-    Wegen \myref{lemma_single_atlas_enough} genügt es für die komplexen Mannigfaltigkeiten \(U\) und \(\C^n\) nur die Atlanten $\{(U,\phi)\}$ bzw.  \(\{(\C^n, \id_{\C^n})\}\) zu betrachten. Die Behauptung folgt dann, da die die Identität holomorph ist:
-    \begin{equation*}
-        \id_{\C^n} \circ \phi \circ \phi^{-1} = \id_{\C^n} : \phi(U) \longarrow \C^n.
-    \end{equation*}
-    Analog kann man für \(\phi^{-1}\) argumentieren.
-\end{proof}
 
 \begin{lemma}[Kettenregel für Mannigfaltigkeiten] \label{manifold_chainrule}
     Seien \(f:M\rightarrow N\) und \(g:N\rightarrow L\) holomorphe Abbildungen zwischen komplexen Mannigfaltigkeiten. Dann ist auch \[g\circ f:M\rightarrow L\]
@@ -63,6 +41,29 @@ Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit 
     \[\theta (g f) \phi^{-1} = \theta  g  (\psi^{-1} \psi) f \phi^{-1} = (\theta  g  \psi^{-1}) (\psi f \phi^{-1}): \phi(U_V) \longarrow \theta(W)\] nach Voraussetzung eine Komposition holomorpher Abbildungen. Wegen \(\bigcup_{V\in\mathcal{V}} U_V = U\) und da Holomorphie eine lokale Eigenschaft ist, liefert \myref{chainrule} die Behauptung.
 \end{proof}
 
+
+Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit konstruieren. Das folgende Lemma garantiert, dass es genügt, nur mit Karten aus diesem Atlas zu arbeiten.
+
+\begin{lemma} [\enquote{ein Atlas reicht}] \label{lemma_single_atlas_enough}
+	Sei \(\mathcal{\overline{A}}\) eine komplexe Struktur auf einer komplexen Mannigfaltigkeit \(M\). Außerdem sei \(\mathcal{A}\subseteq \mathcal{\overline{A}}\) ein Atlas, der eine Teilmenge dieser Struktur ist. Dann genügt es -- bis auf Komposition mit einer biholomorphen Abbildung -- nur Karten aus \(\mathcal{A}\) zu betrachten.
+\end{lemma}
+\begin{proof}
+	Sei \((U,\phi)\in \mathcal{\overline{A}}\) beliebig. Da \(\mathcal{A}\) ein Atlas ist, gibt es Karten \((V_i,\psi_i)\in\mathcal{A}\), \(i\in I\), sodass die Mengen \(V_i\) die Menge $U$ überdecken. Per Definition sind die Kartenwechsel
+	\[ \psi_i \circ \phi^{-1}: \phi(U \cap V_i) \rightarrow \psi_i (U \cap V_i) \]
+	biholomorph. Also gilt auf \(U\cap V_i\) für alle \(i\in I\), dass
+	\[\psi_i= \psi_i \circ (\phi^{-1} \circ \phi)=(\psi_i \circ \phi^{-1}) \circ \phi. \]
+	Damit unterscheidet sich \(\phi\) bis auf Komposition mit einer biholomorphen Abbildung nicht von den Kartenabbildungen \(\Psi_i\) aus \(\mathcal{A}.\)
+\end{proof}
+\begin{lemma}[Karten sind holomorph] \label{lemma_chart_holomorphic}
+    Sei \(M\) eine komplexe Mannigfaltigkeit und \((U,\phi)\) eine Karte von \(M.\) Dann sind sowohl $\phi$ als auch \(\phi^{-1}\) holomorphe Abbildungen.
+\end{lemma}
+\begin{proof}
+    Wegen \myref{lemma_single_atlas_enough} genügt es für die komplexen Mannigfaltigkeiten \(U\) und \(\C^n\) nur die Atlanten $\{(U,\phi)\}$ bzw.  \(\{(\C^n, \id_{\C^n})\}\) zu betrachten. Die Behauptung folgt dann, da die die Identität holomorph ist:
+    \begin{equation*}
+        \id_{\C^n} \circ \phi \circ \phi^{-1} = \id_{\C^n} : \phi(U) \longarrow \C^n.
+    \end{equation*}
+    Analog kann man für \(\phi^{-1}\) argumentieren.
+\end{proof}
 
 
 \subsection{komplexe Quotientenmannigfaltigkeiten}
@@ -115,3 +116,4 @@ Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit 
 \begin{proof}
 	Da Translation holomorph ist, operiert \(\Lambda\) holomorph auf \(\C.\) Der Rest folgt aus \cref{theorem_complex_quotient_manifold} und \cref{lemma_lattice_acts_properly}.
 \end{proof}
+
