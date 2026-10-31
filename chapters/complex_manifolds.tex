@@ -10,11 +10,8 @@ Wir sind jetzt in der Lage, den Begriff der \emph{komplexen Mannigfaltigkeit} zu
 \end{definition}
 
 \begin{convention}
-    Wir sagen nicht immer explizit, welche Dimension eine (komplexe) Mannigfaltigkeit hat, wenn sie beliebig sein kann. Wir notieren die Dimensionen meist implizit mit den Buchstaben \(n,m\) oder \(d\).
+    Wir sagen nicht immer explizit, welche Dimension eine (komplexe) Mannigfaltigkeit hat, wenn sie beliebig ist. Wir notieren die Dimensionen meist implizit mit den Buchstaben \(n,m\) oder \(d\).
 \end{convention}
-
-
-Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit konstruieren. Das folgende Lemma garantiert, dass es genügt, nur mit Karten aus diesem Atlas zu arbeiten.
 
 
 
@@ -31,6 +28,8 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
     holomorph ist. \(f\) heißt \emph{biholomorph}, wenn sie bijektiv ist und ihr Inverses holomorph ist.
 \end{definition}
 
+Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit konstruieren. Das folgende Lemma garantiert, dass es genügt, nur mit Karten aus diesem Atlas zu arbeiten.
+
 \begin{lemma} [\enquote{ein Atlas reicht}] \label{lemma_single_atlas_enough}
 	Sei \(\mathcal{\overline{A}}\) eine komplexe Struktur auf einer komplexen Mannigfaltigkeit \(M\). Außerdem sei \(\mathcal{A}\subseteq \mathcal{\overline{A}}\) ein Atlas, der eine Teilmenge dieser Struktur ist. Dann genügt es -- bis auf Komposition mit einer biholomorphen Abbildung -- nur Karten aus \(\mathcal{A}\) zu betrachten.
 \end{lemma}
@@ -41,16 +40,14 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 	\[\psi_i= \psi_i \circ (\phi^{-1} \circ \phi)=(\psi_i \circ \phi^{-1}) \circ \phi \]
 	Damit unterscheidet sich \(\phi\) bis auf Komposition mit einer biholomorphen Abbildung nicht von den Kartenabbildungen \(\Psi_i\) aus \(\mathcal{A}.\)
 \end{proof}
-
 \begin{lemma}[Karten sind holomorph] \label{lemma_chart_holomorphic}
     Sei \(M\) eine komplexe Mannigfaltigkeit und \((U,\phi)\) eine Karte von \(M.\) Dann ist $\phi$ eine holomorphe Abbildung.
 \end{lemma}
 \begin{proof}
-    Wegen \myref{lemma_single_atlas_enough} genügt es für die komplexen Mannigfaltigkeiten \(U\) und \(\C^n\) nur die Atlanten $\{(U,\phi)\}$ bzw.  \(\{(\C^n, \id_{\C^n})\}\) zu betrachten. Die Behauptung folgt dann direkt per Definition, da die Abbildung
+    Wegen \myref{lemma_single_atlas_enough} genügt es für die komplexen Mannigfaltigkeiten \(U\) und \(\C^n\) nur die Atlanten $\{(U,\phi)\}$ bzw.  \(\{(\C^n, \id_{\C^n})\}\) zu betrachten. Die Behauptung folgt dann, da die die Identität holomorph ist:
     \begin{equation*}
-        \id_{\C^n} \circ \phi \circ \phi^{-1} = \id_{\C^n} : \phi(U) \longarrow \C^n
+        \id_{\C^n} \circ \phi \circ \phi^{-1} = \id_{\C^n} : \phi(U) \longarrow \C^n.
     \end{equation*}
-    trivialerweise holomorph ist.
 \end{proof}
 
 \begin{lemma}[Kettenregel für Mannigfaltigkeiten]
@@ -81,11 +78,14 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 \end{theorem}
 \begin{proof}
 	\begin{enumerate}
-	\item Wir benutzen wieder die im vorherigen Kapitel verwendeten Bezeichnungen für die lokalen Projektionsabbildungen und deren Inverse. Eine beliebige Karte in \(\mathcal{M}/G\) hat die Form \((p(U), \Phi q_U),\) wobei \(U\) eine einsame Umgebung in \(\mathcal{M}\) und \((U, \Phi)\) eine Karte von \(\mathcal{M}\)  ist. Sei \((p(V), \Psi q_V)\) eine weitere solche Karte von \(\mathcal{M}/G\), sodass 
+	\item Wir benutzen wieder die im vorherigen Kapitel verwendeten Bezeichnungen für die lokalen Projektionsabbildungen und deren Inversen.
+	Wegen \myref{lemma_single_atlas_enough} genügt es nur den kanonischen Atlas des Quotienten zu betrachten, den wir im vorherigen Kapitel konstruiert hatten.
+  Eine beliebige Karte im kanonischen Atlas von \(\mathcal{M}/G\) hat die Form \((p(U), \Phi q_U),\) wobei \(U\) eine einsame Umgebung in \(\mathcal{M}\) und \((U, \Phi)\) eine Karte von \(\mathcal{M}\)  ist. 
+  Sei \((p(V), \Psi q_V)\) eine weitere solche Karte von \(\mathcal{M}/G\), sodass 
 	\begin{equation*}
 		p(U) \cap p(V) \neq \emptyset.
 	\end{equation*}
-	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung an, dass \(p(U) = p(V)\) ist. (Ersetze \(U\) und \(V\) jeweils durch die Urbilder des Schnitts)
+	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung an, dass \(p(U) = p(V)\) ist. (Ersetze \(U\) und \(V\) jeweils durch die lokalen Urbilder des Schnitts)
 	Dann folgt aus \cref{qp=tau} in  \cref{lemma_quotient_is_hausdorff} für ein \(g\in G\) und die zugehörige Translationsabbildung \(\tau_g\), dass
 	\begin{equation*}
 		\Psi q_V (\Phi q_U )^{-1}
@@ -96,7 +96,7 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 	
 
 	\item Sei \((U,\Phi)\) eine beliebige Karte von \(M\). Da \(\mathcal{M}\) von einsamen Mengen überdeckt wird, dürfen wir ohne Einschränkung annehmen, dass \(U\) einsam ist. Wegen \cref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\Phi q_U)\) in \(M/G\) betrachten. Dann gilt
-	\[(\Phi q_U) p_U \Phi^{-1}=\Phi q_U p_U \Phi^{-1}=\id_{\C^n}.\]
+	\[(\Phi q_U) p_U \Phi^{-1}=\Phi q_U p_U \Phi^{-1}=\id_{\Phi(U)}.\]
 	Per Definition ist \(p_U\) damit holomorph. Die selbe Gleichung zeigt, dass \(q_U\) holomorph ist, da \((\Phi q_U)^{-1}=p_U \Phi^{-1}\).
 	\end{enumerate}
 \end{proof}
