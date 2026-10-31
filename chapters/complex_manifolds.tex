@@ -41,13 +41,14 @@ Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit 
 	Damit unterscheidet sich \(\phi\) bis auf Komposition mit einer biholomorphen Abbildung nicht von den Kartenabbildungen \(\Psi_i\) aus \(\mathcal{A}.\)
 \end{proof}
 \begin{lemma}[Karten sind holomorph] \label{lemma_chart_holomorphic}
-    Sei \(M\) eine komplexe Mannigfaltigkeit und \((U,\phi)\) eine Karte von \(M.\) Dann ist $\phi$ eine holomorphe Abbildung.
+    Sei \(M\) eine komplexe Mannigfaltigkeit und \((U,\phi)\) eine Karte von \(M.\) Dann sind sowohl $\phi$ als auch \(\phi^{-1}\) holomorphe Abbildungen.
 \end{lemma}
 \begin{proof}
     Wegen \myref{lemma_single_atlas_enough} genügt es für die komplexen Mannigfaltigkeiten \(U\) und \(\C^n\) nur die Atlanten $\{(U,\phi)\}$ bzw.  \(\{(\C^n, \id_{\C^n})\}\) zu betrachten. Die Behauptung folgt dann, da die die Identität holomorph ist:
     \begin{equation*}
         \id_{\C^n} \circ \phi \circ \phi^{-1} = \id_{\C^n} : \phi(U) \longarrow \C^n.
     \end{equation*}
+    Analog kann man für \(\phi^{-1}\) argumentieren.
 \end{proof}
 
 \begin{lemma}[Kettenregel für Mannigfaltigkeiten]
