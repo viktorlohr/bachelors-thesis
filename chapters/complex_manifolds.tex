@@ -46,7 +46,7 @@ Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Karten
 Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit konstruieren. Das folgende Lemma garantiert, dass es genügt, nur mit Karten aus diesem Atlas zu arbeiten.
 
 \begin{lemma} [\enquote{ein Atlas reicht}] \label{lemma_single_atlas_enough}
-	Eine stetige Abbildung \(f : M \arrow N\) zwischen komplexen Mannigfaltigkeiten ist genau dann holomorph, wenn es Atlanten \(\mathcal{A}\) von \(M\) und \(\mathcal{B}\) von \(N\) gibt, für die die Bedingung aus \myref{definition_holomorphic} gilt. 
+	Eine stetige Abbildung \(f : M \arrow N\) zwischen komplexen Mannigfaltigkeiten ist genau dann holomorph, wenn es Atlanten \(\mathcal{A}\) von \(M\) und \(\mathcal{B}\) von \(N\) in den jeweiligen komplexen Strukturen gibt, für die die Bedingung aus \myref{definition_holomorphic} gilt. 
   Insbesondere muss man die Bedingung nur für diese Atlanten prüfen.
 \end{lemma}
 \begin{proof}
@@ -61,13 +61,13 @@ Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit 
     = (\Psi \theta^{-1}) (\theta
     f \varphi^{-1}) (\varphi \Phi^{-1}).
   \end{equation*}
-  Nach Voraussetzung ist die Abbildung in der Mitte holomorph. Per Definition sind die Kartenwechsel holomorph. Damit folgt die Behauptung aus \myref{manifold_chainrule}. 
+  Nach Voraussetzung ist die Abbildung in der Mitte holomorph. Per Definition sind die Kartenwechsel holomorph. Damit folgt die Behauptung aus der Kettenregel.
 \end{proof}
 \begin{lemma}[Karten sind holomorph] \label{lemma_chart_holomorphic}
     Sei \(M\) eine komplexe Mannigfaltigkeit und \((U,\phi)\) eine Karte von \(M.\) Dann sind sowohl $\phi$ als auch \(\phi^{-1}\) holomorphe Abbildungen.
 \end{lemma}
 \begin{proof}
-    Wegen \myref{lemma_single_atlas_enough} genügt es für die komplexen Mannigfaltigkeiten \(U\) und \(\C^n\) nur die Atlanten $\{(U,\phi)\}$ bzw.  \(\{(\C^n, \id_{\C^n})\}\) zu betrachten. Die Behauptung folgt dann, da die die Identität holomorph ist:
+    Wegen \myref{lemma_single_atlas_enough} genügt es für die komplexen Mannigfaltigkeiten \(U\) und \(\C^n\) nur die Atlanten $\{(U,\phi)\}$ bzw.  \(\{(\C^n, \id_{\C^n})\}\) zu betrachten. Die Behauptung folgt dann, da die Identität holomorph ist:
     \begin{equation*}
         \id_{\C^n} \circ \phi \circ \phi^{-1} = \id_{\C^n} : \phi(U) \longarrow \C^n.
     \end{equation*}
@@ -113,7 +113,7 @@ Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit 
 	 Diese Abbildung ist wegen der Forderung, dass \(G\) holomorph operiert, wegen \myref{lemma_chart_holomorphic} und wegen \myref{manifold_chainrule} selbst holomorph. Die inverse Translation \(\tau_{g^{-1}}\) ist nach Voraussetzung auch wieder holomorph. Dasselbe gilt für die Inversen der Kartenabbildungen. Damit ist der Kartenwechsel biholomorph.
 	
 
-	\item Sei \((U,\Phi)\) eine beliebige Karte von \(M\). Da \(M\) von einsamen Mengen überdeckt wird, dürfen wir ohne Einschränkung annehmen, dass \(U\) einsam ist. Wegen \cref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\Phi q_U)\) in \(M/G\) betrachten. Dann gilt
+	\item Sei \((U,\Phi)\) eine beliebige Karte von \(M\). Da \(M\) von einsamen Mengen überdeckt wird, dürfen wir ohne Einschränkung annehmen, dass \(U\) einsam ist. Wegen \myref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\Phi q_U)\) in \(M/G\) betrachten. Dann gilt
 	\[(\Phi q_U) p_U \Phi^{-1}=\Phi q_U p_U \Phi^{-1}=\id_{\Phi(U)}.\]
 	Per Definition ist \(p_U\) damit holomorph. Die selbe Gleichung zeigt, dass \(q_U\) holomorph ist, da \((\Phi q_U)^{-1}=p_U \Phi^{-1}\).
 	\end{enumerate}
