@@ -14,10 +14,10 @@ Wir betrachten zunächst folgende Definition.
 	Sei \(X\) ein topologischer Raum. Eine \emph{Überlagerung von \(X\)} ist ein topologischer Raum \(\tilde{X}\) zusammen mit einer Abbildung \[p:\tilde{X}\longarrow X,\]
 	sodass gilt:
 	\begin{enumerate}
-		\item Für alle \(x\in X\) existiert eine Umgebung \(U\), sodass das Urbild
+		\item Für alle \(x\in X\) existiert eine Umgebung \(U \subseteq X\), sodass das Urbild
 			\[p^{-1}(U)= \bigsqcup_{i\in J} V^{(i)}\]
 		eine disjunkte Vereinigung offener Mengen \(V^{(i)}\subseteq \tilde{X}\) ist.
-		\item Für alle \(i\in J\) ist die Abbildung \[p_U := p_{\vert U}: U \longarrow V^{(i)}\]  Homöomorphismus. Wir bezeichnen ihre inverse Abbildung häufig als \emph{lokale Inverse}.
+		\item Für alle \(i\in J\) ist die Abbildung \[p_{V^{(i)}} := p_{\vert V^{(i)}}: V^{(i)} \longarrow U \] ein Homöomorphismus. Wir bezeichnen ihre inverse Abbildung häufig als \emph{lokale Inverse}.
 	\end{enumerate}
 	Wir nennen die Umgebung \(U\) in diesem Fall \emph{gleichmäßig überlagert} und eine der Mengen \(V^{(i)}\) eine \emph{Kopie} von \(U\).
 \end{definition}
@@ -31,7 +31,7 @@ Innterhalb dieser Arbeit haben wir bereits eine Überlagerung kennengelernt.
 \end{proof}
 
 \begin{definition}[Hochhebung]
-	Seien \(X,Y\) topologische Räume, \(p:\tilde{X}\longarrow X\) eine Überlagerung von \(X\) und \(f:X\longarrow Y\) eine stetige Abbildung. Eine \emph{Hochhebung von \(f\)} ist eine stetige Abbildung \(\tilde{f}:Y\longarrow\tilde{X}\), sodass folgendes Diagramm kommutiert:
+	Seien \(X,Y\) topologische Räume, \(p:\tilde{X}\longarrow X\) eine Überlagerung von \(X\) und \(f:Y\longarrow X\) eine stetige Abbildung. Eine \emph{Hochhebung von \(f\)} ist eine stetige Abbildung \(\tilde{f}:Y\longarrow\tilde{X}\), sodass folgendes Diagramm kommutiert:
 	\begin{equation*}
 		\begin{tikzcd}
 			& 	\tilde{X} \ar[d, "p"] 
