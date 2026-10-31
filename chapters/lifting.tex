@@ -97,7 +97,7 @@ Abbildung
 \begin{equation} \label{proof_path_lifting_qn}
 	q_n:U_n \longarrow V_n,
 \end{equation}
-sodass $q_n(x_{n-1})=\tilde{x}_{n-1}$ und \(p_n \circ q_n = \id_{U_n}\), wobei \(p_n := p_{V_n}\)
+sodass $q_n(x_{n-1})=\tilde{x}_{n-1}$ und \(p_n \circ q_n = \id_{U_n}\), wobei \(p_n := p_{V_n}.\)
 Wir definieren jetzt den nächsten Abschnitt durch
 \[\tilde{\alpha}_n:=q_n \circ \alpha_n.\] 
 
@@ -117,16 +117,22 @@ Wir definieren jetzt die gesamte Hochhebung abschnittsweise:
 \end{equation*}
 Per Konstruktion gilt \(p \circ\tilde{\alpha} = \alpha.\) Außerdem stimmen die Teilabbildungen auf den Randpunkten überein, weswegen \(\tilde{\alpha}\) nicht nur wohldefiniert, sondern auch wegen \myref{lemma_pasting} stetig ist.
 
-Es bleibt noch zu zeigen, dass \(\tilde{\alpha}\) bis auf die Wahl des Anfangspunktes eindeutig ist. 
+Es bleibt noch zu zeigen, dass \(\tilde{\alpha}\) bis auf die Wahl des Anfangspunktes eindeutig ist.
+
 \begin{marked}
 	Die Eindeutigkeit folgt im Wesentlichen daraus, dass es für jeden gewählten Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0)\) genau eine lokale Inverse \(q_0\) von \(p\) mit \(x_0\mapsto \tilde{x}_0\) gibt -- nämlich die selbe, die \(\alpha_0\) hochhebt. Die Behauptung folgt induktiv.
 \end{marked}
-Sei \(\tilde{\beta}\) eine Hochhebung von \(\alpha\), sodass \(\tilde{\beta}(0)=\tilde{x}_0 = \tilde{\alpha}(0).\) Wir notieren wieder \(\beta_i := \beta_{\vert I_i}\). Sei jetzt \(0\leq n \leq N\). Induktiv nehmen wir an, dass für alle \(0\leq i \leq n-1\) bereits \(\tilde{\beta}_i = \tilde{\alpha}_i\) gilt. Da \(t_n \in I_{n-1}\) ist, gilt insbesondere \(\tilde{\beta} (t_{n})=\tilde{\alpha}(t_n)=\tilde{x}_n \in V_n \).\footnote{
+
+Sei \(\tilde{\beta}\) eine Hochhebung von \(\alpha\), sodass \(\tilde{\beta}(0)=\tilde{x}_0 = \tilde{\alpha}(0).\) Wir notieren wieder \(\beta_i := \beta_{\vert I_i}\). 
+Sei jetzt \(1\leq n \leq N\). Induktiv nehmen wir an, dass für alle \(0\leq i \leq n-1\) bereits \(\tilde{\beta}_i = \tilde{\alpha}_i\) gilt. 
+Da \(t_{n-1} \in I_{n-1}\) ist, gilt insbesondere \(\tilde{\beta} (t_{n-1})=\tilde{\alpha}(t_{n-1})=\tilde{x}_{n-1} \in V_n \).%
+\footnote{%
 	Vgl. die Konstruktion von \(\alpha_n\) bei (\ref{proof_path_lifting_qn}) 
-}   Da \(\tilde{\beta}\) per Definition stetig ist, muss das Teilstück \(\tilde{\beta}_n\) in \(V_n\) liegen, da diese die einzige Kopie von \(U_n\), welche \(\tilde{x}_n\) enthält.
+}   
+Da \(\tilde{\beta}\) per Definition stetig ist, muss das zusammenhängende Teilstück \(\tilde{\beta}_n\) in \(V_n\) liegen, da diese die einzige Kopie von \(U_n\), welche \(\tilde{x}_n\) enthält.
 Nach Voraussetzung ist
  \(p\circ \tilde{\beta} = \alpha\),
- und wegen der Beobachtung eben insbesondere
+ und wegen der eben gemachten Beobachtung gilt insbesondere
  \[p\circ \tilde{\beta}_n = p_n\circ \tilde{\beta}_n = \alpha_n.\]
 Anwenden von \(q_n\) auf beiden Seiten liefert
 \[\tilde{\beta}_n = q_n \alpha_n = q_n p \tilde{\alpha}_n = q_n p_n \tilde{\alpha}_n = \tilde{\alpha}_n.\]
