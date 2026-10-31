@@ -215,8 +215,7 @@ eingehen. Dort werden wir mithilfe von Wegen die gesuchte Hochhebung einer Abbil
 \begin{proof}
 \input{drawings/homotopy_lifting}
 Wir bauen auf dem obigen Gedanken auf und wollen im Folgenden einen etwas weniger technischen Beweis liefern, um die Lesbarkeit zu verbessern und die zentrale Idee hervorzuheben. 
-\cref{lemma_lebesgue_number} liefert uns die eben beschriebene Unterteilung von \(I^2\) in kleinere Quadrate. Die Einschränkung von \(H\) auf die linke untere Ecke besitzt eine Hochhebung, nämlich eines der Urbilder \(\tilde{x}_0 \in p^{-1}(x_0)\) von \(x_0\). \cref{lemma_path_lifting} liefert dann, dass der untere und linke Rand des gesamten Quadrates eine eindeutige Hochhebung besitzen.
-  \footnote{
+\cref{lemma_lebesgue_number} liefert uns die eben beschriebene Unterteilung von \(I^2\) in kleinere Quadrate. Die Einschränkung von \(H\) auf die linke untere Ecke besitzt eine Hochhebung, nämlich eines der Urbilder \(\tilde{x}_0 \in p^{-1}(x_0)\) von \(x_0\). \cref{lemma_path_lifting} liefert dann, dass der untere und linke Rand des gesamten Quadrates eine eindeutige Hochhebung besitzen\footnote{%
     Dies stellt sicher, dass in der Folgenden Konstruktion in jedem Fall die linke und untere Kante des neuen Quadrates bereits vorhanden sind.
   }
 Sei jetzt \({\color{Aquamarine} Q:=[t,t']\times[s,s']} \subseteq I^2\) eines der Quadrate in \(I^2\), \(\color{ForestGreen} L\) seine linke und \(\color{OliveGreen} K\) seine untere {Kante}. Außerdem seien \(\color{LimeGreen}{A}\) seine {linke untere Ecke} und \(\color{LimeGreen} a:=H(A)\) dessen Bild in \(X\). 
@@ -230,7 +229,7 @@ Sei \(H(Q)\subseteq {\color{orange}U}\subseteq X\) die gleichmäßig Umgebung, i
   Die in \cref{lemma_path_lifting} gezeigte \textcolor{red}{Eindeutigkeit des Hochhebens von Wegen} impliziert also, dass \(q\circ \alpha\) und \(q\circ \beta\) genau mit den -- per Induktionsvoraussetzung bereits konstruierten -- Hochhebungen der anliegenden Quadrate übereinstimmen müssen.
 \end{marked}
   Also ist 
-\[\tilde{H}_Q := q \circ H_(|Q): Q\longarrow V\]
+\[\tilde{H}_Q := q \circ H_{|Q}: Q\longarrow V\]
 eine geeignete Hochhebung von \(H_{|Q}\), die stetig mit den Hochhebungen der anderen zusammengesetzt werden kann. Damit ist der Induktionsschritt beendet und wir sind fertig.
 \end{proof}
 
