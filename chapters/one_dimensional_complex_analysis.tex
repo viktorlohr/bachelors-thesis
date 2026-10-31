@@ -2,7 +2,7 @@
 
 \subsection{Wiederholung wichtiger Sätze}
 Die folgenden beiden Resultate aus der Funktionentheorie werden ohne Beweis verwendet. Vergleiche beispielsweise \cite{ahlfors}.
-Ein Gebiet ist eine offene, zusammenhängende Menge ist.
+Ein \emph{Gebiet} ist eine offene, zusammenhängende Menge.
 \begin{lemma} [Satz von der Gebietstreue]
 	Sei \(U\subset\C\) ein Gebiet und \(f:U\longarrow \C\) eine nicht konstante holomorphe Funktion. Dann ist \(f(U)\subset \C\) offen.
 \end{lemma}
@@ -10,7 +10,7 @@ Ein Gebiet ist eine offene, zusammenhängende Menge ist.
 	Sei \(U\subset \C\) ein Gebiet und \(z_0\in U\) eine wesentliche Singularität einer holomorphen Funktion \(f:U\setminus\{z_0\}\longarrow \C.\) Dann ist das Bild \(f(U\setminus \{z_0\})\) dicht in \(\C.\)
 \end{lemma}
 
-Wir wollen die beiden Aussagen im Beweis des nächsten Satzes verwenden. Zunächst beweisen wir dazu folgendes Lemma.
+Wir benötigen die Aussagen im Beweis des folgenden Lemmas.
 \begin{lemma} \label{lemma_entire_biholo_polynomial}
 	Sei \(f:\C\longarrow\C\) biholomorph. Dann ist \(f\) ein nicht-konstantes Polynom.
 \end{lemma} 
@@ -18,20 +18,21 @@ Wir wollen die beiden Aussagen im Beweis des nächsten Satzes verwenden. Zunäch
 	Wir betrachten die Funktion \(z\mapsto f(z^{-1})\), welche eine Singularität am Ursprung besitzt. Wie wir gleich einsehen werden, kann diese nicht wesentlich sein. Damit ist der Hauptteil der Laurentreihe von \(g\) endlich. Dieser ist aber genau der Nebenteil von \(f.\)
 \end{idea}
 \begin{proof}
-	Da \(f\) ganz ist, ist sie gleich ihrer Potenzreihenentwicklung um den Ursprung. Also existieren \(a_1,\dots a_n\in\C\), sodass für alle \(z\in\C \) gilt:
+	Da \(f\) ganz ist, ist sie gleich ihrer Potenzreihenentwicklung um den Ursprung. Also existieren \(a_0, a_1, \dots \in\C\), sodass für alle \(z\in\C \) gilt:
 	\[f(z)=a_0+a_1z+a_2z^2+\dots \quad .\]
 	Wir definieren
-	\[g:\C^\ast\longarrow\C, \quad g(z):=f(z^{-1})=a_0+a_1 z^{-1} + a_2 z^{-1} + \dots \quad .\]
+	\[g:\C^\ast\longarrow\C, \quad g(z):=f(z^{-1})=a_0+a_1 z^{-1} + a_2 z^{-2} + \dots \quad .\]
 	Da \(f\) injektiv ist, ist sie und damit auch \(g\) nicht konstant. Das heißt, dass \(g\) eine Singularität am Ursprung besitzt.
 	\begin{claim}
 		Die Singularität ist nicht wesentlich.
 	\end{claim}
 	\begin{proofofclaim}
-		Seien \(U,V\subseteq \C^\ast\) disjunkte offene Mengen, wobei \(U\) eine Umgebung um den Ursprung ist. Angenommen, die Singularität wäre wesentlich. Dann folgt aus Casorati-Weierstraß, dass 
+		Seien \(U,V\subseteq \C^\ast\) disjunkte Gebiete, wobei \(U\) eine punktierte Umgebung um den Ursprung ist.  Angenommen, die Singularität wäre wesentlich. 
+    Dann sagt uns Casorati-Weierstraß, dass \(g(U)\) dicht in \(\C\) liegt. Damit schneidet es das wegen der Gebietstreue (\(g\) ist nicht konstant!) offene und nicht-leere Bild von \(V\) unter \(g.\) Es gilt also
 		\[g(U)\cap g(V)\neq \emptyset.\]
 		Das widerspricht aber der Injektivität, da \(U\cap V = \emptyset.\)
 	\end{proofofclaim}
-	Also gibt es ein \(n\in \N\), sodass für alle \(z\in \C^\ast\) gilt:
+	Also ist der Hauptteil von \(g\) endlich und es gibt ein \(n\in \N\), sodass für alle \(z\in \C^\ast\) gilt:
 	\[g(z)= a_0 + a_1 z^{-1} +\dots + a_n z^{-n}.\]
 	Aus \(f(z)=g(z^{-1})\) folgt jetzt die Behauptung.
 \end{proof}
