@@ -184,11 +184,11 @@ eingehen. Dort werden wir mithilfe von Wegen die gesuchte Hochhebung einer Abbil
 \end{idea}
 \begin{proof}
 	Sei \(\tilde{\alpha}\) die Hochhebung von \(\alpha\) zum Anfangspunkt \(\tilde{x}_0\) und sei \(\overline{\tilde{\beta}}'\) die Hochhebung von \(\overline{\beta}\) zu deren Endpunkt \(\tilde{x}_1:=\tilde{\alpha}(1)\).
-	Wenn \(\tilde{\gamma}\) eine Schleife ist, impliziert die Eindeutigkeit der Hochhebung von Wegen, dass die skalierten\footnote{
-		Damit meinen wir, dass es eine stetige Abbildung \(I\longarrow [\frac{1}{2},\frac{1}{2}]\) gibt, welche die Einschränkungen wieder zu Wegen (nach unserer Definition) macht. Manche Autoren wählen auch beliebige Intervalle \([a,b]\) als Definitionsbereich für Wege.
+	Wenn \(\tilde{\gamma}\) eine Schleife ist, impliziert die Eindeutigkeit der Hochhebung von Wegen, dass die skalierten\footnote{%
+		Damit meinen wir, dass es stetige Abbildungen \(I\longarrow [0,\frac{1}{2}]\) und \(I\longarrow [\frac{1}{2}, 0]\) gibt, welche die Einschränkungen wieder zu Wegen (nach unserer Definition) macht. Manche Autoren wählen auch beliebige Intervalle \([a,b]\) als Definitionsbereich für Wege.
 	} 
 	Einschränkungen von \(\tilde{\gamma}\) und \(\overline{\tilde{\gamma}}\) auf die erste Hälfte \([0,\frac{1}{2}]\) des Einheitsintervalls genau die Hochhebungen von \(\alpha\) bzw. \(\beta\) zum Anfangspunkt \(\tilde{x}_0=\tilde{\gamma} (0)\) sind. Also ist \(\tilde{\alpha}(1)=\tilde{\gamma}(\frac{1}{2})=\overline{\tilde{\gamma}}(\frac{1}{2})=\tilde\beta(1).\)
-	Wir wissen aus \cref{lemma_lift_concatenation}, dass die zweite Hälfte von \(\tilde{\gamma}\) eine Hochhebung \(\tilde{\beta}'\) von \(\beta\) sein muss. 
+	Wir wissen aus \cref{lemma_lift_concatenation}, dass die Inverse der zweiten Hälfte von \(\tilde{\gamma}\) eine Hochhebung \(\tilde{\beta}'\) von \(\beta\) sein muss. 
 
 	Umgekehrt nehmen wir an, dass die Endpunkte der Hochhebungen identisch sind. Es soll also 
 	\(\tilde{\alpha}(1) = \tilde{\beta}(1)\) gelten. Dann ist die Konkatenation \(\tilde{\alpha} \ast \overline{\tilde{\beta}} \) wohldefiniert und eine Hochhebung von \(\gamma.\)
@@ -206,7 +206,7 @@ eingehen. Dort werden wir mithilfe von Wegen die gesuchte Hochhebung einer Abbil
 \end{definition}
 
 \begin{lemma}[Hochheben von Homotopien]\label{lemma_homotopy_lifting}
-	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X\) und \(H:I^2\longarrow X\) eine Homotopie in $X$ mit \(x_0 := H(s,0)\). Dann gibt es für jedes \(\tilde{x}_0 \in p^{-1}(x_0)\) genau eine Hochhebung \(\tilde{H}\) in \(\tilde{X}\) mit \(H(s,0)=\tilde{x}_0\) für alle \(s\in I.\)
+	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X\) und \(H:I^2\longarrow X\) eine Homotopie in $X$ mit \(x_0 := H(0,s)\). Dann gibt es für jedes \(\tilde{x}_0 \in p^{-1}(x_0)\) genau eine Hochhebung \(\tilde{H}\) in \(\tilde{X}\) mit \(H(0,s)=\tilde{x}_0\) für alle \(s\in I.\)
 \end{lemma}
 \begin{idea}
 	Genau wie bei Wegen, können wir das Quadrat \(I^2\) in kleine Quadrate aufteilen, sodass deren Bilder in einer elementaren Umgebung enthalten sind. Wir setzen das große Quadrat jetzt Stück für Stück zusammen und müssen dabei nur aufpassen, dass die überlappenden Kanten übereinstimmen.
@@ -219,18 +219,18 @@ Wir bauen auf dem obigen Gedanken auf und wollen im Folgenden einen etwas wenige
   \footnote{
     Dies stellt sicher, dass in der Folgenden Konstruktion in jedem Fall die linke und untere Kante des neuen Quadrates bereits vorhanden sind.
   }
-Sei jetzt \({\color{Aquamarine} Q:=[t,t']^2} \subseteq I^2\) eines der Quadrate in \(I^2\), \(\color{ForestGreen} L\) seine linke und \(\color{OliveGreen} K\) seine untere {Kante}. Außerdem seien \(\color{LimeGreen}{A}\) seine {linke untere Ecke} und \(\color{LimeGreen} a:=H(A)\) dessen Bild in \(X\). 
+Sei jetzt \({\color{Aquamarine} Q:=[t,t']\times[s,s']} \subseteq I^2\) eines der Quadrate in \(I^2\), \(\color{ForestGreen} L\) seine linke und \(\color{OliveGreen} K\) seine untere {Kante}. Außerdem seien \(\color{LimeGreen}{A}\) seine {linke untere Ecke} und \(\color{LimeGreen} a:=H(A)\) dessen Bild in \(X\). 
 Wir nehmen induktiv an, dass alle Quadrate \emph{links von} \(Q\) und \emph{alle Reihen unterhalb} von \(Q\) \emph{bereits hochgehoben} wurden und die Bilder deren Schnitte in \(X\) übereinstimmen. Insbesondere steht die Wahl von \({\color{LimeGreen} \tilde{a}}\in p^{-1}(a)\) bereits fest. 
 Sei \(H(Q)\subseteq {\color{orange}U}\subseteq X\) die elementare Umgebung, in der sich das Bild von \(Q\) befindet und \(\tilde{a} \in {\color{orange}V}\subseteq \tilde{X}\) diejenige Kopie von \(U\), in der sich \(\tilde{a}\) befindet. Außerdem sei \(q:U\longarrow V\) die zugehörige lokale Inverse. Durch Skalierung finden wir stetige Abbildungen 
 
 \[{\color{ForestGreen}\alpha}:I\longarrow L\longarrow U, \quad {\color{OliveGreen}\beta}:I\longarrow K \longarrow U.\]
 
-\(\alpha\) und \(\beta\) sind also Wege in \(X\) mit Anfangspunkt \(\tilde{a}\). 
+\(\alpha\) und \(\beta\) sind also Wege in \(X\) mit Anfangspunkt \(a\). 
 \begin{marked}
   Die in \cref{lemma_path_lifting} gezeigte \textcolor{red}{Eindeutigkeit des Hochhebens von Wegen} impliziert also, dass \(q\circ \alpha\) und \(q\circ \beta\) genau mit den -- per Induktionsvoraussetzung bereits konstruierten -- Hochhebungen der anliegenden Quadrate übereinstimmen müssen.
 \end{marked}
   Also ist 
-\[\tilde{H}_Q := H \circ q : Q\longarrow V\]
+\[\tilde{H}_Q := q \circ H_(|Q): Q\longarrow V\]
 eine geeignete Hochhebung von \(H_{|Q}\), die stetig mit den Hochhebungen der anderen zusammengesetzt werden kann. Damit ist der Induktionsschitt beendet und wir sind fertig.
 \end{proof}
 
@@ -247,7 +247,7 @@ Wir werden in diesem Abschnitt nicht alles beweisen. Für Details siehe beispiel
 \end{idea}
 
 \begin{definition}[Verknüpfung von Homotopieklassen]
-	Seien \(\alpha,\beta\) Wege in einem topologischen Raum\(X\), sodass der Endpunkt von \(\alpha\) genau der Anfangspunkt von \(\beta\) ist. Das heißt \(\alpha(1)=\beta(0).\) Seien außerdem \([\alpha],[\beta]\subset X/\simsym_H\) ihre Homotopieklassen. Dann definieren wir
+	Seien \(\alpha,\beta\) Wege in einem topologischen Raum\(X\), sodass der Endpunkt von \(\alpha\) genau der Anfangspunkt von \(\beta\) ist. Das heißt \(\alpha(1)=\beta(0).\) Seien außerdem \([\alpha],[\beta]\in X/\simsym_H\) ihre Homotopieklassen. Dann definieren wir
 	\[[\alpha]\cdot [\beta] := [\alpha \ast \beta].\]
 \end{definition}
 \begin{notation}[Verknüpfung von Homotopieklassen]
@@ -255,7 +255,7 @@ Wir werden in diesem Abschnitt nicht alles beweisen. Für Details siehe beispiel
 \end{notation}
 
 \begin{lemma}[Reparametrisierung]
-	Sei \(\alpha\) ein Weg in einem topologischen Raum \(X\) und \(\varphi:I\longarrow I\) eine stetige Abbildung, sodass \(\varphi(0)=0\) und \(\varphi(1)=1.\) Dann ist \[\alpha=\alpha\circ\varphi.\]
+	Sei \(\alpha\) ein Weg in einem topologischen Raum \(X\) und \(\varphi:I\longarrow I\) eine stetige Abbildung, sodass \(\varphi(0)=0\) und \(\varphi(1)=1.\) Dann ist \[\alpha \sim \alpha\circ\varphi.\]
 \end{lemma}
 \begin{idea}
 	Betrachte die Abbildung
@@ -322,7 +322,7 @@ Das folgende Lemma stellt quasi das Kernstück des folgenden Beweises von \myref
 \end{remark}
 
 \begin{theorem}[Hochheben von Abbildungen] \label{theorem_map_lifting}
-	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X.\) Darüber hinaus sei \(Y\) ein weiterer topologischer Raum, der wegzusammenhängend und lokal wegzusammenhängend ist. Weiter sei \(f:Y\arrow X\) eine stetige Abbildung. Außerdem seien Punkte \(x_0\in X, \tilde{x}_0\in \tilde{X}\) und \(y_0\in Y\) gegeben, sodass \(p(\tilde{x_0})=x_0=f(y_0)\) gilt. Dann existiert eine eindeutige Hochhebung \(\tilde{f}:Y\longarrow \tilde{X}\) mit \(f(y_0)=\tilde{x_0}\), genau dann wenn gilt:
+	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X.\) Darüber hinaus sei \(Y\) ein weiterer topologischer Raum, der wegzusammenhängend und lokal wegzusammenhängend ist. Weiter sei \(f:Y\arrow X\) eine stetige Abbildung. Außerdem seien Punkte \(x_0\in X, \tilde{x}_0\in \tilde{X}\) und \(y_0\in Y\) gegeben, sodass \(p(\tilde{x_0})=x_0=f(y_0)\) gilt. Dann existiert eine eindeutige Hochhebung \(\tilde{f}:Y\longarrow \tilde{X}\) mit \(\tilde{f}(y_0)=\tilde{x_0}\), genau dann wenn gilt:
 	\[f_\ast (\pi_1. (Y,y_0))\subseteq p_\ast  (\pi_1 (\tilde{X},\tilde{x_0})).\]
 \end{theorem}
 \begin{idea}
