@@ -364,16 +364,16 @@ Das folgende Lemma stellt quasi das Kernstück des folgenden Beweises von \myref
 		} Die Hochhebung \(\tilde{f}\) ist dann lokal als Komposition stetig.
 	\end{idea}
 	\begin{proofofclaim}
-	Sei \(y\in Y\) beliebig und \(\alpha\) ein Weg von \(y_0\) bis \(y\) in \(Y\). Da \(Y\) lokal wegzusammenhängend ist, gibt es eine Umgebung \(y\in V\subset Y\), die ein letztes Stück von \(\alpha\)  enthält. Genauer gibt es Wege \(\alpha_1, \alpha_2\) in \(X\), sodass 
+	Sei \(y\in Y\) beliebig und \(\alpha\) ein Weg von \(x_0\) bis \(y\) in \(Y\). Da \(Y\) lokal wegzusammenhängend ist, gibt es eine Umgebung \(y\in V\subset Y\), die ein letztes Stück von \(\alpha\)  enthält. Genauer gibt es Wege \(\alpha_1, \alpha_2\) in \(X\), sodass 
 		\[\alpha = \alpha_1 \ast \alpha_2,\]
 	wobei aber \(\alpha_2\) vollständig in \(V\) verläuft.
 	Ohne Einschränkung\footnote{
-		Schneide $V$ mit dem offenen (da \(f\) stetig ist) Urbild einer gleichmäßig überlagerten Umgebung, die \(f(y)\) enthält.
-	} nehmen wir an, dass \(f(V) \subseteq U \subseteq X\) in einer gleichmäßig überlagerten Umgebung \(U \subset X\) enthalten ist. Dann ist \(f\alpha_2\) vollständig in dieser enthalten. Sei \(\tilde{\alpha}\) jetzt eine Hochhebung von \(\alpha\) zum Anfangspunkt \(\tilde{x}_0\). Wir wissen wegen \myref{lemma_lift_concatenation}, dass es genau eine Hochhebung \(\tilde{f\alpha_2}\) gibt, sodass 
+		Schneide $V$ mit dem offenen (da \(f\) stetig ist) Urbid einer gleichmäßig überlagerten Umgebung, die \(f(y)\) enthält.
+	} nehmen wir an, dass \(U:=f(V)\subset X\) eine elementare Umgebung ist. Dann ist \(f\alpha_2\) vollständig in dieser enthalten. Sei \(\tilde{\alpha}\) jetzt eine Hochhebung von \(\alpha\) zum Anfangspunkt \(\tilde{x}_0\). Wir wissen wegen \myref{lemma_lift_concatenation}, dass es genau eine Hochhebung \(\tilde{f\alpha_2}\) gibt, sodass 
 	\[\tilde{\alpha} = \tilde{\alpha}_1 \ast \tilde{\alpha}_2.\]
 	Sei \(\tilde{U}\) diejenige Kopie von \(U\), die \(\tilde{\alpha}_2\) enthält. Dann gibt es eine lokale Inverse \(q\), sodass 
 	\[\tilde{f}_{|V}(y) = \tilde{f\alpha}(1)=\tilde{f\alpha_2}(1)=qf\alpha_2 (1).\]
-	Da \(y\) beliebig war, stimmt \(\tilde{f}_{|V}\) überein mit \(q f\). Also ist \(\tilde{f}\) als Komposition stetiger Funktionen lokal stetig. Mit \myref{lemma_pasting} folgt die globale Stetigkeit.
+	Damit ist \(\tilde{f}\) als Komposition stetiger Funktionen lokal stetig. Mit \myref{lemma_pasting} folgt die globale Stetigkeit.
 	\end{proofofclaim}
 Somit ist \(\tilde{f}\) eine Hochhebung von \(f\) zum Anfangspunkt \(\tilde{x}_0\). Die Eindeutigkeit folgt per Konstruktion direkt aus der Eindeutigkeit des Hochhebens von Wegen, da es nur eine Möglichkeit gab, wie wir \(\tilde{\alpha}\) zum Punkt \(\tilde{x}_0\) hochheben konnten.
 \end{proof}
