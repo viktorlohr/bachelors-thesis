@@ -1,0 +1,83 @@
+\begin{wrapfigure}{r}{3cm}
+	%\centering
+	\begin{tikzpicture}[inner sep=2pt]
+		\clip (0.5,0.5) rectangle (5.3,5.3);
+			\begin{scope}
+			%Gitter
+			\clip (0.5,0.5) rectangle (2.3,2.3);
+			\draw (0,4) -- (0,0) -- (4,0);
+			\foreach \x in {0,...,4}{
+				\draw (\x,-2pt)--(\x,+2pt);
+				\draw (-2pt,\x)--(+2pt,\x);
+			}
+			%bereits gebaute Quadrate
+			\begin{scope}[xshift=0cm,yshift=0cm]
+				\draw[draw=gray] (0,0) grid (3,3);
+				\foreach \y in {0,1}{
+				\foreach \x in {0,1,2}{
+					\ifthenelse{\y=1 \AND \x>1}{}{
+					\draw[draw=Gray,very thick,fill=white!90!Gray] (\x,\y) rectangle (\x+1,\y+1);
+					}
+				}
+				}
+				%Beschrifutngen
+				\path[draw=ForestGreen, ultra thick,xshift=-1cm]
+				(2,2)
+				-- node[left,ForestGreen] {\(L\)}
+				(2,1) ;
+				\path[draw=OliveGreen, ultra thick,xshift=-1cm]
+				(2,1)
+				-- node[below, OliveGreen] {\(K\)}
+				(3,1);
+				\node[Aquamarine] at (1.5,1.5) {\(Q\)};
+				\node[below] at (2,0) {};
+				\node[left] at (0,2) {};
+				\fill[fill=LimeGreen, draw=white, thick, inner sep = 3pt] (1,1) circle (3pt) node[inner sep = 1pt, below left, fill, white, rounded corners, text=LimeGreen]{\(A\)};
+
+			\end{scope}
+			\end{scope}
+		
+
+		%test command
+		\def\Umgebungen#1#2#3#4#5#6#7#8{
+		%#1 #2 shift
+		%#3 H_Q
+		%#4 U
+		%#5 beta
+		%#6 alpha
+		%#7 a
+		%#8 subset of X
+		\begin{scope}[xshift=#1cm, yshift=#2cm]
+		%Koordinate U
+			\coordinate (U) at (0,0.9);
+			\draw[->] (0,0) -- node[left]{$#3$} ($(U)-(0,0.5)$);
+		%Umgebung U
+			\draw[inner sep=5pt] (U) [draw=white, fill=white!80!black, opacity=.2] circle (0.6cm);
+			\node[Orange,above] at (U) {$#4$}; 
+
+		%alpha und beta
+			\begin{scope} [scale=0.5]
+			\draw[ForestGreen, very thick] ([xshift=-1cm]U) to[out=85, in=180] ++(0.8,1)
+				node[xshift=-5pt,left] {$#5$} 
+			++(2,-0.3) 
+				;
+			\draw[OliveGreen, very thick] ([xshift=-1cm]U) to[out=-60, in=200]
+				node[xshift=11pt,below] {$#6$} 
+			++(2,-0.3) 
+				;
+			\end{scope}
+
+		%Punkt a
+			\draw[fill=LimeGreen, draw=white, thick, inner sep = 3pt] (U) [xshift=-0.5cm] circle  (3pt) 
+		%label a
+			node[inner sep = 1pt, below left, fill, white, rounded corners, text=LimeGreen] {$#7$};
+
+		%subset of
+			\node at ($(U)+(0.5,0.2)$) {$\color{gray}#8$};
+		\end{scope}
+		}
+		\Umgebungen{1.5}{2.1}{H}{U}{\alpha}{\beta}{a}{\subseteq X}
+		\Umgebungen{1.5}{3.7}{q}{V}{{\color{red}\exists!}\tilde{\alpha}}{{\color{red}\exists!}\tilde{\beta}}{\tilde{a}}{\subseteq \tilde{X}}		
+	\end{tikzpicture}
+	
+	\end{wrapfigure}

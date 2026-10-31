@@ -1,0 +1,31 @@
+\begin{wrapfigure}{r}{0cm}
+			\centering
+			\setbox0\hbox{
+				\begin{tikzpicture}[scale=0.9]
+					%\draw[] (0,0) circle (1cm)
+					;
+					\fill[opacity=.2,gray] (0.2,0.2) circle (0.5cm)
+					node[opacity=1,inner sep = 9pt,above left]{$V$};
+					\begin{scope}
+						\draw[ultra thick, OliveGreen] (220:0.9cm) 
+						.. controls (120:1cm) and (270:1cm) 
+						.. 
+						node[below] {$\alpha_1$}
+						(0,0);
+
+						\draw[ultra thick, red]
+						(0,0)
+						.. controls
+						(0,1) and (0.5,-0.2)
+						..
+						node[below] {$\alpha_2$}
+						(30:0.6cm);
+
+						
+					\end{scope}
+					
+				\end{tikzpicture}
+			}
+			\ht0=35pt
+			\box0
+		\end{wrapfigure}
