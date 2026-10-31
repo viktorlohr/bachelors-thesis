@@ -19,7 +19,7 @@ Wir sind jetzt in der Lage, den Begriff der \emph{komplexen Mannigfaltigkeit} zu
 Analog zum reellen Fall kann man den Begriff der Holomorphie mithilfe der Kartenabbildungen auf komplexe Mannigfaltigkeiten übertragen.
 
 \begin{convention} [Definitionsbereich]
-    Wir nehmen immer an, dass unsere betrachteten Mannigfaltigkeiten bezüglich der jeweiligen Toplogie offen sind. Man kann sich leicht überlegen, dass jede offene Teilmenge einer (komplexen) Mannigfaltigkeit selbst eine (komplexe) Mannigfaltigkeit (der gleichen Dimension) ist. Wir schreiben deshalb ohne Einschränkung \[f:M\longarrow N\] für eine Abbildung komplexer Mannigfaltigkeiten und ersetzen \(M\) ggf. durch die offene Teilmenge, auf der \(f\) definiert ist.
+    Wir nehmen immer an, dass die Definitionsbereiche der betrachteten Mannigfaltigkeiten bezüglich der jeweiligen Topologie offen sind. Man kann sich leicht überlegen, dass jede offene Teilmenge einer (komplexen) Mannigfaltigkeit selbst eine (komplexe) Mannigfaltigkeit (der gleichen Dimension) ist. Wir schreiben deshalb ohne Einschränkung \[f:M\longarrow N\] für eine Abbildung komplexer Mannigfaltigkeiten und ersetzen \(M\) ggf. durch die offene Teilmenge, auf der \(f\) definiert ist.
 \end{convention}
 
 \begin{definition}
@@ -51,7 +51,7 @@ Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit 
     Analog kann man für \(\phi^{-1}\) argumentieren.
 \end{proof}
 
-\begin{lemma}[Kettenregel für Mannigfaltigkeiten]
+\begin{lemma}[Kettenregel für Mannigfaltigkeiten] \label{manifold_chainrule}
     Seien \(f:M\rightarrow N\) und \(g:N\rightarrow L\) holomorphe Abbildungen zwischen komplexen Mannigfaltigkeiten. Dann ist auch \[g\circ f:M\rightarrow L\]
     holomorph.
 \end{lemma}
@@ -67,7 +67,7 @@ Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit 
 
 \subsection{komplexe Quotientenmannigfaltigkeiten}
 \begin{definition}
-	Eine Gruppe \(G\) operiere auf einer Mannigfaltigkeit \(M\). Die Operation heißt \emph{holomorph}, falls die Translationsbbildung \[\tau_g :M\longrightarrow M, m\mapsto gm\]für alle \(g\in G\) holomorph ist.
+	Eine Gruppe \(G\) operiere auf einer komplexen Mannigfaltigkeit \(M\). Die Operation heißt \emph{holomorph}, falls die Translationsabbildung \[\tau_g :M\longrightarrow M, m\mapsto gm\]für alle \(g\in G\) holomorph ist.
 \end{definition}
 
 \begin{theorem} [komplexe Quotientenmannigfaltigkeit] \label{theorem_complex_quotient_manifold}
@@ -81,22 +81,29 @@ Wir werden in Kürze einen komplexen Atlas für eine Quotientenmannigfaltigkeit 
 	\begin{enumerate}
 	\item Wir benutzen wieder die im vorherigen Kapitel verwendeten Bezeichnungen für die lokalen Projektionsabbildungen und deren Inversen.
 	Wegen \myref{lemma_single_atlas_enough} genügt es nur den kanonischen Atlas des Quotienten zu betrachten, den wir im vorherigen Kapitel konstruiert hatten.
-  Eine beliebige Karte im kanonischen Atlas von \(\mathcal{M}/G\) hat die Form \((p(U), \Phi q_U),\) wobei \(U\) eine einsame Umgebung in \(\mathcal{M}\) und \((U, \Phi)\) eine Karte von \(\mathcal{M}\)  ist. 
-  Sei \((p(V), \Psi q_V)\) eine weitere solche Karte von \(\mathcal{M}/G\), sodass 
+  Eine beliebige Karte im kanonischen Atlas von \(M/G\) hat die Form \((p(U), \Phi q_U),\) wobei \(U\) eine einsame Umgebung in \(M\) und \((U, \Phi)\) eine Karte von \(M\)  ist. 
+  Sei \((p(V), \Psi q_V)\) eine weitere solche Karte von \(M/G\), sodass 
 	\begin{equation*}
 		p(U) \cap p(V) \neq \emptyset.
 	\end{equation*}
-	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung an, dass \(p(U) = p(V)\) ist. (Ersetze \(U\) und \(V\) jeweils durch die lokalen Urbilder des Schnitts)
+	Da wir den Kartenwechsel nur auf dem Schnitt betrachten müssen, nehmen wir ohne Einschränkung
+  \footnote{%
+    Ersetze \(U\) und \(V\) jeweils durch 
+    \(q_U(p(U) \cap p(V))\) 
+    bzw. \(q_V(p(U) \cap p(V))\)
+  } 
+  an, dass \(p(U) = p(V)\) ist. 
+  
 	Dann folgt aus \cref{qp=tau} in  \cref{lemma_quotient_is_hausdorff} für ein \(g\in G\) und die zugehörige Translationsabbildung \(\tau_g\), dass
 	\begin{equation*}
 		\Psi q_V (\Phi q_U )^{-1}
 		= \Psi q_V p_U \Phi^{-1}
 		= \Psi \tau_g \Phi^{-1}.
 	\end{equation*}
-	 Diese Abbildung ist wegen der Forderung, dass \(G\) holomorph operiert und wegen \cref{lemma_chart_holomorphic} selbst holomorph. Die inverse Translation \(\tau_{g^{-1}}\) ist nach Voraussetzung auch wieder holomorph. Dasselbe gilt für die Inversen der Kartenabbildungen. Damit ist der Kartenwechsel biholomorph.
+	 Diese Abbildung ist wegen der Forderung, dass \(G\) holomorph operiert, wegen \myref{lemma_chart_holomorphic} und wegen \myref{manifold_chainrule} selbst holomorph. Die inverse Translation \(\tau_{g^{-1}}\) ist nach Voraussetzung auch wieder holomorph. Dasselbe gilt für die Inversen der Kartenabbildungen. Damit ist der Kartenwechsel biholomorph.
 	
 
-	\item Sei \((U,\Phi)\) eine beliebige Karte von \(M\). Da \(\mathcal{M}\) von einsamen Mengen überdeckt wird, dürfen wir ohne Einschränkung annehmen, dass \(U\) einsam ist. Wegen \cref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\Phi q_U)\) in \(M/G\) betrachten. Dann gilt
+	\item Sei \((U,\Phi)\) eine beliebige Karte von \(M\). Da \(M\) von einsamen Mengen überdeckt wird, dürfen wir ohne Einschränkung annehmen, dass \(U\) einsam ist. Wegen \cref{lemma_single_atlas_enough} dürfen wir bis auf Biholomorphie die Karte \((p(U),\Phi q_U)\) in \(M/G\) betrachten. Dann gilt
 	\[(\Phi q_U) p_U \Phi^{-1}=\Phi q_U p_U \Phi^{-1}=\id_{\Phi(U)}.\]
 	Per Definition ist \(p_U\) damit holomorph. Die selbe Gleichung zeigt, dass \(q_U\) holomorph ist, da \((\Phi q_U)^{-1}=p_U \Phi^{-1}\).
 	\end{enumerate}
