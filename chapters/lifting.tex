@@ -337,21 +337,23 @@ Das folgende Lemma stellt quasi das Kernstück des folgenden Beweises von \myref
 	Insbesondere ist \(\Image f_\ast \subseteq \Image p_\ast,\) was zu zeigen war.
 
 	Für die umgekehrte Richtung gehen wir so vor, wie in der Idee beschrieben. 
-	Sei \(y\in Y.\) Da \(Y\) wegzusammenhängend ist, existiert ein Weg \(\alpha\) in \(Y\), sodass \(\alpha(0)=y_0\) und \(\alpha(1)=x.\) Dann ist \(f\circ\alpha=f\alpha\) ein Weg in \(X\) mit \(f\alpha(0)=x_0\) und \(f\alpha(1)=f(x).\) Wir können diesen mithilfe von \cref{lemma_path_lifting} zu einem Weg \(\tilde{f\alpha}\) mit Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0)\) hochheben und setzen
+	Sei \(y\in Y.\) Da \(Y\) wegzusammenhängend ist, existiert ein Weg \(\alpha\) in \(Y\), sodass \(\alpha(0)=y_0\) und \(\alpha(1)=y.\) Dann ist \(f\circ\alpha=f\alpha\) ein Weg in \(X\) mit \(f\alpha(0)=x_0\) und \(f\alpha(1)=f(y).\) Wir können diesen mithilfe von \cref{lemma_path_lifting} zu einem Weg \(\tilde{f\alpha}\) mit Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0)\) hochheben und setzen
 	\[\tilde{f}(y):= \tilde{f\alpha}(1).\]
 	\begin{claim}
 		$\tilde{f}(y)$ ist wohldefiniert.
 	\end{claim}
 	\begin{proofofclaim}
 		Wie oben erläutert, betrachten wir einen weiteren Weg \(\beta\) in \(Y\) mit \(\beta(0)=y_0\) und \(\beta(1)=y\). Dann ist \(\gamma := \alpha \ast \overline{\beta}\) und damit auch \(f\gamma\) eine Schleife in \(Y\) bzw. in \(X\).
-		Sei jetzt \(\tilde{f\beta}\) die Hochhebung von \(f\beta\) zum Anfangspunkt \(\tilde{x}_0\). In \myref{lemma_loop_lifting} haben wir gezeigt, dass 
+		Sei jetzt \(\tilde{f\beta}\) die Hochhebung von \(f\beta\) zum Anfangspunkt \(\tilde{x}_0\). 
+    
+    Nach Voraussetzung ist \([f\gamma] = f_\ast(\gamma) \in p_\ast(\pi_1(\tilde{X},\tilde{x}_0))\). Also ist nach \myref{lemma_loop_gets_lifted_to_loop} die Hochhebung \(\tilde{f \gamma}\) von \(f\gamma\) zum Anfangspunkt \(\tilde{x}_0\)auch wieder eine Schleife.
+    \myref{lemma_loop_lifting} sagt uns, dass 
 		\[\tilde{f\gamma}=\tilde{f\alpha}\ast \overline{\tilde{f\beta}}.\]
-		Außerdem wurde dort gezeigt, dass \(\tilde{f\alpha}\) und \(\tilde{f\beta}\) den selben Endpunkt haben müssen, wenn \(\tilde{f\gamma}\) eine Schleife ist. Aber \(\gamma\) ist eine Schleife am Basispunkt \(y_0\). 
-			Nach Voraussetzung ist deshalb \([f\circ\gamma] \in p(\pi_1(\tilde{X},\tilde{x}_0))\).
-	  	\myref{lemma_loop_gets_lifted_to_loop} liefert uns die Zwischenbehauptung.
+		Außerdem wurde dort gezeigt, dass \(\tilde{f\alpha}\) und \(\tilde{f\beta}\) den selben Endpunkt haben müssen, wenn \(\tilde{f\gamma}\) eine Schleife ist.
+		
 	\end{proofofclaim} 
 	Wir erhalten also eine wohldefinierte Abbildung 
-	\[\tilde{f}:X \longarrow \tilde{X}.\]
+	\[\tilde{f}: Y \longarrow \tilde{X}.\]
 	\begin{claim}
 		\(\tilde{f}\) ist stetig.
 	\end{claim}
