@@ -1,0 +1,132 @@
+\begin{wrapfigure}{r}{3cm}
+	%\centering
+	\setbox0\hbox{
+	\begin{tikzpicture}[
+		%background rectangle/.style={fill=white!20!white, rounded corners},
+		scale=1.8, %show background rectangle, 
+		yscale=0.9]
+	\clip (1.21, 0.3) rectangle (2.6, 2.7);
+			%forloops
+			\foreach \j in {1,2,3}{
+				\foreach \i in {1,2,3} {
+					\def\mainletter{U}
+					\def\spacewhere{X}
+					\def\subscript{n}
+					\ifnum\j=2
+						\def\mainletter{\tilde{U}}
+						\def\spacewhere{\tilde{X}}
+					\fi
+					
+					\def\mylabel{\color{orange}{\mainletter_{\subscript}}\color{gray}\subset \spacewhere 
+					}
+					\ifnum\i=1
+						\def\mylabel{}
+					\fi
+					%Mittelpunkte der Umgebungen
+					\coordinate (M\i\j) at (\i,{1.25*\j});
+					%Umgebungen
+						\ifnum\i<3
+							\node[black!50!white,shape=circle,inner sep = 19pt,fill, black!50!white, fill opacity=.2, 
+								label={
+								[opacity=1, scale=1]center: $\mylabel$
+								},
+							] at (M\i\j) {};
+						\fi
+					%Punkte
+						\node[ fill=LimeGreen, circle, inner sep = 1.5pt] (x\i\j) at ($(M\i\j)-(0.5,0)$) {};
+				}  
+			}
+		%Intervalle
+		\begin{scope}[yshift=0.6cm]
+			
+		\foreach \i in {0,1,2,3}{
+			\coordinate (t\i) at (\i-0.5,0);
+			%index Logic
+			\ifnum\i=3
+			\def\subscript{n}
+			\fi
+			\ifnum\i=2
+			\def\subscript{{n-1}}
+			\fi
+			\ifnum\i=1
+			\def\subscript{{n-2}}
+			\fi
+			\ifnum\i=0
+			\def\subscript{{n-3}}
+			\fi
+
+			\node[yshift=-5pt, scale=1] at (t\i.south) {$t_\subscript$};
+			\ifnum\i<3
+			\draw (t\i)-- node[below,scale=1]{
+			\ifnum\i=1
+				\(I_{n-1}\)
+			\fi
+			\ifnum\i=2
+				\(I_{n}\)
+			\fi
+			}  ++(1,0);
+			\fi
+			\draw ($(t\i)-(0,1pt)$)-- 
+			($(t\i)+(0,1pt)$);
+		}
+		\end{scope}
+			
+		% Wege
+		\foreach \j in {1,2}{
+			\draw[inner sep = 1pt,OliveGreen,line width=2pt] 
+			($(x1\j)-(1,0)$)
+			to [out=300, in=260] 
+			(x1\j) 
+			to [out=80,in=120] node[above,scale=1] {\ifthenelse{\j=1}{\(\alpha_{n-1}\)}{\(\tilde{\alpha}_{n-1}\)}} 
+			(x2\j) 
+			to[out=-60, in=250]  node[below,scale=1] {\ifthenelse{\j=1}{\(\alpha_n\)}{\(\tilde{\alpha}_n\)}} 
+			++(1,0) ;
+		}
+
+
+
+
+		%Logik und Beschriftung der Punkte
+		\foreach \j in {1,2}{
+			\foreach \i in {1,2,3}{
+			%Punkte selbst
+				\node[, inner sep = 1.5pt] (x\i\j) at ($(M\i\j)-(0.5,0)$) {};
+				\fill[LimeGreen, draw=white] ($(M\i\j)-(0.5,0)$) circle (1.5pt);
+			%Logik für Punkte
+			\ifnum\i=3
+				\def\subscript{n}
+			\fi
+
+			\ifnum\i=2
+			\def\subscript{{n-1}}
+			\fi
+			\ifnum\i=1
+			\def\subscript{{n-2}}
+			\fi
+			\ifnum\j=1
+				\def\mainletter{x}
+			\fi
+			\ifnum\j=2
+				\def\mainletter{\tilde{x}}
+			\fi
+			\ifnum\j=3
+				\def\mainletter{{\tilde{x}}'}
+			\fi
+			%\def\mylabel{\mainletter_\subscript}
+			%Beschrifungen der Punkte
+			\ifnum\i=2
+			\node[inner sep= 1, scale=1, yshift=-10pt, fill=white, 
+			text=LimeGreen, rounded corners] at (x\i\j.south) {$\mainletter_\subscript$};
+			\fi
+			}
+		}
+
+		% Projektionsabbildung
+		\draw[xshift=-0.1cm,->] (2,1.6) -- node[left,scale=1]{$q_n$} (2,1.9);
+		\draw[xshift=+0.1cm,<-] (2,1.6) -- node[right,scale=1]{$p_n$} (2,1.9);
+	\end{tikzpicture}
+	}
+	\ht0=92pt
+	\box0
+ % \end{center}  
+\end{wrapfigure}
