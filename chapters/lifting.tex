@@ -1,5 +1,5 @@
 \section{Hochheben von Abbildungen}
-Um diesen Abschnitt zu motivieren, wollen wir kurz erklären, welches Problem durch das sogenannte \emph{Hochheben} von Abbildungen gelöst werden soll. Zur Erinnerung ist es das Ziel der Arbeit herauszufinden, wie sich biholomorphe Abbildungen zwischen Tori verhalten. Der Satz aus der Funktionentheorie, den wir später beweisen und verwenden wollen, bezieht sich auf ganze Funktionen. Das heißt, Funktionen, deren Funktionsbereich die gesamte komplexe Ebene ist. 
+Um diesen Abschnitt zu motivieren, wollen wir kurz erklären, welches Problem durch das sogenannte \emph{Hochheben} von Abbildungen gelöst werden soll. Zur Erinnerung ist es das Ziel der Arbeit herauszufinden, wie sich biholomorphe Abbildungen zwischen Tori verhalten. Der Satz aus der Funktionentheorie, den wir später beweisen und verwenden wollen, bezieht sich auf ganze Funktionen. Das heißt, Funktionen, deren Definitionsbereich die gesamte komplexe Ebene ist. 
 
 Starten wir mit einer Abbildung zwischen komplexen Tori, wollen wir diese deshalb irgendwie zu einer Abbildung \(\C\longarrow\C\) fortsetzen bzw. \emph{hochheben.} Wir wissen, dass die Projektionsabbildung lokal umkehrbar ist. Allerdings ist a priori nicht klar, inwiefern man eine Funktion stetig bzw. sogar holomorph über den Definitionsbereich einer einsamen Umgebung hinweg fortsetzen kann. Wir müssen also die Funktionen, die wir lokal erhalten, global \enquote{zusammenkleben}. Genau dieses Vorgehen wird im Folgenden erarbeitet.
 
@@ -21,7 +21,7 @@ Wir betrachten zunächst folgende Definition.
 	\end{enumerate}
 	Wir nennen die Umgebung \(U\) in diesem Fall \emph{gleichmäßig überlagert} und eine der Mengen \(V^{(i)}\) eine \emph{Kopie} von \(U\).
 \end{definition}
-Innterhalb dieser Arbeit haben wir bereits eine Überlagerung kennengelernt.
+Innerhalb dieser Arbeit haben wir bereits eine Überlagerung kennengelernt.
 \begin{lemma}
 	Sei \(M\) eine Mannigfaltigkeit und \(G\) eine Gruppe, die stetig, frei und eigentlich auf \(M\) operiert. Dann ist die kanonische Projektionsabbildung \[p:M\longarrow M/G\] eine Überlagerung.
 \end{lemma}
@@ -65,7 +65,7 @@ Als nächstes betrachten wir Wege. Diese und ihre Hochhebungen werden sich in de
 	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X\) und \(\alpha\) ein Weg in \(X.\) Dann gibt es für jedes Urbild \(\tilde{x}_0 \in p^{-1}(x_0)\) vom Anfangspunkt \(x_0 := \alpha(0)\) genau eine Hochhebung \(\tilde{\alpha}\) von \(\alpha\), sodass \(\tilde{\alpha}(0)=\tilde{x}_0.\)
 \end{lemma}
 \begin{idea}
-	Per Definition wird \(X\) von überlagerten Umgebungen überdeckt. Auf diesen können wir entlang der Projektionsabbildung \enquote{nach oben} zu \(\tilde{X}\) gehen und Stücke von \(\alpha\) quasi \enquote{hochtragen.} Wir gehen dabei von einer gleichmäßig überlagerten Umgebung zur nächsten und heben bei jeder neuen Umgebung ein weiters Stück von \(\alpha\) hoch, das wir dann an das letzte anlegen -- ähnlich wie im Eisenbahnbau, wenn Schienen verlegt werden.
+	Per Definition wird \(X\) von überlagerten Umgebungen überdeckt. Auf diesen können wir entlang der Projektionsabbildung \enquote{nach oben} zu \(\tilde{X}\) gehen und Stücke von \(\alpha\) quasi \enquote{hochtragen.} Wir gehen dabei von einer gleichmäßig überlagerten Umgebung zur nächsten und heben bei jeder neuen Umgebung ein weiteres Stück von \(\alpha\) hoch, das wir dann an das letzte anlegen -- ähnlich wie im Eisenbahnbau, wenn Schienen verlegt werden.
 	Dabei müssen wir sicherstellen, dass sich die Umgebungen berühren, denn sonst kommen wir nicht weiter, ohne eine Lücke im Gleis zu hinterlassen. Der Weg wäre also nicht stetig. 
 \end{idea}
 \begin{proof} 
@@ -92,7 +92,7 @@ Sei jetzt \(1\leq n \leq N\). Induktiv nehmen wir an, dass für alle \(0\leq i \
 \end{marked}
 \input{drawings/path_lifting}
 Nach Induktionsvoraussetzung ist \(\tilde{x}_{n-1} \in p^{-1}(x_{n-1})\). Daher gibt es eine offene Teilmenge \(V_n \subseteq \tilde{X}\) und eine eindeutig bestimmte\footnote{
-	Die Eindeutigkeit folgt aus der Disjunktheit der Urbildmenge $p^{-1}(U_i)$, welche per Definition gegeben ist. Wir werden Sie weiter unten im Eindeutigkeitsbeweis verwenden.} 
+	Die Eindeutigkeit folgt aus der Disjunktheit der Urbildmenge $p^{-1}(U_i)$, welche per Definition gegeben ist. Wir werden sie weiter unten im Eindeutigkeitsbeweis verwenden.} 
 Abbildung 
 \begin{equation} \label{proof_path_lifting_qn}
 	q_n:U_n \longarrow V_n,
@@ -120,7 +120,7 @@ Per Konstruktion gilt \(p \circ\tilde{\alpha} = \alpha.\) Außerdem stimmen die 
 Es bleibt noch zu zeigen, dass \(\tilde{\alpha}\) bis auf die Wahl des Anfangspunktes eindeutig ist.
 
 \begin{marked}
-	Die Eindeutigkeit folgt im Wesentlichen daraus, dass es für jeden gewählten Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0)\) genau eine lokale Inverse \(q_0\) von \(p\) mit \(x_0\mapsto \tilde{x}_0\) gibt -- nämlich die selbe, die \(\alpha_0\) hochhebt. Die Behauptung folgt induktiv.
+	Die Eindeutigkeit folgt im Wesentlichen daraus, dass es für jeden gewählten Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0)\) genau eine lokale Inverse \(q_0\) von \(p\) mit \(x_0\mapsto \tilde{x}_0\) gibt -- nämlich dieselbe, die \(\alpha_0\) hochhebt. Die Behauptung folgt induktiv.
 \end{marked}
 
 Sei \(\tilde{\beta}\) eine Hochhebung von \(\alpha\), sodass \(\tilde{\beta}(0)=\tilde{x}_0 = \tilde{\alpha}(0).\) Wir notieren wieder \(\beta_i := \beta_{\vert I_i}\). 
@@ -171,7 +171,7 @@ Also gilt \(\tilde{\beta}(t_1)=\tilde{\alpha}(t_1)=\tilde{x}_1.\) Das Argument l
 
 \begin{lemma} [Hochheben von Schleifen] \label{lemma_loop_lifting}
 	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X\) und seien \(\alpha\) und \(\beta\) Wege in $X$ mit Anfangspunkt \(x_0\in X\) und \(\alpha(1) = \beta(1)\). Seien außerdem \[\gamma := \alpha \ast \overline{\beta}\]
-	die von \(\alpha\) und \(\overline{\beta}\) gebildete Schleife in \(X\) und \(\tilde{\gamma}\) deren Hochhebung zu einem Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0) \) in \(\tilde{X}.\) Dann ist \(\tilde{\gamma}\) genau dann eine Schleife, wenn die Hochhebungen \(\tilde{\alpha}\) und \(\tilde{\beta}\) zum selben Anfangspunkt \(\tilde{x}_0\) den selben Endpunkt besitzen.
+	die von \(\alpha\) und \(\overline{\beta}\) gebildete Schleife in \(X\) und \(\tilde{\gamma}\) deren Hochhebung zu einem Anfangspunkt \(\tilde{x}_0\in p^{-1} (x_0) \) in \(\tilde{X}.\) Dann ist \(\tilde{\gamma}\) genau dann eine Schleife, wenn die Hochhebungen \(\tilde{\alpha}\) und \(\tilde{\beta}\) zum selben Anfangspunkt \(\tilde{x}_0\) denselben Endpunkt besitzen.
 \end{lemma}
 \begin{idea}
 \input{drawings/loop_lifting}
@@ -200,13 +200,13 @@ eingehen. Dort werden wir mithilfe von Wegen die gesuchte Hochhebung einer Abbil
 	\[H:I^2\longarrow X,\]
 	die eine Familie von Wegen durch 
 	\[H(t,s):=\alpha_{s}(t)\]
-	definiert. Außerdem fordern wir, dass alle Wege in dieser Familie den selben Anfangs- und Endpunkt besitzen. Das heißt es existieren Punkte \(a,b\in X\), sodass für alle \(s\in I\) gilt:
+	definiert. Außerdem fordern wir, dass alle Wege in dieser Familie denselben Anfangs- und Endpunkt besitzen. Das heißt es existieren Punkte \(a,b\in X\), sodass für alle \(s\in I\) gilt:
 		\[H(0,s)=x_0,\quad H(1,s)=x_1.\]
 	Wir sagen, dass \(\alpha_0\) und \(\alpha_1\) homotop zueinander sind.
 \end{definition}
 
 \begin{lemma}[Hochheben von Homotopien]\label{lemma_homotopy_lifting}
-	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X\) und \(H:I^2\longarrow X\) eine Homotopie in $X$ mit \(x_0 := H(0,s)\). Dann gibt es für jedes \(\tilde{x}_0 \in p^{-1}(x_0)\) genau eine Hochhebung \(\tilde{H}\) in \(\tilde{X}\) mit \(H(0,s)=\tilde{x}_0\) für alle \(s\in I.\)
+	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X\) und \(H:I^2\longarrow X\) eine Homotopie in $X$ mit \(x_0 := H(0,s)\). Dann gibt es für jedes \(\tilde{x}_0 \in p^{-1}(x_0)\) genau eine Hochhebung \(\tilde{H}\) in \(\tilde{X}\) mit \(\tilde{H}(0,s)=\tilde{x}_0\) für alle \(s\in I.\)
 \end{lemma}
 \begin{idea}
 	Genau wie bei Wegen, können wir das Quadrat \(I^2\) in kleine Quadrate aufteilen, sodass deren Bilder in einer gleichmäßig überlagerten Umgebung enthalten sind. Wir setzen das große Quadrat jetzt Stück für Stück zusammen und müssen dabei nur aufpassen, dass die überlappenden Kanten übereinstimmen.
@@ -221,7 +221,7 @@ Wir bauen auf dem obigen Gedanken auf und wollen im Folgenden einen etwas wenige
   }
 Sei jetzt \({\color{Aquamarine} Q:=[t,t']\times[s,s']} \subseteq I^2\) eines der Quadrate in \(I^2\), \(\color{ForestGreen} L\) seine linke und \(\color{OliveGreen} K\) seine untere {Kante}. Außerdem seien \(\color{LimeGreen}{A}\) seine {linke untere Ecke} und \(\color{LimeGreen} a:=H(A)\) dessen Bild in \(X\). 
 Wir nehmen induktiv an, dass alle Quadrate \emph{links von} \(Q\) und \emph{alle Reihen unterhalb} von \(Q\) \emph{bereits hochgehoben} wurden und die Bilder deren Schnitte in \(X\) übereinstimmen. Insbesondere steht die Wahl von \({\color{LimeGreen} \tilde{a}}\in p^{-1}(a)\) bereits fest. 
-Sei \(H(Q)\subseteq {\color{orange}U}\subseteq X\) die elementare Umgebung, in der sich das Bild von \(Q\) befindet und \(\tilde{a} \in {\color{orange}V}\subseteq \tilde{X}\) diejenige Kopie von \(U\), in der sich \(\tilde{a}\) befindet. Außerdem sei \(q:U\longarrow V\) die zugehörige lokale Inverse. Durch Skalierung finden wir stetige Abbildungen 
+Sei \(H(Q)\subseteq {\color{orange}U}\subseteq X\) die gleichmäßig Umgebung, in der sich das Bild von \(Q\) befindet und \(\tilde{a} \in {\color{orange}V}\subseteq \tilde{X}\) diejenige Kopie von \(U\), in der sich \(\tilde{a}\) befindet. Außerdem sei \(q:U\longarrow V\) die zugehörige lokale Inverse. Durch Skalierung finden wir stetige Abbildungen 
 
 \[{\color{ForestGreen}\alpha}:I\longarrow L\longarrow U, \quad {\color{OliveGreen}\beta}:I\longarrow K \longarrow U.\]
 
@@ -231,7 +231,7 @@ Sei \(H(Q)\subseteq {\color{orange}U}\subseteq X\) die elementare Umgebung, in d
 \end{marked}
   Also ist 
 \[\tilde{H}_Q := q \circ H_(|Q): Q\longarrow V\]
-eine geeignete Hochhebung von \(H_{|Q}\), die stetig mit den Hochhebungen der anderen zusammengesetzt werden kann. Damit ist der Induktionsschitt beendet und wir sind fertig.
+eine geeignete Hochhebung von \(H_{|Q}\), die stetig mit den Hochhebungen der anderen zusammengesetzt werden kann. Damit ist der Induktionsschritt beendet und wir sind fertig.
 \end{proof}
 
 
@@ -243,7 +243,7 @@ Wir werden in diesem Abschnitt nicht alles beweisen. Für Details siehe beispiel
 \end{lemma}
 \begin{idea}
 	\input{drawings/homotopy_equivalence}
-	Reflexiviät und Symmetrie folgen unmittelbar aus der Definition. Für Transitivität können wir einfach zwei Homotopien übereinandersetzen, wie im Bild rechts dargestellt.
+	Reflexivität und Symmetrie folgen unmittelbar aus der Definition. Für Transitivität können wir einfach zwei Homotopien übereinandersetzen, wie im Bild rechts dargestellt.
 \end{idea}
 
 \begin{definition}[Verknüpfung von Homotopieklassen]
@@ -323,13 +323,13 @@ Das folgende Lemma stellt quasi das Kernstück des folgenden Beweises von \myref
 
 \begin{theorem}[Hochheben von Abbildungen] \label{theorem_map_lifting}
 	Sei \(p:\tilde{X}\longarrow X\) eine Überlagerung eines topologischen Raums \(X.\) Darüber hinaus sei \(Y\) ein weiterer topologischer Raum, der wegzusammenhängend und lokal wegzusammenhängend ist. Weiter sei \(f:Y\arrow X\) eine stetige Abbildung. Außerdem seien Punkte \(x_0\in X, \tilde{x}_0\in \tilde{X}\) und \(y_0\in Y\) gegeben, sodass \(p(\tilde{x_0})=x_0=f(y_0)\) gilt. Dann existiert eine eindeutige Hochhebung \(\tilde{f}:Y\longarrow \tilde{X}\) mit \(\tilde{f}(y_0)=\tilde{x_0}\), genau dann wenn gilt:
-	\[f_\ast (\pi_1. (Y,y_0))\subseteq p_\ast  (\pi_1 (\tilde{X},\tilde{x_0})).\]
+	\[f_\ast (\pi_1 (Y,y_0))\subseteq p_\ast  (\pi_1 (\tilde{X},\tilde{x_0})).\]
 \end{theorem}
 \begin{idea}
 \input{drawings/map_lifting_main.tex}
 	 Die Kernidee der Konstruktion ist, dass man  \(\tilde{f}\) punktweise definiert, indem man einen Weg \(f\alpha\) in \(X\) wählt, der von \(x_0\) zum Funktionswert \(f(y)\) verläuft. Diesen hebt man dann zu $\tilde{f\alpha}$ hoch und definiert den Funktionswert \(\tilde{f}(y)\) als den Endpunkt von \(\tilde{f\alpha}.\) 
 
-	Die Definition hängt dann aber von der Wahl des Weges \(f\alpha\) ab. Das heißt, es gäbe die Möglichkeit, dass der von uns definierte Funktionswert \(\tilde{f}(y)\) je nach gewähltem Weg ein anderer wäre. Das darf jedoch nicht passieren. Wir müssen also beweisen, dass die Hochhebung \(\tilde{f\beta}\) eines anderen Weges \(f\beta\), der auch von \(x_0\) nach \(f(y)\) verläuft, genau den selben Endpunkt wie \(\tilde{f\alpha}\) hat. Dabei helfen uns die Überlegungen aus \cref{section_loop_lifting} und \cref{lemma_loop_gets_lifted_to_loop}.
+	Die Definition hängt dann aber von der Wahl des Weges \(f\alpha\) ab. Das heißt, es gäbe die Möglichkeit, dass der von uns definierte Funktionswert \(\tilde{f}(y)\) je nach gewähltem Weg ein anderer wäre. Das darf jedoch nicht passieren. Wir müssen also beweisen, dass die Hochhebung \(\tilde{f\beta}\) eines anderen Weges \(f\beta\), der auch von \(x_0\) nach \(f(y)\) verläuft, genau denselben Endpunkt wie \(\tilde{f\alpha}\) hat. Dabei helfen uns die Überlegungen aus \cref{section_loop_lifting} und \cref{lemma_loop_gets_lifted_to_loop}.
 \end{idea}
 \begin{proof}
 	Wir beginnen mit der einfachen Richtung und nehmen an, dass eine Hochhebung \(\tilde{f}\) existiert. Wegen \cref{lemma_induced_maps} gilt für die induzierten Abbildungen an den entsprechenden Basispunkten:
@@ -346,10 +346,10 @@ Das folgende Lemma stellt quasi das Kernstück des folgenden Beweises von \myref
 		Wie oben erläutert, betrachten wir einen weiteren Weg \(\beta\) in \(Y\) mit \(\beta(0)=y_0\) und \(\beta(1)=y\). Dann ist \(\gamma := \alpha \ast \overline{\beta}\) und damit auch \(f\gamma\) eine Schleife in \(Y\) bzw. in \(X\).
 		Sei jetzt \(\tilde{f\beta}\) die Hochhebung von \(f\beta\) zum Anfangspunkt \(\tilde{x}_0\). 
     
-    Nach Voraussetzung ist \([f\gamma] = f_\ast(\gamma) \in p_\ast(\pi_1(\tilde{X},\tilde{x}_0))\). Also ist nach \myref{lemma_loop_gets_lifted_to_loop} die Hochhebung \(\tilde{f \gamma}\) von \(f\gamma\) zum Anfangspunkt \(\tilde{x}_0\)auch wieder eine Schleife.
+    Nach Voraussetzung ist \([f\gamma] = f_\ast([\gamma]) \in p_\ast(\pi_1(\tilde{X},\tilde{x}_0))\). Also ist nach \myref{lemma_loop_gets_lifted_to_loop} die Hochhebung \(\tilde{f \gamma}\) von \(f\gamma\) zum Anfangspunkt \(\tilde{x}_0\)auch wieder eine Schleife.
     \myref{lemma_loop_lifting} sagt uns, dass 
 		\[\tilde{f\gamma}=\tilde{f\alpha}\ast \overline{\tilde{f\beta}}.\]
-		Außerdem wurde dort gezeigt, dass \(\tilde{f\alpha}\) und \(\tilde{f\beta}\) den selben Endpunkt haben müssen, wenn \(\tilde{f\gamma}\) eine Schleife ist.
+		Außerdem wurde dort gezeigt, dass \(\tilde{f\alpha}\) und \(\tilde{f\beta}\) denselben Endpunkt haben müssen, wenn \(\tilde{f\gamma}\) eine Schleife ist.
 		
 	\end{proofofclaim} 
 	Wir erhalten also eine wohldefinierte Abbildung 
@@ -364,16 +364,16 @@ Das folgende Lemma stellt quasi das Kernstück des folgenden Beweises von \myref
 		} Die Hochhebung \(\tilde{f}\) ist dann lokal als Komposition stetig.
 	\end{idea}
 	\begin{proofofclaim}
-	Sei \(y\in Y\) beliebig und \(\alpha\) ein Weg von \(x_0\) bis \(y\) in \(Y\). Da \(Y\) lokal wegzusammenhängend ist, gibt es eine Umgebung \(y\in V\subset Y\), die ein letztes Stück von \(\alpha\)  enthält. Genauer gibt es Wege \(\alpha_1, \alpha_2\) in \(X\), sodass 
+	Sei \(y\in Y\) beliebig und \(\alpha\) ein Weg von \(y_0\) bis \(y\) in \(Y\). Da \(Y\) lokal wegzusammenhängend ist, gibt es eine Umgebung \(y\in V\subset Y\), die ein letztes Stück von \(\alpha\)  enthält. Genauer gibt es Wege \(\alpha_1, \alpha_2\) in \(X\), sodass 
 		\[\alpha = \alpha_1 \ast \alpha_2,\]
 	wobei aber \(\alpha_2\) vollständig in \(V\) verläuft.
 	Ohne Einschränkung\footnote{
-		Schneide $V$ mit dem offenen (da \(f\) stetig ist) Urbid einer gleichmäßig überlagerten Umgebung, die \(f(y)\) enthält.
-	} nehmen wir an, dass \(U:=f(V)\subset X\) eine elementare Umgebung ist. Dann ist \(f\alpha_2\) vollständig in dieser enthalten. Sei \(\tilde{\alpha}\) jetzt eine Hochhebung von \(\alpha\) zum Anfangspunkt \(\tilde{x}_0\). Wir wissen wegen \myref{lemma_lift_concatenation}, dass es genau eine Hochhebung \(\tilde{f\alpha_2}\) gibt, sodass 
+		Schneide $V$ mit dem offenen (da \(f\) stetig ist) Urbild einer gleichmäßig überlagerten Umgebung, die \(f(y)\) enthält.
+	} nehmen wir an, dass \(f(V) \subseteq U \subseteq X\) in einer gleichmäßig überlagerten Umgebung \(U \subset X\) enthalten ist. Dann ist \(f\alpha_2\) vollständig in dieser enthalten. Sei \(\tilde{\alpha}\) jetzt eine Hochhebung von \(\alpha\) zum Anfangspunkt \(\tilde{x}_0\). Wir wissen wegen \myref{lemma_lift_concatenation}, dass es genau eine Hochhebung \(\tilde{f\alpha_2}\) gibt, sodass 
 	\[\tilde{\alpha} = \tilde{\alpha}_1 \ast \tilde{\alpha}_2.\]
 	Sei \(\tilde{U}\) diejenige Kopie von \(U\), die \(\tilde{\alpha}_2\) enthält. Dann gibt es eine lokale Inverse \(q\), sodass 
 	\[\tilde{f}_{|V}(y) = \tilde{f\alpha}(1)=\tilde{f\alpha_2}(1)=qf\alpha_2 (1).\]
-	Damit ist \(\tilde{f}\) als Komposition stetiger Funktionen lokal stetig. Mit \myref{lemma_pasting} folgt die globale Stetigkeit.
+	Da \(y\) beliebig war, stimmt \(\tilde{f}_{|V}\) überein mit \(q f\). Also ist \(\tilde{f}\) als Komposition stetiger Funktionen lokal stetig. Mit \myref{lemma_pasting} folgt die globale Stetigkeit.
 	\end{proofofclaim}
-Somit ist \(f\) eine Hochhebung von \(f\) zum Anfangspunkt \(\tilde{x}_0\). Die Eindeutigkeit folgt per Konstruktion direkt aus der Eindeutigkeit des Hochhebens von Wegen, da es nur eine Möglichkeit gab, wie wir \(\tilde{\alpha}\) zum Punkt \(\tilde{x}_0\) hochheben konnten.
+Somit ist \(\tilde{f}\) eine Hochhebung von \(f\) zum Anfangspunkt \(\tilde{x}_0\). Die Eindeutigkeit folgt per Konstruktion direkt aus der Eindeutigkeit des Hochhebens von Wegen, da es nur eine Möglichkeit gab, wie wir \(\tilde{\alpha}\) zum Punkt \(\tilde{x}_0\) hochheben konnten.
 \end{proof}
